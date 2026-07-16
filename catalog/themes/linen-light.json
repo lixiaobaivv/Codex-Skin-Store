@@ -1,10 +1,10 @@
 {
   "slug": "linen-light",
   "name": "亚麻晨光",
-  "summary": "温柔米白与细腻纸纤维质感，让界面像一本摊开的轻盈笔记。",
+  "summary": "温柔米白与细腻纸纤维质感，让界面像一本摊开的轻盈笔记。现已提供可验证的签名互操作样例包。",
   "author": {
-    "name": "Quiet Form",
-    "handle": "quietform",
+    "name": "Codex-Skin contributors",
+    "handle": "codex-skin",
     "curated": true
   },
   "category": "minimal",
@@ -16,15 +16,17 @@
     "orange"
   ],
   "tags": [
+    "签名样例",
+    "Ed25519",
     "浅色",
     "米白",
     "极简",
     "纸张"
   ],
   "stats": {
-    "downloads": 14720,
-    "rating": 4.7,
-    "reviews": 391
+    "downloads": 0,
+    "rating": 5,
+    "reviews": 0
   },
   "featured": false,
   "isNew": false,
@@ -49,5 +51,12 @@
     "shadow": "0 24px 60px rgba(79, 63, 38, .16)",
     "pattern": "paper"
   },
-  "package": null
+  "package": {
+    "published": true,
+    "id": "codex-skin.catalog.linen-light",
+    "version": "1.0.6",
+    "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/catalog-v1/linen-light-1.0.6.dreamskin",
+    "sha256": "3892605f88957153e0bd775565f19757a11a05144c4798ed00c0ebe6525a415c",
+    "size": 300941
+  }
 }

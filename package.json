@@ -1,7 +1,7 @@
 {
-  "name": "codex-dream-skin-store",
+  "name": "codex-skin-store",
   "version": "0.1.0",
-  "description": "A safe, declarative theme marketplace for Codex Dream Skin.",
+  "description": "A safe, declarative theme marketplace for Codex-Skin.",
   "private": true,
   "engines": {
     "node": ">=22.13.0"

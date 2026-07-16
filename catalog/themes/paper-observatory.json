@@ -1,10 +1,10 @@
 {
   "slug": "paper-observatory",
   "name": "纸上天文台",
-  "summary": "深蓝墨色与细小星图铺在暖灰纸面上，像一本安静的观测手册。",
+  "summary": "深蓝墨色与细小星图铺在暖灰纸面上，像一本安静的观测手册。现已提供可验证的签名互操作样例包。",
   "author": {
-    "name": "Margin Press",
-    "handle": "marginpress",
+    "name": "Codex-Skin contributors",
+    "handle": "codex-skin",
     "curated": true
   },
   "category": "editorial",
@@ -17,15 +17,17 @@
     "black"
   ],
   "tags": [
+    "签名样例",
+    "Ed25519",
     "星图",
     "纸张",
     "编辑风",
     "复古"
   ],
   "stats": {
-    "downloads": 5230,
-    "rating": 4.8,
-    "reviews": 127
+    "downloads": 0,
+    "rating": 5,
+    "reviews": 0
   },
   "featured": true,
   "isNew": true,
@@ -50,5 +52,12 @@
     "shadow": "0 24px 64px rgba(49, 45, 39, .2)",
     "pattern": "stars"
   },
-  "package": null
+  "package": {
+    "published": true,
+    "id": "codex-skin.catalog.paper-observatory",
+    "version": "1.0.2",
+    "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/catalog-v1/paper-observatory-1.0.2.dreamskin",
+    "sha256": "08daa71c0eb209e85f75ef832beb4dd9d8f2f6f2b404bb3dcfbe1e8c382b38e2",
+    "size": 219581
+  }
 }

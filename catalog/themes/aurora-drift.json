@@ -1,10 +1,10 @@
 {
   "slug": "aurora-drift",
   "name": "极光漫游",
-  "summary": "蓝紫极光缓缓掠过深夜，为长时间创作保留恰到好处的层次。",
+  "summary": "蓝紫极光缓缓掠过深夜，为长时间创作保留恰到好处的层次。现已提供可验证的签名互操作样例包。",
   "author": {
-    "name": "Northlight Studio",
-    "handle": "northlight",
+    "name": "Codex-Skin contributors",
+    "handle": "codex-skin",
     "curated": true
   },
   "category": "gradient",
@@ -18,15 +18,17 @@
     "black"
   ],
   "tags": [
+    "签名样例",
+    "Ed25519",
     "极光",
     "冷色",
     "夜间",
     "渐变"
   ],
   "stats": {
-    "downloads": 28430,
-    "rating": 4.9,
-    "reviews": 816
+    "downloads": 0,
+    "rating": 5,
+    "reviews": 0
   },
   "featured": true,
   "isNew": false,
@@ -51,5 +53,12 @@
     "shadow": "0 28px 80px rgba(3, 7, 20, .48)",
     "pattern": "aurora"
   },
-  "package": null
+  "package": {
+    "published": true,
+    "id": "codex-skin.catalog.aurora-drift",
+    "version": "1.3.0",
+    "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/catalog-v1/aurora-drift-1.3.0.dreamskin",
+    "sha256": "b94573c48a6ad9c1ba22f366e37dabf3f88090f719b5fd35febacbaa6b92de6a",
+    "size": 669547
+  }
 }

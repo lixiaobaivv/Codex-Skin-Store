@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://raw.githubusercontent.com/lixiaobaivv/Codex-Skin-Store/main/spec/store-theme.schema.json",
-  "title": "Dream Skin Store catalog entry",
+  "title": "Codex-Skin-Store catalog entry",
   "description": "Closed schema for one reviewed, static storefront catalog entry.",
   "type": "object",
   "additionalProperties": false,
