@@ -36,6 +36,7 @@ jobs:
 
       - name: Build static storefront
         env:
+          BUILD_GITHUB_PAGES: "true"
           NEXT_PUBLIC_SITE_URL: https://lixiaobaivv.github.io/Codex-Skin-Store/
         run: npm run build:pages
 

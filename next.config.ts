@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 
-const isPagesBuild = process.env.GITHUB_ACTIONS === "true";
+const isPagesBuild = process.env.BUILD_GITHUB_PAGES === "true";
 const pagesBasePath = isPagesBuild
   ? "/Codex-Skin-Store"
   : "";

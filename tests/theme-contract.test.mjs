@@ -92,6 +92,8 @@ test("GitHub Pages build is static and uses the repository base path", async () 
   assert.doesNotMatch(layout, /next\/headers|await headers/);
   assert.match(config, /output:\s*"export"/);
   assert.match(config, /Codex-Skin-Store/);
+  assert.match(config, /BUILD_GITHUB_PAGES/);
+  assert.doesNotMatch(config, /process\.env\.GITHUB_ACTIONS/);
   assert.match(packageJson, /build:pages/);
   assert.match(workflow, /deploy-pages@v5/);
   assert.match(workflow, /catalog:check/);
