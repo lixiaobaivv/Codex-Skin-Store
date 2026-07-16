@@ -14,7 +14,7 @@
 需要 Node.js `>=22.13.0`。
 
 ```bash
-git clone https://github.com/lixiaobaivv/Codex-Dream-Skin-Store.git
+git clone https://github.com/lixiaobaivv/Codex-Skin-Store.git
 cd Codex-Dream-Skin-Store
 npm ci
 npm run dev

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://raw.githubusercontent.com/lixiaobaivv/Codex-Dream-Skin-Store/main/spec/theme-package.schema.json",
+  "$id": "https://raw.githubusercontent.com/lixiaobaivv/Codex-Skin-Store/main/spec/theme-package.schema.json",
   "title": "Codex Dream Skin theme package manifest",
   "description": "Schema for the theme.json manifest at the root of a signed .dreamskin package.",
   "type": "object",
@@ -23,7 +23,7 @@
   "properties": {
     "$schema": {
       "type": "string",
-      "const": "https://raw.githubusercontent.com/lixiaobaivv/Codex-Dream-Skin-Store/main/spec/theme-package.schema.json"
+      "const": "https://raw.githubusercontent.com/lixiaobaivv/Codex-Skin-Store/main/spec/theme-package.schema.json"
     },
     "schemaVersion": {
       "description": "Runtime theme schema understood by the current Codex Dream Skin injector.",

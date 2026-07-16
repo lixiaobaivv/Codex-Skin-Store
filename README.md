@@ -72,8 +72,8 @@ dreamskin://install?url=https%3A%2F%2Fcdn.example.com%2Fthemes%2Fsakura%2F1.0.0.
 要求 Node.js `>=22.13.0`。
 
 ```bash
-git clone https://github.com/lixiaobaivv/Codex-Dream-Skin-Store.git
-cd Codex-Dream-Skin-Store
+git clone https://github.com/lixiaobaivv/Codex-Skin-Store.git
+cd Codex-Skin-Store
 npm ci
 npm run dev
 ```

@@ -21,7 +21,7 @@ import {
 } from "@/lib/themes";
 
 const PROTOCOL_SPEC_URL =
-  "https://github.com/lixiaobaivv/Codex-Dream-Skin-Store/blob/main/spec/import-protocol.md";
+  "https://github.com/lixiaobaivv/Codex-Skin-Store/blob/main/spec/import-protocol.md";
 
 type PreviewVariables = CSSProperties & {
   "--theme-background": string;
@@ -297,7 +297,7 @@ export function Storefront() {
         </nav>
         <a
           className="header-github"
-          href="https://github.com/lixiaobaivv/Codex-Dream-Skin-Store"
+          href="https://github.com/lixiaobaivv/Codex-Skin-Store"
           target="_blank"
           rel="noreferrer"
         >
@@ -469,7 +469,7 @@ export function Storefront() {
           <p>创作者提交与自动预检正在建设中。首版开放主题规范、示例清单与 GitHub 协作入口。</p>
           <a
             className="primary-button"
-            href="https://github.com/lixiaobaivv/Codex-Dream-Skin-Store"
+            href="https://github.com/lixiaobaivv/Codex-Skin-Store"
             target="_blank"
             rel="noreferrer"
           >
@@ -485,7 +485,7 @@ export function Storefront() {
         </a>
         <p>社区驱动的 Codex 主题商店 · 非 OpenAI 官方产品</p>
         <div>
-          <a href="https://github.com/lixiaobaivv/Codex-Dream-Skin-Store" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://github.com/lixiaobaivv/Codex-Skin-Store" target="_blank" rel="noreferrer">GitHub</a>
           <a href="https://github.com/Fei-Away/Codex-Dream-Skin" target="_blank" rel="noreferrer">Theme Engine</a>
         </div>
       </footer>
