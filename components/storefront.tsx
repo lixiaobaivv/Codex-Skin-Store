@@ -485,14 +485,14 @@ export function Storefront() {
           <h2>你的想象，<br />下一位用户的桌面。</h2>
         </div>
         <div className="creator-copy">
-          <p>创作者提交与自动预检正在建设中。首版开放主题规范、示例清单与 GitHub 协作入口。</p>
+          <p>主题投稿现已开放：通过 GitHub Pull Request 提交，Actions 自动预检，维护者审核后由 Pages 发布。</p>
           <a
             className="primary-button"
-            href="https://github.com/lixiaobaivv/Codex-Skin-Store"
+            href="https://github.com/lixiaobaivv/Codex-Skin-Store/blob/main/docs/theme-submission.md"
             target="_blank"
             rel="noreferrer"
           >
-            查看创作规范 <span>↗</span>
+            开始投稿主题 <span>↗</span>
           </a>
         </div>
       </section>

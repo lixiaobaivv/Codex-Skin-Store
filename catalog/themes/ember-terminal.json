@@ -1,0 +1,54 @@
+{
+  "slug": "ember-terminal",
+  "name": "余烬终端",
+  "summary": "炭黑背景中留下一点琥珀余温，为终端爱好者打造的低干扰主题。",
+  "author": {
+    "name": "Afterdark Tools",
+    "handle": "afterdark",
+    "curated": false
+  },
+  "category": "dark",
+  "platforms": [
+    "macos",
+    "windows"
+  ],
+  "colors": [
+    "black",
+    "orange"
+  ],
+  "tags": [
+    "终端",
+    "炭黑",
+    "琥珀",
+    "夜间"
+  ],
+  "stats": {
+    "downloads": 3670,
+    "rating": 4.7,
+    "reviews": 96
+  },
+  "featured": false,
+  "isNew": true,
+  "version": "1.0.0",
+  "engineRange": ">=1.2.0 <2.0.0",
+  "publishedAt": "2026-07-12T08:00:00.000Z",
+  "license": {
+    "name": "CC0 1.0 Universal",
+    "spdx": "CC0-1.0",
+    "source": "original-procedural-artwork"
+  },
+  "previewStyle": {
+    "backgroundColor": "#0f0d0c",
+    "backgroundImage": "radial-gradient(circle at 77% 8%, rgba(239, 133, 55, .23), transparent 30%), linear-gradient(145deg, #171311, #0b0a09 64%)",
+    "panelColor": "rgba(20, 17, 15, .92)",
+    "panelBorder": "rgba(231, 159, 87, .17)",
+    "textColor": "#f4eee7",
+    "mutedTextColor": "#a69a8f",
+    "accentColor": "#e9a35b",
+    "accentSoft": "rgba(233, 163, 91, .13)",
+    "codeColor": "#f1bd76",
+    "shadow": "0 28px 74px rgba(0, 0, 0, .48)",
+    "pattern": "embers"
+  },
+  "package": null
+}

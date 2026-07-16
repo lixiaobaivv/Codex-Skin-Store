@@ -1,0 +1,54 @@
+{
+  "slug": "paper-observatory",
+  "name": "纸上天文台",
+  "summary": "深蓝墨色与细小星图铺在暖灰纸面上，像一本安静的观测手册。",
+  "author": {
+    "name": "Margin Press",
+    "handle": "marginpress",
+    "curated": true
+  },
+  "category": "editorial",
+  "platforms": [
+    "macos"
+  ],
+  "colors": [
+    "neutral",
+    "blue",
+    "black"
+  ],
+  "tags": [
+    "星图",
+    "纸张",
+    "编辑风",
+    "复古"
+  ],
+  "stats": {
+    "downloads": 5230,
+    "rating": 4.8,
+    "reviews": 127
+  },
+  "featured": true,
+  "isNew": true,
+  "version": "1.0.2",
+  "engineRange": ">=1.2.0 <2.0.0",
+  "publishedAt": "2026-07-08T08:00:00.000Z",
+  "license": {
+    "name": "CC0 1.0 Universal",
+    "spdx": "CC0-1.0",
+    "source": "original-procedural-artwork"
+  },
+  "previewStyle": {
+    "backgroundColor": "#c9c2b3",
+    "backgroundImage": "radial-gradient(circle at 13% 19%, rgba(30, 46, 69, .55) 0 1px, transparent 2px), radial-gradient(circle at 72% 28%, rgba(30, 46, 69, .42) 0 1px, transparent 2px), repeating-linear-gradient(0deg, rgba(56, 48, 38, .025) 0 1px, transparent 1px 5px)",
+    "panelColor": "rgba(240, 236, 226, .86)",
+    "panelBorder": "rgba(37, 49, 67, .18)",
+    "textColor": "#202c3d",
+    "mutedTextColor": "#697080",
+    "accentColor": "#284d7a",
+    "accentSoft": "rgba(40, 77, 122, .12)",
+    "codeColor": "#513f64",
+    "shadow": "0 24px 64px rgba(49, 45, 39, .2)",
+    "pattern": "stars"
+  },
+  "package": null
+}

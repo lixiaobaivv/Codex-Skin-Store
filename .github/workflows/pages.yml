@@ -31,6 +31,9 @@ jobs:
 
       - run: npm ci
 
+      - name: Validate reviewed theme catalog
+        run: npm run catalog:check
+
       - name: Build static storefront
         env:
           NEXT_PUBLIC_SITE_URL: https://lixiaobaivv.github.io/Codex-Skin-Store/

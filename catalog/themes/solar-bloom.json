@@ -1,0 +1,54 @@
+{
+  "slug": "solar-bloom",
+  "name": "日光绽放",
+  "summary": "珊瑚橙与玫瑰粉相遇，给工作区注入温暖又现代的能量。",
+  "author": {
+    "name": "Chromatic Dept.",
+    "handle": "chromaticdept",
+    "curated": false
+  },
+  "category": "gradient",
+  "platforms": [
+    "windows"
+  ],
+  "colors": [
+    "orange",
+    "rose",
+    "violet"
+  ],
+  "tags": [
+    "暖色",
+    "日落",
+    "活力",
+    "渐变"
+  ],
+  "stats": {
+    "downloads": 6940,
+    "rating": 4.6,
+    "reviews": 168
+  },
+  "featured": false,
+  "isNew": true,
+  "version": "1.0.0",
+  "engineRange": ">=1.2.0 <2.0.0",
+  "publishedAt": "2026-06-27T08:00:00.000Z",
+  "license": {
+    "name": "CC0 1.0 Universal",
+    "spdx": "CC0-1.0",
+    "source": "original-procedural-artwork"
+  },
+  "previewStyle": {
+    "backgroundColor": "#7f284d",
+    "backgroundImage": "radial-gradient(circle at 70% 22%, rgba(255, 222, 130, .88), transparent 24%), radial-gradient(circle at 30% 72%, rgba(238, 103, 139, .72), transparent 40%), linear-gradient(145deg, #4d2b82, #bc3f6b 48%, #ee8c52)",
+    "panelColor": "rgba(72, 27, 64, .7)",
+    "panelBorder": "rgba(255, 229, 207, .23)",
+    "textColor": "#fff8f4",
+    "mutedTextColor": "#f2c6c3",
+    "accentColor": "#ffd68d",
+    "accentSoft": "rgba(255, 214, 141, .17)",
+    "codeColor": "#ffc6a5",
+    "shadow": "0 28px 80px rgba(65, 17, 50, .38)",
+    "pattern": "orb"
+  },
+  "package": null
+}

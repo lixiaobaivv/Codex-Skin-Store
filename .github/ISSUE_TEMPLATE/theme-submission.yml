@@ -1,0 +1,51 @@
+name: 主题投稿准备
+description: 在提交目录 PR 前，确认签名包、许可和兼容信息已经准备齐全。
+title: "[Theme]: "
+labels: ["theme-submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        正式主题通过 Pull Request 投稿。这个表单用于准备材料或在投稿前寻求帮助，不会自动发布主题。
+        请先阅读 [主题投稿指南](../../docs/theme-submission.md)。不要上传密钥、未授权素材或用户数据。
+  - type: input
+    id: repository
+    attributes:
+      label: 主题源码或发布仓库
+      description: 必须是公开的 GitHub HTTPS 地址，便于审核来源与许可证。
+      placeholder: https://github.com/owner/theme-repository
+    validations:
+      required: true
+  - type: input
+    id: release
+    attributes:
+      label: 签名 .dreamskin Release 地址
+      placeholder: https://github.com/owner/repo/releases/download/v1.0.0/theme-1.0.0.dreamskin
+    validations:
+      required: true
+  - type: textarea
+    id: license
+    attributes:
+      label: 作品与素材许可
+      description: 写明主题、图片、字体等素材的作者、来源和可再分发许可。
+    validations:
+      required: true
+  - type: dropdown
+    id: platforms
+    attributes:
+      label: 已验证平台
+      multiple: true
+      options:
+        - macOS
+        - Windows
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: 安全确认
+      options:
+        - label: 包内只有规范允许的声明式清单和图片，不含脚本、HTML、CSS、SVG、可执行文件或符号链接。
+          required: true
+        - label: 我拥有全部素材的投稿与再分发权，并理解合并前仍需自动检查和维护者审核。
+          required: true

@@ -1,0 +1,53 @@
+{
+  "slug": "linen-light",
+  "name": "亚麻晨光",
+  "summary": "温柔米白与细腻纸纤维质感，让界面像一本摊开的轻盈笔记。",
+  "author": {
+    "name": "Quiet Form",
+    "handle": "quietform",
+    "curated": true
+  },
+  "category": "minimal",
+  "platforms": [
+    "macos"
+  ],
+  "colors": [
+    "neutral",
+    "orange"
+  ],
+  "tags": [
+    "浅色",
+    "米白",
+    "极简",
+    "纸张"
+  ],
+  "stats": {
+    "downloads": 14720,
+    "rating": 4.7,
+    "reviews": 391
+  },
+  "featured": false,
+  "isNew": false,
+  "version": "1.0.6",
+  "engineRange": ">=1.1.0 <2.0.0",
+  "publishedAt": "2026-02-11T08:00:00.000Z",
+  "license": {
+    "name": "CC0 1.0 Universal",
+    "spdx": "CC0-1.0",
+    "source": "original-procedural-artwork"
+  },
+  "previewStyle": {
+    "backgroundColor": "#eee8dc",
+    "backgroundImage": "radial-gradient(circle at 18% 0%, rgba(255, 255, 255, .88), transparent 38%), repeating-linear-gradient(96deg, rgba(107, 91, 65, .025) 0 1px, transparent 1px 6px)",
+    "panelColor": "rgba(255, 253, 248, .84)",
+    "panelBorder": "rgba(95, 76, 51, .13)",
+    "textColor": "#332e27",
+    "mutedTextColor": "#817666",
+    "accentColor": "#a55e2f",
+    "accentSoft": "rgba(165, 94, 47, .11)",
+    "codeColor": "#7c4a2e",
+    "shadow": "0 24px 60px rgba(79, 63, 38, .16)",
+    "pattern": "paper"
+  },
+  "package": null
+}

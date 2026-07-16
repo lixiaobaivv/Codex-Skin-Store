@@ -1,0 +1,55 @@
+{
+  "slug": "moss-and-mist",
+  "name": "苔色山雾",
+  "summary": "层叠苔绿与清晨薄雾，营造沉静、有呼吸感的专注空间。",
+  "author": {
+    "name": "Field Notes Lab",
+    "handle": "fieldnotes",
+    "curated": true
+  },
+  "category": "nature",
+  "platforms": [
+    "macos",
+    "windows"
+  ],
+  "colors": [
+    "green",
+    "neutral",
+    "black"
+  ],
+  "tags": [
+    "森林",
+    "雾",
+    "绿色",
+    "沉静"
+  ],
+  "stats": {
+    "downloads": 8720,
+    "rating": 4.9,
+    "reviews": 219
+  },
+  "featured": false,
+  "isNew": true,
+  "version": "1.0.1",
+  "engineRange": ">=1.2.0 <2.0.0",
+  "publishedAt": "2026-07-03T08:00:00.000Z",
+  "license": {
+    "name": "CC0 1.0 Universal",
+    "spdx": "CC0-1.0",
+    "source": "original-procedural-artwork"
+  },
+  "previewStyle": {
+    "backgroundColor": "#17221d",
+    "backgroundImage": "radial-gradient(ellipse at 28% 20%, rgba(207, 222, 202, .34), transparent 35%), linear-gradient(155deg, rgba(75, 101, 76, .9), rgba(25, 40, 32, .94) 48%, #101714 100%)",
+    "panelColor": "rgba(20, 31, 25, .76)",
+    "panelBorder": "rgba(183, 210, 182, .15)",
+    "textColor": "#eef4eb",
+    "mutedTextColor": "#9dad9e",
+    "accentColor": "#a9cf9b",
+    "accentSoft": "rgba(169, 207, 155, .14)",
+    "codeColor": "#c3dda7",
+    "shadow": "0 28px 72px rgba(7, 14, 10, .42)",
+    "pattern": "mist"
+  },
+  "package": null
+}

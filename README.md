@@ -7,15 +7,16 @@
 
 ## 当前状态
 
-项目处于早期开发阶段，正在以“静态主题目录”为第一版 MVP。界面、数据结构和导入协议仍可能调整，请以仓库代码和测试结果为准。
+项目处于早期开发阶段，已经上线由 GitHub Pull Request、Actions 预检和维护者审核驱动的静态主题目录。界面、数据结构和导入协议仍可能调整，请以仓库代码和测试结果为准。
 
 当前阶段的目标是：
 
 - 展示可搜索、可筛选的主题目录和主题详情；
 - 为每个版本记录公开下载地址、SHA-256 和客户端兼容信息；
 - 生成 `dreamskin://` 一键导入链接；
-- 在客户端尚未支持该协议时，明确提示用户，而不是宣称安装成功；
+- 只为具备完整、真实发布元数据的主题生成导入协议，并始终由客户端确认安装和应用；
 - 用代码审查维护静态目录，暂不依赖账号、数据库和在线上传后台。
+- 让创作者通过 GitHub PR 投稿，合并后由 GitHub Pages 自动发布。
 
 完整的作者上传、审核后台、收藏、评分、举报、对象存储和自动更新属于后续阶段。
 
@@ -65,7 +66,7 @@ dreamskin://install?url=https%3A%2F%2Fcdn.example.com%2Fthemes%2Fsakura%2F1.0.0.
 - `size`：必填，下载文件的十进制字节数，范围为 1–20971520；
 - `id`、`version`：可选的显示/诊断提示，客户端不得用它们替代包内清单验证。
 
-这仍是跨项目契约草案。现有客户端已经具备 macOS 本地 `themes/<id>/` 主题库与切换能力，但尚未实现 `.dreamskin` 下载器、系统协议注册和上述 URL 处理流程。详见[架构与协议说明](docs/architecture.md)。
+Windows 客户端已经实现 `.dreamskin` 文件与 `dreamskin://` 导入、安全下载、摘要与 Ed25519 签名校验，并将安装和应用分开确认。兼容的 macOS 实现代码已经准备，但尚未在真实 macOS runner/设备完成验证，因此商店不会把 macOS 支持描述为已完成实机验收。详见[架构与协议说明](docs/architecture.md)。
 
 ## 本地开发
 
@@ -100,6 +101,8 @@ npm test
 | 命令 | 用途 |
 | --- | --- |
 | `npm run dev` | 启动 vinext 本地开发服务器 |
+| `npm run catalog:generate` | 从 `catalog/themes/*.json` 生成类型安全的商店目录 |
+| `npm run catalog:check` | 校验目录结构、唯一性、安全边界和生成物一致性 |
 | `npm run build` | 生成生产构建并检查构建错误 |
 | `npm run start` | 启动生产模式服务器 |
 | `npm test` | 构建并运行渲染结果测试 |
@@ -108,7 +111,10 @@ npm test
 
 ```text
 app/                 页面、布局和商店 UI
+catalog/themes/      一个主题一个 JSON 的受审核静态目录
 public/              可公开访问的静态资源
+spec/                目录与签名主题包的封闭 schema
+tools/               目录校验和确定性生成脚本
 tests/               构建产物与页面渲染测试
 worker/              vinext 的 Cloudflare Worker 入口
 db/                  未来数据库表结构（当前不应成为静态 MVP 依赖）

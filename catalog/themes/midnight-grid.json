@@ -1,0 +1,54 @@
+{
+  "slug": "midnight-grid",
+  "name": "午夜网格",
+  "summary": "精密网格与克制的电光蓝，适合偏爱结构感的深色工作台。",
+  "author": {
+    "name": "Plain Systems",
+    "handle": "plainsystems",
+    "curated": true
+  },
+  "category": "dark",
+  "platforms": [
+    "macos",
+    "windows"
+  ],
+  "colors": [
+    "black",
+    "blue"
+  ],
+  "tags": [
+    "网格",
+    "深色",
+    "蓝黑",
+    "技术感"
+  ],
+  "stats": {
+    "downloads": 19680,
+    "rating": 4.8,
+    "reviews": 504
+  },
+  "featured": true,
+  "isNew": false,
+  "version": "1.1.2",
+  "engineRange": ">=1.0.0 <2.0.0",
+  "publishedAt": "2026-03-02T08:00:00.000Z",
+  "license": {
+    "name": "CC0 1.0 Universal",
+    "spdx": "CC0-1.0",
+    "source": "original-procedural-artwork"
+  },
+  "previewStyle": {
+    "backgroundColor": "#080a0f",
+    "backgroundImage": "linear-gradient(rgba(72, 113, 170, .1) 1px, transparent 1px), linear-gradient(90deg, rgba(72, 113, 170, .1) 1px, transparent 1px), radial-gradient(circle at 78% 12%, rgba(50, 126, 255, .2), transparent 35%)",
+    "panelColor": "rgba(13, 17, 24, .92)",
+    "panelBorder": "rgba(100, 142, 204, .2)",
+    "textColor": "#eef4ff",
+    "mutedTextColor": "#8491a5",
+    "accentColor": "#65a5ff",
+    "accentSoft": "rgba(101, 165, 255, .14)",
+    "codeColor": "#8cc8ff",
+    "shadow": "0 26px 70px rgba(0, 0, 0, .5)",
+    "pattern": "grid"
+  },
+  "package": null
+}

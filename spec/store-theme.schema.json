@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/lixiaobaivv/Codex-Skin-Store/main/spec/store-theme.schema.json",
+  "title": "Dream Skin Store catalog entry",
+  "description": "Closed schema for one reviewed, static storefront catalog entry.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "slug", "name", "summary", "author", "category", "platforms", "colors",
+    "tags", "stats", "featured", "isNew", "version", "engineRange",
+    "publishedAt", "license", "package", "previewStyle"
+  ],
+  "properties": {
+    "slug": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$", "maxLength": 80 },
+    "name": { "$ref": "#/$defs/name" },
+    "summary": { "type": "string", "minLength": 1, "maxLength": 180 },
+    "author": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "handle", "curated"],
+      "properties": {
+        "name": { "$ref": "#/$defs/name" },
+        "handle": { "type": "string", "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9-]{0,38}[A-Za-z0-9])?$" },
+        "curated": { "type": "boolean" }
+      }
+    },
+    "category": { "enum": ["gradient", "nature", "minimal", "dark", "editorial"] },
+    "platforms": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": { "enum": ["macos", "windows"] }
+    },
+    "colors": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": { "enum": ["blue", "violet", "green", "teal", "rose", "orange", "neutral", "black"] }
+    },
+    "tags": { "type": "array", "maxItems": 12, "uniqueItems": true, "items": { "$ref": "#/$defs/name" } },
+    "stats": {
+      "type": "object", "additionalProperties": false,
+      "required": ["downloads", "rating", "reviews"],
+      "properties": {
+        "downloads": { "type": "integer", "minimum": 0 },
+        "rating": { "type": "number", "minimum": 0, "maximum": 5 },
+        "reviews": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "featured": { "type": "boolean" },
+    "isNew": { "type": "boolean" },
+    "version": { "$ref": "#/$defs/semver" },
+    "engineRange": { "type": "string", "pattern": "^>=\\d+\\.\\d+\\.\\d+ <\\d+\\.\\d+\\.\\d+$", "maxLength": 64 },
+    "publishedAt": { "type": "string", "format": "date-time" },
+    "license": {
+      "type": "object", "additionalProperties": false,
+      "required": ["name", "spdx", "source"],
+      "properties": {
+        "name": { "const": "CC0 1.0 Universal" },
+        "spdx": { "const": "CC0-1.0" },
+        "source": { "const": "original-procedural-artwork" }
+      }
+    },
+    "package": {
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "object", "additionalProperties": false,
+          "required": ["published", "id", "version", "url", "sha256", "size"],
+          "properties": {
+            "published": { "const": true },
+            "id": { "type": "string", "pattern": "^[a-z0-9]+(?:[.-][a-z0-9]+)+$", "maxLength": 128 },
+            "version": { "$ref": "#/$defs/semver" },
+            "url": { "type": "string", "format": "uri", "pattern": "^https://github\\.com/[^/]+/[^/]+/releases/download/[^/]+/[^/?#]+\\.dreamskin$" },
+            "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+            "size": { "type": "integer", "minimum": 1, "maximum": 20971520 }
+          }
+        }
+      ]
+    },
+    "previewStyle": {
+      "type": "object", "additionalProperties": false,
+      "required": ["backgroundColor", "backgroundImage", "panelColor", "panelBorder", "textColor", "mutedTextColor", "accentColor", "accentSoft", "codeColor", "shadow", "pattern"],
+      "properties": {
+        "backgroundColor": { "$ref": "#/$defs/cssValue" },
+        "backgroundImage": { "$ref": "#/$defs/cssValue" },
+        "panelColor": { "$ref": "#/$defs/cssValue" },
+        "panelBorder": { "$ref": "#/$defs/cssValue" },
+        "textColor": { "$ref": "#/$defs/cssValue" },
+        "mutedTextColor": { "$ref": "#/$defs/cssValue" },
+        "accentColor": { "$ref": "#/$defs/cssValue" },
+        "accentSoft": { "$ref": "#/$defs/cssValue" },
+        "codeColor": { "$ref": "#/$defs/cssValue" },
+        "shadow": { "$ref": "#/$defs/cssValue" },
+        "pattern": { "enum": ["aurora", "grid", "paper", "horizon", "mist", "orb", "stars", "embers"] }
+      }
+    }
+  },
+  "$defs": {
+    "name": { "type": "string", "minLength": 1, "maxLength": 80, "pattern": "^[^\\u0000-\\u001F\\u007F-\\u009F]*$" },
+    "semver": { "type": "string", "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*)?(?:\\+[0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*)?$" },
+    "cssValue": { "type": "string", "minLength": 1, "maxLength": 512, "not": { "pattern": "url\\s*\\(" } }
+  }
+}

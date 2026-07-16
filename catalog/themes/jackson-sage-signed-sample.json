@@ -1,0 +1,62 @@
+{
+  "slug": "jackson-sage-signed-sample",
+  "name": "千玺星球签名示例",
+  "summary": "首个可真实下载的双平台签名样例，用同一份信任契约验证 Windows 与 macOS 导入流程。",
+  "author": {
+    "name": "Codex-Skin contributors",
+    "handle": "codex-skin",
+    "curated": true
+  },
+  "category": "nature",
+  "platforms": [
+    "macos",
+    "windows"
+  ],
+  "colors": [
+    "green",
+    "neutral",
+    "orange"
+  ],
+  "tags": [
+    "签名示例",
+    "双平台",
+    "Ed25519",
+    "开源"
+  ],
+  "stats": {
+    "downloads": 0,
+    "rating": 5,
+    "reviews": 0
+  },
+  "featured": true,
+  "isNew": true,
+  "version": "1.0.0",
+  "engineRange": ">=1.0.0 <2.0.0",
+  "publishedAt": "2026-07-16T12:00:00.000Z",
+  "license": {
+    "name": "CC0 1.0 Universal",
+    "spdx": "CC0-1.0",
+    "source": "original-procedural-artwork"
+  },
+  "package": {
+    "published": true,
+    "id": "codex-skin.jackson-sage-sample",
+    "version": "1.0.0",
+    "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/sample-v1/codex-skin-sample-1.0.0.dreamskin",
+    "sha256": "7a75fff8086fe6949ef9e37e82c161a8e015a1e00e02181938cd479e9ae41387",
+    "size": 2041227
+  },
+  "previewStyle": {
+    "backgroundColor": "#cbd7ca",
+    "backgroundImage": "radial-gradient(circle at 80% 12%, rgba(215, 180, 106, .5), transparent 24%), linear-gradient(145deg, #dfe8dc, #78937b 55%, #516b54)",
+    "panelColor": "rgba(244, 245, 239, .86)",
+    "panelBorder": "rgba(81, 107, 84, .22)",
+    "textColor": "#1d2a20",
+    "mutedTextColor": "#647066",
+    "accentColor": "#516b54",
+    "accentSoft": "rgba(81, 107, 84, .14)",
+    "codeColor": "#9d694f",
+    "shadow": "0 28px 72px rgba(29, 42, 32, .24)",
+    "pattern": "mist"
+  }
+}

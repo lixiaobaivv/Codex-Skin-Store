@@ -40,7 +40,9 @@ npm test
 
 ## 主题目录贡献
 
-静态主题目录的最终 schema 与自动校验流程尚在固化。在正式的主题提交入口发布前，请先通过 issue 提交主题样例和许可信息，不要直接提交来源不明的大型二进制文件。
+主题现在通过 GitHub Pull Request 投稿。请先阅读 [`docs/theme-submission.md`](docs/theme-submission.md)，在 `catalog/themes/` 新增或更新一个与 `slug` 同名的 JSON 文件，然后运行 `npm run catalog:generate` 并提交同步生成的 `lib/generated-themes.ts`。Actions 会根据封闭 schema 自动预检，维护者审核后才会合并并由 GitHub Pages 发布。
+
+不要把 `.dreamskin` 二进制直接提交到本仓库。可发布包必须位于不可变的公开 GitHub Release HTTPS 地址；未发布草案必须使用 `package: null`，不会获得一键导入入口。
 
 一个可审核的主题版本至少应提供：
 
@@ -51,6 +53,15 @@ npm test
 - 支持的客户端版本与平台；
 - 包内文件清单以及每个文件的摘要；
 - 使用到的图片、字体等素材的来源和再分发授权。
+
+提交前还应运行：
+
+```bash
+npm run catalog:check
+npm run lint
+npm test
+npm run build:pages
+```
 
 主题必须是声明式资源。不要包含 JavaScript、HTML、Shell、PowerShell、可执行二进制、符号链接或尝试读取用户数据的内容。任意代码执行不是“高级主题能力”，而是会被拒绝的安全风险。
 

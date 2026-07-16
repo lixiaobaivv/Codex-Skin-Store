@@ -1,0 +1,55 @@
+{
+  "slug": "aurora-drift",
+  "name": "极光漫游",
+  "summary": "蓝紫极光缓缓掠过深夜，为长时间创作保留恰到好处的层次。",
+  "author": {
+    "name": "Northlight Studio",
+    "handle": "northlight",
+    "curated": true
+  },
+  "category": "gradient",
+  "platforms": [
+    "macos",
+    "windows"
+  ],
+  "colors": [
+    "violet",
+    "blue",
+    "black"
+  ],
+  "tags": [
+    "极光",
+    "冷色",
+    "夜间",
+    "渐变"
+  ],
+  "stats": {
+    "downloads": 28430,
+    "rating": 4.9,
+    "reviews": 816
+  },
+  "featured": true,
+  "isNew": false,
+  "version": "1.3.0",
+  "engineRange": ">=1.1.0 <2.0.0",
+  "publishedAt": "2026-04-18T08:00:00.000Z",
+  "license": {
+    "name": "CC0 1.0 Universal",
+    "spdx": "CC0-1.0",
+    "source": "original-procedural-artwork"
+  },
+  "previewStyle": {
+    "backgroundColor": "#080b18",
+    "backgroundImage": "radial-gradient(circle at 72% 18%, rgba(110, 231, 255, .5), transparent 32%), radial-gradient(circle at 30% 8%, rgba(167, 139, 250, .58), transparent 38%), linear-gradient(145deg, #17112f 0%, #081426 48%, #071015 100%)",
+    "panelColor": "rgba(11, 17, 33, .78)",
+    "panelBorder": "rgba(172, 205, 255, .16)",
+    "textColor": "#f4f7ff",
+    "mutedTextColor": "#9aa9c6",
+    "accentColor": "#8be8ff",
+    "accentSoft": "rgba(139, 232, 255, .16)",
+    "codeColor": "#c4b5fd",
+    "shadow": "0 28px 80px rgba(3, 7, 20, .48)",
+    "pattern": "aurora"
+  },
+  "package": null
+}
