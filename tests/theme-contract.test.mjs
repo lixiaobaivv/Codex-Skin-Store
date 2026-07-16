@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { readdir, readFile } from "node:fs/promises";
 import test from "node:test";
 import { validateCatalog, validateTheme } from "../tools/validate-catalog.mjs";
 
@@ -70,12 +70,22 @@ test("catalog validation rejects placeholders, unknown fields, and duplicates", 
   );
 });
 
-test("preview-only themes cannot accidentally expose a package", async () => {
-  const preview = JSON.parse(await readFile(new URL("../catalog/themes/aurora-drift.json", import.meta.url), "utf8"));
-  assert.equal(preview.package, null);
-  assert.doesNotThrow(() => validateTheme(preview, "preview"));
+test("all nine storefront themes have complete unique packages", async () => {
+  const directory = new URL("../catalog/themes/", import.meta.url);
+  const files = (await readdir(directory)).filter((name) => name.endsWith(".json")).sort();
+  const themes = await Promise.all(files.map((name) => readFile(new URL(name, directory), "utf8").then(JSON.parse)));
+  assert.equal(themes.length, 9);
+  assert.equal(themes.filter((theme) => theme.package?.published).length, 9);
+  assert.equal(new Set(themes.map((theme) => `${theme.package.id}@${theme.package.version}`)).size, 9);
+  assert.doesNotThrow(() => validateCatalog(themes));
+  for (const theme of themes) {
+    assert.match(theme.package.url, /^https:\/\/github\.com\/lixiaobaivv\/Codex-Skin\/releases\/download\//);
+  }
+
+  const draft = { ...themes[0], slug: "future-draft", package: null };
+  assert.doesNotThrow(() => validateTheme(draft, "draft"));
   assert.throws(
-    () => validateTheme({ ...preview, package: { published: false } }, "preview"),
+    () => validateTheme({ ...draft, package: { published: false } }, "draft"),
     /unknown or missing fields|must be published/,
   );
 });

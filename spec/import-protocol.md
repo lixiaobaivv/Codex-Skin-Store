@@ -1,8 +1,8 @@
-# Codex Dream Skin 主题包与导入协议（MVP v1）
+# Codex-Skin 主题包与导入协议（MVP v1）
 
 ## 1. 目标与边界
 
-本协议定义商店、`.dreamskin` 文件和 Codex Dream Skin 客户端之间的最小互操作契约。主题只能声明文字、颜色和受限位图资源；主题包不得携带或执行 JavaScript、CSS、HTML、SVG、WASM、Shell、PowerShell 或其他代码。
+本协议定义商店、`.dreamskin` 文件和 Codex-Skin 客户端之间的最小互操作契约。主题只能声明文字、颜色和受限位图资源；主题包不得携带或执行 JavaScript、CSS、HTML、SVG、WASM、Shell、PowerShell 或其他代码。
 
 规范中的“必须”“不得”“应当”是实现要求。客户端不能仅依赖 JSON Schema；压缩包、资源内容、签名和运行时兼容性都需要独立校验。
 
@@ -59,7 +59,7 @@ application/vnd.codex-dream-skin+zip
 - 文本必须规范化为 Unicode NFC；客户端应拒绝控制字符和危险的双向文本控制字符。
 - 所有文本只能作为纯文本渲染，不得传入 `innerHTML`；颜色只能使用 Schema 允许的十六进制或 `rgba()` 文法，不能拼接为任意 CSS。
 
-`schemaVersion: 1`、`image`、文字与 `colors` 字段可被现有 Codex Dream Skin 注入器直接读取。`packageVersion`、`assets`、`engineVersion` 和 `signature` 由导入器及商店使用，运行时不会执行这些字段。
+`schemaVersion: 1`、`image`、文字与 `colors` 字段可被现有 Codex-Skin 注入器直接读取。`packageVersion`、`assets`、`engineVersion` 和 `signature` 由导入器及商店使用，运行时不会执行这些字段。
 
 ## 4. 完整性与签名
 

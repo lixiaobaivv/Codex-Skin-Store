@@ -1,6 +1,6 @@
 # 主题投稿指南
 
-Dream Skin Store 采用 GitHub 原生投稿：GitHub 身份、Pull Request、Actions 自动预检和维护者审核共同组成发布流程。合并到 `main` 后，GitHub Pages 会重新生成静态商店；整个流程不需要自有账号服务器、数据库或对象存储。
+Codex-Skin-Store 采用 GitHub 原生投稿：GitHub 身份、Pull Request、Actions 自动预检和维护者审核共同组成发布流程。合并到 `main` 后，GitHub Pages 会重新生成静态商店；整个流程不需要自有账号服务器、数据库或对象存储。
 
 ## 投稿前准备
 

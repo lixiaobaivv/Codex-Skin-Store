@@ -1,11 +1,11 @@
 {
   "slug": "ember-terminal",
   "name": "余烬终端",
-  "summary": "炭黑背景中留下一点琥珀余温，为终端爱好者打造的低干扰主题。",
+  "summary": "炭黑背景中留下一点琥珀余温，为终端爱好者打造的低干扰主题。现已提供可验证的签名互操作样例包。",
   "author": {
-    "name": "Afterdark Tools",
-    "handle": "afterdark",
-    "curated": false
+    "name": "Codex-Skin contributors",
+    "handle": "codex-skin",
+    "curated": true
   },
   "category": "dark",
   "platforms": [
@@ -17,15 +17,17 @@
     "orange"
   ],
   "tags": [
+    "签名样例",
+    "Ed25519",
     "终端",
     "炭黑",
     "琥珀",
     "夜间"
   ],
   "stats": {
-    "downloads": 3670,
-    "rating": 4.7,
-    "reviews": 96
+    "downloads": 0,
+    "rating": 5,
+    "reviews": 0
   },
   "featured": false,
   "isNew": true,
@@ -50,5 +52,12 @@
     "shadow": "0 28px 74px rgba(0, 0, 0, .48)",
     "pattern": "embers"
   },
-  "package": null
+  "package": {
+    "published": true,
+    "id": "codex-skin.catalog.ember-terminal",
+    "version": "1.0.0",
+    "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/catalog-v1/ember-terminal-1.0.0.dreamskin",
+    "sha256": "6c89be2ed8924601c773ba6dc59acd8b5a5ab9f220fb9831dfcc2244f93e4606",
+    "size": 244919
+  }
 }

@@ -1,10 +1,10 @@
 {
   "slug": "midnight-grid",
   "name": "午夜网格",
-  "summary": "精密网格与克制的电光蓝，适合偏爱结构感的深色工作台。",
+  "summary": "精密网格与克制的电光蓝，适合偏爱结构感的深色工作台。现已提供可验证的签名互操作样例包。",
   "author": {
-    "name": "Plain Systems",
-    "handle": "plainsystems",
+    "name": "Codex-Skin contributors",
+    "handle": "codex-skin",
     "curated": true
   },
   "category": "dark",
@@ -17,15 +17,17 @@
     "blue"
   ],
   "tags": [
+    "签名样例",
+    "Ed25519",
     "网格",
     "深色",
     "蓝黑",
     "技术感"
   ],
   "stats": {
-    "downloads": 19680,
-    "rating": 4.8,
-    "reviews": 504
+    "downloads": 0,
+    "rating": 5,
+    "reviews": 0
   },
   "featured": true,
   "isNew": false,
@@ -50,5 +52,12 @@
     "shadow": "0 26px 70px rgba(0, 0, 0, .5)",
     "pattern": "grid"
   },
-  "package": null
+  "package": {
+    "published": true,
+    "id": "codex-skin.catalog.midnight-grid",
+    "version": "1.1.2",
+    "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/catalog-v1/midnight-grid-1.1.2.dreamskin",
+    "sha256": "70c723637eb8a37e2734cc2769ddade7e5b68608dba5aed664fe39bcd61eed7b",
+    "size": 375547
+  }
 }

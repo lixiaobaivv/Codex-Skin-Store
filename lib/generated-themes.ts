@@ -5,10 +5,10 @@ export const GENERATED_THEMES = [
   {
     "slug": "aurora-drift",
     "name": "极光漫游",
-    "summary": "蓝紫极光缓缓掠过深夜，为长时间创作保留恰到好处的层次。",
+    "summary": "蓝紫极光缓缓掠过深夜，为长时间创作保留恰到好处的层次。现已提供可验证的签名互操作样例包。",
     "author": {
-      "name": "Northlight Studio",
-      "handle": "northlight",
+      "name": "Codex-Skin contributors",
+      "handle": "codex-skin",
       "curated": true
     },
     "category": "gradient",
@@ -22,15 +22,17 @@ export const GENERATED_THEMES = [
       "black"
     ],
     "tags": [
+      "签名样例",
+      "Ed25519",
       "极光",
       "冷色",
       "夜间",
       "渐变"
     ],
     "stats": {
-      "downloads": 28430,
-      "rating": 4.9,
-      "reviews": 816
+      "downloads": 0,
+      "rating": 5,
+      "reviews": 0
     },
     "featured": true,
     "isNew": false,
@@ -55,16 +57,23 @@ export const GENERATED_THEMES = [
       "shadow": "0 28px 80px rgba(3, 7, 20, .48)",
       "pattern": "aurora"
     },
-    "package": null
+    "package": {
+      "published": true,
+      "id": "codex-skin.catalog.aurora-drift",
+      "version": "1.3.0",
+      "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/catalog-v1/aurora-drift-1.3.0.dreamskin",
+      "sha256": "b94573c48a6ad9c1ba22f366e37dabf3f88090f719b5fd35febacbaa6b92de6a",
+      "size": 669547
+    }
   },
   {
     "slug": "ember-terminal",
     "name": "余烬终端",
-    "summary": "炭黑背景中留下一点琥珀余温，为终端爱好者打造的低干扰主题。",
+    "summary": "炭黑背景中留下一点琥珀余温，为终端爱好者打造的低干扰主题。现已提供可验证的签名互操作样例包。",
     "author": {
-      "name": "Afterdark Tools",
-      "handle": "afterdark",
-      "curated": false
+      "name": "Codex-Skin contributors",
+      "handle": "codex-skin",
+      "curated": true
     },
     "category": "dark",
     "platforms": [
@@ -76,15 +85,17 @@ export const GENERATED_THEMES = [
       "orange"
     ],
     "tags": [
+      "签名样例",
+      "Ed25519",
       "终端",
       "炭黑",
       "琥珀",
       "夜间"
     ],
     "stats": {
-      "downloads": 3670,
-      "rating": 4.7,
-      "reviews": 96
+      "downloads": 0,
+      "rating": 5,
+      "reviews": 0
     },
     "featured": false,
     "isNew": true,
@@ -109,7 +120,14 @@ export const GENERATED_THEMES = [
       "shadow": "0 28px 74px rgba(0, 0, 0, .48)",
       "pattern": "embers"
     },
-    "package": null
+    "package": {
+      "published": true,
+      "id": "codex-skin.catalog.ember-terminal",
+      "version": "1.0.0",
+      "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/catalog-v1/ember-terminal-1.0.0.dreamskin",
+      "sha256": "6c89be2ed8924601c773ba6dc59acd8b5a5ab9f220fb9831dfcc2244f93e4606",
+      "size": 244919
+    }
   },
   {
     "slug": "jackson-sage-signed-sample",
@@ -176,10 +194,10 @@ export const GENERATED_THEMES = [
   {
     "slug": "linen-light",
     "name": "亚麻晨光",
-    "summary": "温柔米白与细腻纸纤维质感，让界面像一本摊开的轻盈笔记。",
+    "summary": "温柔米白与细腻纸纤维质感，让界面像一本摊开的轻盈笔记。现已提供可验证的签名互操作样例包。",
     "author": {
-      "name": "Quiet Form",
-      "handle": "quietform",
+      "name": "Codex-Skin contributors",
+      "handle": "codex-skin",
       "curated": true
     },
     "category": "minimal",
@@ -191,15 +209,17 @@ export const GENERATED_THEMES = [
       "orange"
     ],
     "tags": [
+      "签名样例",
+      "Ed25519",
       "浅色",
       "米白",
       "极简",
       "纸张"
     ],
     "stats": {
-      "downloads": 14720,
-      "rating": 4.7,
-      "reviews": 391
+      "downloads": 0,
+      "rating": 5,
+      "reviews": 0
     },
     "featured": false,
     "isNew": false,
@@ -224,15 +244,22 @@ export const GENERATED_THEMES = [
       "shadow": "0 24px 60px rgba(79, 63, 38, .16)",
       "pattern": "paper"
     },
-    "package": null
+    "package": {
+      "published": true,
+      "id": "codex-skin.catalog.linen-light",
+      "version": "1.0.6",
+      "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/catalog-v1/linen-light-1.0.6.dreamskin",
+      "sha256": "3892605f88957153e0bd775565f19757a11a05144c4798ed00c0ebe6525a415c",
+      "size": 300941
+    }
   },
   {
     "slug": "midnight-grid",
     "name": "午夜网格",
-    "summary": "精密网格与克制的电光蓝，适合偏爱结构感的深色工作台。",
+    "summary": "精密网格与克制的电光蓝，适合偏爱结构感的深色工作台。现已提供可验证的签名互操作样例包。",
     "author": {
-      "name": "Plain Systems",
-      "handle": "plainsystems",
+      "name": "Codex-Skin contributors",
+      "handle": "codex-skin",
       "curated": true
     },
     "category": "dark",
@@ -245,15 +272,17 @@ export const GENERATED_THEMES = [
       "blue"
     ],
     "tags": [
+      "签名样例",
+      "Ed25519",
       "网格",
       "深色",
       "蓝黑",
       "技术感"
     ],
     "stats": {
-      "downloads": 19680,
-      "rating": 4.8,
-      "reviews": 504
+      "downloads": 0,
+      "rating": 5,
+      "reviews": 0
     },
     "featured": true,
     "isNew": false,
@@ -278,15 +307,22 @@ export const GENERATED_THEMES = [
       "shadow": "0 26px 70px rgba(0, 0, 0, .5)",
       "pattern": "grid"
     },
-    "package": null
+    "package": {
+      "published": true,
+      "id": "codex-skin.catalog.midnight-grid",
+      "version": "1.1.2",
+      "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/catalog-v1/midnight-grid-1.1.2.dreamskin",
+      "sha256": "70c723637eb8a37e2734cc2769ddade7e5b68608dba5aed664fe39bcd61eed7b",
+      "size": 375547
+    }
   },
   {
     "slug": "moss-and-mist",
     "name": "苔色山雾",
-    "summary": "层叠苔绿与清晨薄雾，营造沉静、有呼吸感的专注空间。",
+    "summary": "层叠苔绿与清晨薄雾，营造沉静、有呼吸感的专注空间。现已提供可验证的签名互操作样例包。",
     "author": {
-      "name": "Field Notes Lab",
-      "handle": "fieldnotes",
+      "name": "Codex-Skin contributors",
+      "handle": "codex-skin",
       "curated": true
     },
     "category": "nature",
@@ -300,15 +336,17 @@ export const GENERATED_THEMES = [
       "black"
     ],
     "tags": [
+      "签名样例",
+      "Ed25519",
       "森林",
       "雾",
       "绿色",
       "沉静"
     ],
     "stats": {
-      "downloads": 8720,
-      "rating": 4.9,
-      "reviews": 219
+      "downloads": 0,
+      "rating": 5,
+      "reviews": 0
     },
     "featured": false,
     "isNew": true,
@@ -333,16 +371,23 @@ export const GENERATED_THEMES = [
       "shadow": "0 28px 72px rgba(7, 14, 10, .42)",
       "pattern": "mist"
     },
-    "package": null
+    "package": {
+      "published": true,
+      "id": "codex-skin.catalog.moss-and-mist",
+      "version": "1.0.1",
+      "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/catalog-v1/moss-and-mist-1.0.1.dreamskin",
+      "sha256": "4a05a3f569bf8bf01f70c9a522a744ff867da25c83f958cfca1bafadc4dd98ac",
+      "size": 403652
+    }
   },
   {
     "slug": "ocean-glass",
     "name": "海面玻璃",
-    "summary": "清透海岸色调叠加磨砂玻璃面板，明亮但不刺眼。",
+    "summary": "清透海岸色调叠加磨砂玻璃面板，明亮但不刺眼。现已提供可验证的签名互操作样例包。",
     "author": {
-      "name": "Tidal Workshop",
-      "handle": "tidalworkshop",
-      "curated": false
+      "name": "Codex-Skin contributors",
+      "handle": "codex-skin",
+      "curated": true
     },
     "category": "nature",
     "platforms": [
@@ -355,15 +400,17 @@ export const GENERATED_THEMES = [
       "neutral"
     ],
     "tags": [
+      "签名样例",
+      "Ed25519",
       "海洋",
       "玻璃",
       "青蓝",
       "明亮"
     ],
     "stats": {
-      "downloads": 11390,
-      "rating": 4.8,
-      "reviews": 284
+      "downloads": 0,
+      "rating": 5,
+      "reviews": 0
     },
     "featured": true,
     "isNew": false,
@@ -388,15 +435,22 @@ export const GENERATED_THEMES = [
       "shadow": "0 28px 70px rgba(19, 80, 94, .22)",
       "pattern": "horizon"
     },
-    "package": null
+    "package": {
+      "published": true,
+      "id": "codex-skin.catalog.ocean-glass",
+      "version": "1.2.1",
+      "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/catalog-v1/ocean-glass-1.2.1.dreamskin",
+      "sha256": "22a6caca45a2688678f555e14b556d816d4445551cb96638f0b5becc355355f4",
+      "size": 301852
+    }
   },
   {
     "slug": "paper-observatory",
     "name": "纸上天文台",
-    "summary": "深蓝墨色与细小星图铺在暖灰纸面上，像一本安静的观测手册。",
+    "summary": "深蓝墨色与细小星图铺在暖灰纸面上，像一本安静的观测手册。现已提供可验证的签名互操作样例包。",
     "author": {
-      "name": "Margin Press",
-      "handle": "marginpress",
+      "name": "Codex-Skin contributors",
+      "handle": "codex-skin",
       "curated": true
     },
     "category": "editorial",
@@ -409,15 +463,17 @@ export const GENERATED_THEMES = [
       "black"
     ],
     "tags": [
+      "签名样例",
+      "Ed25519",
       "星图",
       "纸张",
       "编辑风",
       "复古"
     ],
     "stats": {
-      "downloads": 5230,
-      "rating": 4.8,
-      "reviews": 127
+      "downloads": 0,
+      "rating": 5,
+      "reviews": 0
     },
     "featured": true,
     "isNew": true,
@@ -442,16 +498,23 @@ export const GENERATED_THEMES = [
       "shadow": "0 24px 64px rgba(49, 45, 39, .2)",
       "pattern": "stars"
     },
-    "package": null
+    "package": {
+      "published": true,
+      "id": "codex-skin.catalog.paper-observatory",
+      "version": "1.0.2",
+      "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/catalog-v1/paper-observatory-1.0.2.dreamskin",
+      "sha256": "08daa71c0eb209e85f75ef832beb4dd9d8f2f6f2b404bb3dcfbe1e8c382b38e2",
+      "size": 219581
+    }
   },
   {
     "slug": "solar-bloom",
     "name": "日光绽放",
-    "summary": "珊瑚橙与玫瑰粉相遇，给工作区注入温暖又现代的能量。",
+    "summary": "珊瑚橙与玫瑰粉相遇，给工作区注入温暖又现代的能量。现已提供可验证的签名互操作样例包。",
     "author": {
-      "name": "Chromatic Dept.",
-      "handle": "chromaticdept",
-      "curated": false
+      "name": "Codex-Skin contributors",
+      "handle": "codex-skin",
+      "curated": true
     },
     "category": "gradient",
     "platforms": [
@@ -463,15 +526,17 @@ export const GENERATED_THEMES = [
       "violet"
     ],
     "tags": [
+      "签名样例",
+      "Ed25519",
       "暖色",
       "日落",
       "活力",
       "渐变"
     ],
     "stats": {
-      "downloads": 6940,
-      "rating": 4.6,
-      "reviews": 168
+      "downloads": 0,
+      "rating": 5,
+      "reviews": 0
     },
     "featured": false,
     "isNew": true,
@@ -496,6 +561,13 @@ export const GENERATED_THEMES = [
       "shadow": "0 28px 80px rgba(65, 17, 50, .38)",
       "pattern": "orb"
     },
-    "package": null
+    "package": {
+      "published": true,
+      "id": "codex-skin.catalog.solar-bloom",
+      "version": "1.0.0",
+      "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/catalog-v1/solar-bloom-1.0.0.dreamskin",
+      "sha256": "3a9a61d8c8fe939be8850a0d0e069c1e4503ed6decbabffe99989150b326b2ec",
+      "size": 309290
+    }
   }
 ] as const satisfies readonly Theme[];

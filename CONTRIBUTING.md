@@ -1,6 +1,6 @@
 # 参与贡献
 
-感谢你帮助完善 Codex Dream Skin Store。项目处于早期阶段，协议和主题 schema 的变更会影响商店与客户端两个仓库，因此请让改动保持小、可验证并清楚标注兼容性。
+感谢你帮助完善 Codex-Skin-Store。项目处于早期阶段，协议和主题 schema 的变更会影响商店与客户端两个仓库，因此请让改动保持小、可验证并清楚标注兼容性。
 
 ## 开始之前
 
@@ -15,7 +15,7 @@
 
 ```bash
 git clone https://github.com/lixiaobaivv/Codex-Skin-Store.git
-cd Codex-Dream-Skin-Store
+cd Codex-Skin-Store
 npm ci
 npm run dev
 ```

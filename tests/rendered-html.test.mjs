@@ -23,16 +23,17 @@ async function render() {
   );
 }
 
-test("server-renders the Dream Skin storefront", async () => {
+test("server-renders the Codex-Skin-Store storefront", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, /<title>发现主题 · Dream Skin Store<\/title>/i);
+  assert.match(html, /<title>Codex-Skin-Store — 发现主题<\/title>/i);
   assert.match(html, /给 Codex/);
   assert.match(html, /发现主题/);
   assert.match(html, /一键导入/);
+  assert.doesNotMatch(html, /暂无可验证包/);
   assert.match(html, /极光漫游/);
   assert.match(html, /余烬终端/);
   assert.match(html, /非 OpenAI 官方产品/);
@@ -47,7 +48,7 @@ test("ships product metadata and removes the disposable starter", async () => {
   ]);
 
   assert.match(page, /<Storefront \/>/);
-  assert.match(layout, /Dream Skin Store/);
+  assert.match(layout, /Codex-Skin-Store/);
   assert.match(layout, /lang="zh-CN"/);
   assert.doesNotMatch(page, /codex-preview|SkeletonPreview/);
   assert.doesNotMatch(packageJson, /react-loading-skeleton/);
