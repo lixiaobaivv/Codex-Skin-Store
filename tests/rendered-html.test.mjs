@@ -30,6 +30,8 @@ test("server-renders the Codex-Skin-Store storefront", async () => {
 
   const html = await response.text();
   assert.match(html, /<title>Codex-Skin-Store — 发现主题<\/title>/i);
+  assert.match(html, /Codex-Skin-<b>Store<\/b>/i);
+  assert.doesNotMatch(html, /Dream Skin Store/i);
   assert.match(html, /给 Codex/);
   assert.match(html, /发现主题/);
   assert.match(html, /一键导入/);

@@ -305,9 +305,9 @@ export function Storefront() {
   return (
     <main>
       <header className="site-header">
-        <a className="brand" href="#top" aria-label="Dream Skin Store 首页">
+        <a className="brand" href="#top" aria-label="Codex-Skin-Store 首页">
           <span className="brand-mark"><i />DS</span>
-          <span>Dream Skin <b>Store</b></span>
+          <span>Codex-Skin-<b>Store</b></span>
         </a>
         <nav className="site-nav" aria-label="主导航">
           <a href="#discover">发现主题</a>
@@ -500,7 +500,7 @@ export function Storefront() {
       <footer>
         <a className="brand brand--footer" href="#top">
           <span className="brand-mark"><i />DS</span>
-          <span>Dream Skin <b>Store</b></span>
+          <span>Codex-Skin-<b>Store</b></span>
         </a>
         <p>社区驱动的 Codex 主题商店 · 非 OpenAI 官方产品</p>
         <div>
