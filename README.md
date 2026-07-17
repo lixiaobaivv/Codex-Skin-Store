@@ -4,9 +4,11 @@
 
 Codex-Skin-Store 是 Codex-Skin 的公开主题商店。你可以在网页中浏览、筛选和下载主题，也可以通过 `dreamskin://` 一键交给本机 Codex-Skin 客户端验证和安装。
 
-网页当前展示 Dilraba Star、ENFP Pop、Jackson Sage 和 KUN Stage 四个正式主题，预览图直接来自客户端真实主题效果，不再展示互操作测试样例。
+网页当前展示 Dilraba Star、ENFP Pop、Jackson Sage、KUN Stage 和 Zhu Xudan Racing 五个正式主题，预览图直接来自客户端真实主题效果。
 
 - 在线商店：<https://lixiaobaivv.github.io/Codex-Skin-Store/>
+- 无代码主题工坊：<https://lixiaobaivv.github.io/Codex-Skin-Store/submit/>
+- 主题投稿说明：<https://github.com/lixiaobaivv/Codex-Skin-Store/blob/main/docs/theme-submission.md>
 - 客户端下载：<https://github.com/lixiaobaivv/Codex-Skin/releases/latest>
 - 客户端使用说明：<https://github.com/lixiaobaivv/Codex-Skin#readme>
 
@@ -60,7 +62,7 @@ GH Proxy：
 https://gh-proxy.com/https://github.com/lixiaobaivv/Codex-Skin/releases/latest/download/Codex-Skin-Setup-win-x64.exe
 ```
 
-手动下载 `.dreamskin` 主题包时也可以使用相同方法。网页“一键导入”始终传递目录中经过审核的原始 HTTPS 地址；客户端会显示下载进度，并按用户当前选择、GitHub 官方和内置镜像线路自动重试，但不会信任网页临时替换的下载信息。
+手动下载 `.dreamskin` 主题包时也可以使用相同方法。网页“一键导入”始终传递目录中经过审核的原始 HTTPS 地址；客户端会显示下载状态和最终结果，并按用户当前选择、GitHub 官方和内置镜像线路自动重试，但不会信任网页临时替换的下载信息。
 
 客户端同步主题目录时也会自动回退线路：先尝试上次实际成功或用户选择的线路，再尝试 GitHub 和其余内置镜像；完整校验通过后保存本次成功线路，供下次启动优先使用。
 
@@ -120,14 +122,28 @@ https://gh-proxy.com/https://github.com/lixiaobaivv/Codex-Skin/releases/latest/d
 
 ## 投稿主题
 
-任何人都可以通过 [在线主题工坊](https://lixiaobaivv.github.io/Codex-Skin-Store/submit/) 投稿，不需要 Fork 仓库、安装 Node.js、手写 JSON 或接触官方签名私钥：
+任何人都可以通过 [在线主题工坊](https://lixiaobaivv.github.io/Codex-Skin-Store/submit/) 投稿，不需要 Fork 仓库、安装 Node.js 或 Rust、手写 JSON、维护目录索引、计算哈希或接触官方签名私钥：
 
-1. 填写主题、作者和许可信息；
-2. 调整颜色与首页文案，在页面中即时预览；
-3. 上传真实效果 PNG 和可选背景；
-4. 下载自动生成的标准投稿包，并拖入 GitHub 投稿表单。
+1. 填写主题名称、稳定的英文主题 ID、作者和素材许可；
+2. 调整颜色与首页文案，在页面右侧即时预览；
+3. 上传来自真实 Codex 界面的 PNG 效果图和可选背景；
+4. 点击“生成标准投稿包”，下载 `codex-skin-submission-<主题ID>-1.0.0.zip`；
+5. 点击“打开投稿页”，把 ZIP 拖入“标准投稿包”区域，等待上传完成后提交。
 
-维护者审核后，由可信 CI 校验、构建、签名并完成 Windows、macOS 双平台验签。投稿者不需要填写下载地址、大小或 SHA-256。需要自定义 Logo、宠物、快捷卡和字体的作者仍可使用 [高级 PR 流程](docs/theme-submission.md#高级作者流程)。
+工坊会自动保存当前浏览器中的文字草稿。图片不会写入浏览器持久存储，刷新页面后需要重新选择。生成的 ZIP 包含：
+
+```text
+themes/<theme-id>.json                 桌面主题清单
+catalog/themes/<theme-id>.json         package: null 的商店草案
+previews/<theme-id>.png                客户端预览
+public/theme-previews/<theme-id>.png   网页预览
+backgrounds/<theme-id>.<ext>           可选背景
+SUBMISSION.md                           作者与素材许可
+```
+
+提交表单不会立即上线主题。维护者会检查真实预览、可读性、主题 ID 冲突和素材权利，再把投稿包转换为审核 PR。Actions 校验封闭 Schema 和目录结构；审核合并后，可信发布流程从精确 Store 提交构建和签名 `.dreamskin`，完成 Windows、macOS 双平台验签，再自动回填版本、下载地址、大小和 SHA-256，并更新网页及桌面轻量目录。
+
+需要自定义 Logo、宠物、四张快捷卡、字体或全部首页文案的作者仍可使用 [高级 PR 流程](docs/theme-submission.md#高级作者流程)。普通投稿和高级投稿都只能包含声明式主题数据与允许的图片，不能加入任意 CSS、JavaScript、HTML、SVG、脚本或可执行文件。
 
 主题 ID 发布后不能改名，更新时只提升 SemVer 版本。素材来源、再分发许可和真实预览必须准确；商店代码的 MIT 许可证不会自动覆盖主题作品。
 
@@ -135,6 +151,7 @@ https://gh-proxy.com/https://github.com/lixiaobaivv/Codex-Skin/releases/latest/d
 
 - 商店是静态 GitHub Pages，不需要在线账号；
 - 不使用自建应用服务器、数据库或对象存储；
+- 工坊在浏览器本地生成 ZIP，不会把未提交的主题或图片上传到项目服务器；
 - 网页不探测本机客户端状态，不读取 Codex 数据；
 - 客户端是最终信任边界；
 - 有问题的主题可以下架，但已下载文件仍应依靠客户端签名与撤回策略处理。
