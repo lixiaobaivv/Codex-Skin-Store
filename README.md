@@ -28,11 +28,7 @@ Codex-Skin-Store 是 Codex-Skin 的公开主题商店。你可以在网页中浏
 
 ### Windows
 
-Setup 安装版会自动注册 `dreamskin://` 和 `.dreamskin` 文件关联。便携版需要手动执行：
-
-```powershell
-.\Codex-Skin-win-x64.exe protocol register
-```
+Windows 只提供 `Codex-Skin-Setup-win-x64.exe`。Setup 会自动注册 `dreamskin://` 和 `.dreamskin` 文件关联，不再提供 ZIP 或直接运行的便携包。
 
 ### macOS
 
@@ -62,9 +58,9 @@ GH Proxy：
 https://gh-proxy.com/https://github.com/lixiaobaivv/Codex-Skin/releases/latest/download/Codex-Skin-Setup-win-x64.exe
 ```
 
-手动下载 `.dreamskin` 主题包时也可以使用相同方法，但网页“一键导入”始终使用目录中经过审核的原始 HTTPS 地址，客户端不会信任网页临时替换的下载信息。
+手动下载 `.dreamskin` 主题包时也可以使用相同方法。网页“一键导入”始终传递目录中经过审核的原始 HTTPS 地址；客户端会显示下载进度，并按用户当前选择、GitHub 官方和内置镜像线路自动重试，但不会信任网页临时替换的下载信息。
 
-镜像是第三方服务，可能不可用或返回旧缓存。下载客户端后请对照 Release 中的 `Codex-Skin-win-x64-SHA256SUMS.txt` 或 `Codex-Skin-installers-SHA256SUMS.txt`；主题包则由客户端同时校验精确大小、SHA-256 和 Ed25519 签名。
+镜像是第三方服务，可能不可用或返回旧缓存。下载客户端后请对照 Release 中的 `Codex-Skin-installers-SHA256SUMS.txt`；主题包则由客户端同时校验精确大小、SHA-256 和 Ed25519 签名，镜像返回旧文件时不会安装。
 
 ## 客户端如何保护导入
 
@@ -102,7 +98,6 @@ https://gh-proxy.com/https://github.com/lixiaobaivv/Codex-Skin/releases/latest/d
 ### 点击“一键导入”没有反应
 
 - 确认已经安装并至少打开过一次 Codex-Skin；
-- Windows 便携版先执行 `protocol register`；
 - Windows Setup 可以重新运行安装器修复关联；
 - macOS 确认安装的是支持 URL handler 的新版 PKG；
 - 也可以选择“手动下载”，然后双击 `.dreamskin` 文件。

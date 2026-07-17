@@ -25,11 +25,7 @@ Use `Codex-Skin-Setup-win-x64.exe` on Windows. On macOS, use `Codex-Skin-osx-arm
 
 ## One-Click Import
 
-Windows Setup registers `dreamskin://` and `.dreamskin` automatically. Portable Windows users can register them with:
-
-```powershell
-.\Codex-Skin-win-x64.exe protocol register
-```
+Windows is distributed only as `Codex-Skin-Setup-win-x64.exe`. Setup registers `dreamskin://` and `.dreamskin` automatically; portable EXE and ZIP downloads are not published.
 
 The macOS PKG declares the same URL scheme and document type. Open `Codex-Skin.app` once after installation so LaunchServices can finish registration.
 
@@ -45,7 +41,7 @@ https://ghfast.top/https://github.com/lixiaobaivv/Codex-Skin/releases/latest/dow
 https://gh-proxy.com/https://github.com/lixiaobaivv/Codex-Skin/releases/latest/download/Codex-Skin-Setup-win-x64.exe
 ```
 
-Mirrors are third-party services and may be unavailable or return stale content. Verify downloads against `Codex-Skin-win-x64-SHA256SUMS.txt` or `Codex-Skin-installers-SHA256SUMS.txt` from the same Release.
+Mirrors are third-party services and may be unavailable or return stale content. Verify installer downloads against `Codex-Skin-installers-SHA256SUMS.txt` from the same Release. For one-click theme imports, the client shows progress and safely retries the selected transport, direct GitHub, and built-in mirrors; exact size, SHA-256, and Ed25519 checks still apply to every result.
 
 ## What Themes Can Change
 
@@ -55,7 +51,7 @@ Themes cannot replace user projects, tasks, progress, conversations, account dat
 
 ## Troubleshooting
 
-**One-click import does nothing:** open Codex-Skin once; repair Windows Setup registration or run `protocol register` for the portable client; on macOS, confirm that you installed the latest PKG.
+**One-click import does nothing:** open Codex-Skin once; repair Windows Setup registration; on macOS, confirm that you installed the latest PKG.
 
 **Signature or hash validation fails:** do not continue. Download the theme again from the store and report the theme name, version, and client error code if it still fails.
 
