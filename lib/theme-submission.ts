@@ -19,6 +19,8 @@ export type SubmissionDraft = {
   accent: string;
   ink: string;
   surface: string;
+  backgroundFit: "smart" | "cover" | "contain";
+  backgroundPosition: "center" | "center top" | "center 20%" | "center 30%" | "center 40%" | "center bottom" | "left center" | "right center";
   brand: string;
   title: string;
   subtitle: string;
@@ -37,6 +39,8 @@ export const DEFAULT_SUBMISSION: SubmissionDraft = {
   accent: "#635bff",
   ink: "#20212a",
   surface: "#f7f6f2",
+  backgroundFit: "smart",
+  backgroundPosition: "center",
   brand: "FOCUS",
   title: "今天想构建什么？",
   subtitle: "让界面安静下来，把注意力留给正在创造的东西。",
@@ -56,6 +60,8 @@ export function validateSubmission(draft: SubmissionDraft, preview?: File, backg
   if (!HANDLE.test(draft.handle)) errors.push("GitHub 用户名格式不正确");
   if (!draft.summary.trim() || draft.summary.length > 120) errors.push("主题简介需要 1–120 个字符");
   if (![draft.accent, draft.ink, draft.surface].every((value) => COLOR.test(value))) errors.push("主题颜色必须是六位十六进制颜色");
+  if (!["smart", "cover", "contain"].includes(draft.backgroundFit)) errors.push("背景适配模式无效");
+  if (!["center", "center top", "center 20%", "center 30%", "center 40%", "center bottom", "left center", "right center"].includes(draft.backgroundPosition)) errors.push("背景主体焦点无效");
   if (!draft.brand.trim() || !draft.title.trim()) errors.push("品牌文字和首页标题不能为空");
   if (!draft.licenseNotes.trim()) errors.push("请说明主题与素材的授权来源");
   if (!preview) errors.push("请上传一张 PNG 真实效果预览图");
@@ -109,7 +115,13 @@ export function createThemeManifests(draft: SubmissionDraft, hasBackground: bool
       surface: draft.surface,
       contrast: 55,
       opaqueWindows: true,
-      ...(backgroundImage ? { backgroundImage, backgroundImageOpacity: 1, backgroundImageBlur: 0 } : {}),
+      ...(backgroundImage ? {
+        backgroundImage,
+        backgroundFit: draft.backgroundFit,
+        backgroundPosition: draft.backgroundPosition,
+        backgroundImageOpacity: 1,
+        backgroundImageBlur: 0,
+      } : {}),
       fonts: {
         ui: "\"Microsoft YaHei UI\", \"PingFang SC\", \"Segoe UI\", sans-serif",
         display: "\"Microsoft YaHei UI\", \"PingFang SC\", \"Segoe UI\", sans-serif",

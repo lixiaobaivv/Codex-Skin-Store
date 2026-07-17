@@ -26,6 +26,8 @@
     },
     "surface": "#fffaf0",
     "backgroundImage": "../backgrounds/enfp-pop-hero-v2.jpg",
+    "backgroundFit": "cover",
+    "backgroundPosition": "center 20%",
     "logoImage": "../logos/enfp-pop-logo-ui-v1.png",
     "backgroundImageOpacity": 1,
     "backgroundImageBlur": 0

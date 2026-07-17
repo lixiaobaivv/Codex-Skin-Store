@@ -12,8 +12,8 @@
       "variant": "light",
       "manifest": {
         "path": "themes/dilraba-star.json",
-        "sha256": "d9b920692b8e526c9505ee6a48661b77b1ecdb4010a90ecde2b8c73d0f52a70a",
-        "size": 3069
+        "sha256": "a0bad2ba0cac94331906b0de3dc98e53e564fe10ce34adc0d10c30a60fc60207",
+        "size": 3139
       },
       "preview": {
         "path": "previews/dilraba-star.png",
@@ -47,8 +47,8 @@
       "variant": "light",
       "manifest": {
         "path": "themes/enfp-pop.json",
-        "sha256": "c1901db95ad4192712ba876c1358eb63e151937d4a30c54a1a7fbdd8bd5de73b",
-        "size": 3146
+        "sha256": "9d5e641c080cdaa8589106e95e12e9350c2d45168a471bcea2d7aea30ca8e9bf",
+        "size": 3216
       },
       "preview": {
         "path": "previews/enfp-pop.png",
@@ -82,8 +82,8 @@
       "variant": "light",
       "manifest": {
         "path": "themes/jackson-sage.json",
-        "sha256": "c5f79d9d191a8de3b8fdd790dd5b83c9aec79398383dfcb718944d95cce08d25",
-        "size": 3048
+        "sha256": "af684c0f7a0772aecb9aaad5a772bf7a7c7c440375a1027cb65a61281eff129c",
+        "size": 3078
       },
       "preview": {
         "path": "previews/jackson-sage.png",
@@ -117,8 +117,8 @@
       "variant": "dark",
       "manifest": {
         "path": "themes/kun-stage.json",
-        "sha256": "6450512eeaf64992d46e5542ef99bb452c379d81fdeb1998d6643fd92afffeff",
-        "size": 2985
+        "sha256": "a8d5eaa2091bd9e2ff6da274ef8bb871e57cb1ae794e8eccc9ec8ce7c0320f54",
+        "size": 3015
       },
       "preview": {
         "path": "previews/kun-stage.png",
@@ -152,8 +152,8 @@
       "variant": "dark",
       "manifest": {
         "path": "themes/zhu-xudan-racing.json",
-        "sha256": "a8f4c413157bcaaee72db9e78bf753ec6b794a779a2ff1f03fa104365c40f604",
-        "size": 2977
+        "sha256": "ef17b3f0bef81a9363cf294e899bf63ce48d6f778378164ea485bfa9d2c8d267",
+        "size": 3047
       },
       "preview": {
         "path": "previews/zhu-xudan-racing.png",

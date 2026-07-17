@@ -27,6 +27,8 @@
         "contrast": { "type": "number", "minimum": 0, "maximum": 100 },
         "opaqueWindows": { "type": "boolean" },
         "backgroundImage": { "$ref": "#/$defs/backgroundPath" },
+        "backgroundFit": { "enum": ["smart", "cover", "contain"] },
+        "backgroundPosition": { "enum": ["center", "center top", "center 20%", "center 30%", "center 40%", "center bottom", "left center", "right center"] },
         "logoImage": { "$ref": "#/$defs/logoPath" },
         "backgroundImageOpacity": { "type": "number", "minimum": 0, "maximum": 1 },
         "backgroundImageBlur": { "type": "number", "minimum": 0, "maximum": 24 },

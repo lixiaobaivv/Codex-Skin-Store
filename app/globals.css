@@ -1842,6 +1842,7 @@ footer > div a:hover {
 .workshop-colors code { align-self: center; color: var(--ink-soft); font-size: 11px; }
 
 .workshop-files { display: grid; gap: 14px; grid-template-columns: 1fr 1fr; }
+.workshop-background-controls { margin-top: 18px; }
 .workshop-file { position: relative; display: grid; min-height: 126px; align-content: center; padding: 20px; border: 1px dashed rgba(21, 21, 18, .4); background: #f8f5ed; cursor: pointer; gap: 7px; }
 .workshop-file:hover { border-color: var(--violet); }
 .workshop-file input { position: absolute; width: 1px; height: 1px; opacity: 0; }
@@ -1872,7 +1873,7 @@ footer > div a:hover {
 .workshop-app-sidebar strong { overflow: hidden; margin-bottom: 16px; color: var(--workshop-accent); font-size: 12px; text-overflow: ellipsis; }
 .workshop-app-sidebar button { padding: 8px 5px; background: var(--workshop-accent); color: var(--workshop-surface); font-size: 9px; }
 .workshop-app-bottom { margin-top: auto; }
-.workshop-app-main { display: flex; min-width: 0; flex-direction: column; align-items: center; justify-content: center; padding: 36px 24px 22px; background-image: linear-gradient(color-mix(in srgb, var(--workshop-surface) 28%, transparent), var(--workshop-surface)), var(--workshop-background); background-position: center; background-size: cover; text-align: center; }
+.workshop-app-main { display: flex; min-width: 0; flex-direction: column; align-items: center; justify-content: center; padding: 36px 24px 22px; background-color: var(--workshop-surface); background-image: linear-gradient(color-mix(in srgb, var(--workshop-surface) 28%, transparent), var(--workshop-surface)), var(--workshop-background); background-position: center, var(--workshop-background-position, center); background-size: auto, var(--workshop-background-size, cover); background-repeat: no-repeat; text-align: center; }
 .workshop-app-main > p { margin: 0 0 12px; color: var(--workshop-accent); font-size: 8px; font-weight: 900; letter-spacing: .15em; }
 .workshop-app-main h2 { max-width: 380px; margin: 0; font-size: clamp(20px, 3vw, 36px); letter-spacing: -.055em; line-height: 1.05; }
 .workshop-app-main > em { max-width: 390px; margin: 12px 0 0; opacity: .65; font-size: 9px; font-style: normal; line-height: 1.5; }
