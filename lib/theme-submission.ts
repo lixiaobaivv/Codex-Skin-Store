@@ -1,0 +1,195 @@
+import { strToU8, zip } from "fflate";
+
+export const CATEGORY_OPTIONS = [
+  { value: "gradient", label: "渐变", desktop: "其他" },
+  { value: "nature", label: "风景", desktop: "风景" },
+  { value: "minimal", label: "极简", desktop: "极简" },
+  { value: "dark", label: "深色", desktop: "其他" },
+  { value: "editorial", label: "个性", desktop: "其他" },
+] as const;
+
+export type SubmissionDraft = {
+  slug: string;
+  name: string;
+  author: string;
+  handle: string;
+  summary: string;
+  category: (typeof CATEGORY_OPTIONS)[number]["value"];
+  variant: "light" | "dark";
+  accent: string;
+  ink: string;
+  surface: string;
+  brand: string;
+  title: string;
+  subtitle: string;
+  composerHint: string;
+  licenseNotes: string;
+};
+
+export const DEFAULT_SUBMISSION: SubmissionDraft = {
+  slug: "my-first-theme",
+  name: "我的第一个主题",
+  author: "",
+  handle: "",
+  summary: "一个清晰、舒适，适合日常使用的 Codex 主题。",
+  category: "minimal",
+  variant: "light",
+  accent: "#635bff",
+  ink: "#20212a",
+  surface: "#f7f6f2",
+  brand: "FOCUS",
+  title: "今天想构建什么？",
+  subtitle: "让界面安静下来，把注意力留给正在创造的东西。",
+  composerHint: "向 Codex 说明你想完成的工作",
+  licenseNotes: "主题设计为本人原创；上传图片为本人原创或已获得可再分发授权。",
+};
+
+const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)+$/;
+const HANDLE = /^[A-Za-z0-9](?:[A-Za-z0-9-]{0,38}[A-Za-z0-9])?$/;
+const COLOR = /^#[0-9a-fA-F]{6}$/;
+
+export function validateSubmission(draft: SubmissionDraft, preview?: File, background?: File) {
+  const errors: string[] = [];
+  if (!SLUG.test(draft.slug) || draft.slug.length > 64) errors.push("主题 ID 需要两个以上小写英文/数字单词，并用连字符连接");
+  if (!draft.name.trim() || draft.name.length > 60) errors.push("主题名称需要 1–60 个字符");
+  if (!draft.author.trim() || draft.author.length > 60) errors.push("请填写作者名称");
+  if (!HANDLE.test(draft.handle)) errors.push("GitHub 用户名格式不正确");
+  if (!draft.summary.trim() || draft.summary.length > 120) errors.push("主题简介需要 1–120 个字符");
+  if (![draft.accent, draft.ink, draft.surface].every((value) => COLOR.test(value))) errors.push("主题颜色必须是六位十六进制颜色");
+  if (!draft.brand.trim() || !draft.title.trim()) errors.push("品牌文字和首页标题不能为空");
+  if (!draft.licenseNotes.trim()) errors.push("请说明主题与素材的授权来源");
+  if (!preview) errors.push("请上传一张 PNG 真实效果预览图");
+  if (preview && preview.type !== "image/png") errors.push("真实效果预览图必须是 PNG");
+  if (preview && preview.size > 20 * 1024 * 1024) errors.push("预览图不能超过 20 MB");
+  if (background && !["image/png", "image/jpeg", "image/webp", "image/avif"].includes(background.type)) errors.push("背景图只接受 PNG、JPEG、WebP 或 AVIF");
+  if (background && background.size > 20 * 1024 * 1024) errors.push("背景图不能超过 20 MB");
+  return errors;
+}
+
+function hexToRgb(hex: string) {
+  return [1, 3, 5].map((index) => Number.parseInt(hex.slice(index, index + 2), 16));
+}
+
+function mix(hex: string, target: number, ratio: number) {
+  const mixed = hexToRgb(hex).map((channel) => Math.round(channel * (1 - ratio) + target * ratio));
+  return `#${mixed.map((channel) => channel.toString(16).padStart(2, "0")).join("")}`;
+}
+
+function nearestColor(hex: string) {
+  const [r, g, b] = hexToRgb(hex);
+  if (Math.max(r, g, b) < 72) return "black";
+  if (Math.max(r, g, b) - Math.min(r, g, b) < 28) return "neutral";
+  if (r > 190 && g < 150) return r > b * 1.25 ? "orange" : "rose";
+  if (b > r * 1.25) return r > 110 ? "violet" : "blue";
+  if (g > r * 1.15) return b > 120 ? "teal" : "green";
+  return "violet";
+}
+
+function backgroundExtension(file: File) {
+  return ({ "image/png": "png", "image/jpeg": "jpg", "image/webp": "webp", "image/avif": "avif" })[file.type];
+}
+
+export function createThemeManifests(draft: SubmissionDraft, hasBackground: boolean, backgroundExt = "jpg") {
+  const desktopCategory = CATEGORY_OPTIONS.find((item) => item.value === draft.category)?.desktop ?? "其他";
+  const backgroundImage = hasBackground ? `../backgrounds/${draft.slug}.${backgroundExt}` : undefined;
+  const desktop = {
+    $schema: "../schemas/theme-v1.schema.json",
+    schemaVersion: 1,
+    version: "1.0.0",
+    displayName: draft.name.trim(),
+    codeThemeId: draft.slug,
+    category: desktopCategory,
+    description: draft.summary.trim(),
+    author: draft.author.trim(),
+    variant: draft.variant,
+    previewImage: `../previews/${draft.slug}.png`,
+    theme: {
+      accent: draft.accent,
+      ink: draft.ink,
+      surface: draft.surface,
+      contrast: 55,
+      opaqueWindows: true,
+      ...(backgroundImage ? { backgroundImage, backgroundImageOpacity: 1, backgroundImageBlur: 0 } : {}),
+      fonts: {
+        ui: "\"Microsoft YaHei UI\", \"PingFang SC\", \"Segoe UI\", sans-serif",
+        display: "\"Microsoft YaHei UI\", \"PingFang SC\", \"Segoe UI\", sans-serif",
+        code: "\"Cascadia Code\", \"SFMono-Regular\", monospace",
+      },
+      semanticColors: { diffAdded: "#18864B", diffRemoved: "#C43D4B", skill: draft.accent },
+    },
+    home: {
+      brand: draft.brand.trim(),
+      eyebrow: "CODEX COMMUNITY THEME",
+      badge: "NEW",
+      title: draft.title.trim(),
+      subtitle: draft.subtitle.trim(),
+      footerNote: `Theme by ${draft.author.trim()}`,
+      composerHint: draft.composerHint.trim(),
+      tags: ["社区主题", draft.variant === "dark" ? "深色" : "浅色", "专注"],
+      sidebarLabels: { newTask: "新建任务", scheduled: "已安排", plugins: "插件", settings: "设置" },
+      quickActions: [
+        { icon: "</>", title: "理解代码", description: "梳理结构和关键流程", prompt: "请概览当前代码库的结构、关键模块和主要流程。" },
+        { icon: "+", title: "构建功能", description: "实现可运行的新能力", prompt: "请基于当前项目实现一个新功能，并完成必要验证。" },
+        { icon: "✓", title: "审查代码", description: "查找缺陷和回归风险", prompt: "请审查当前代码，优先指出缺陷、风险和缺失测试。" },
+        { icon: "!", title: "修复问题", description: "定位根因并验证修复", prompt: "请诊断当前问题，修复根因并验证修复结果。" },
+      ],
+    },
+    copy: {
+      title: `Codex ${draft.name.trim()}`,
+      replacePlaceholders: { "Ask Codex": draft.composerHint.trim(), "Ask Codex anything": draft.composerHint.trim() },
+    },
+  };
+
+  const catalog = {
+    slug: draft.slug,
+    name: draft.name.trim(),
+    summary: draft.summary.trim(),
+    author: { name: draft.author.trim(), handle: draft.handle, curated: false },
+    category: draft.category,
+    platforms: ["macos", "windows"],
+    colors: [nearestColor(draft.accent)],
+    tags: ["社区主题", draft.variant === "dark" ? "深色" : "浅色", "双平台"],
+    stats: { downloads: 0, rating: 0, reviews: 0 },
+    featured: false,
+    isNew: true,
+    version: "1.0.0",
+    engineRange: ">=1.0.0 <2.0.0",
+    publishedAt: new Date().toISOString(),
+    license: { name: "Codex-Skin Theme Assets", spdx: "LicenseRef-Codex-Skin-Theme", source: "project-curated-assets" },
+    package: null,
+    previewImage: `/theme-previews/${draft.slug}.png`,
+    previewStyle: {
+      backgroundColor: draft.surface,
+      backgroundImage: `linear-gradient(145deg, ${draft.surface}, ${mix(draft.accent, draft.variant === "dark" ? 0 : 255, 0.78)})`,
+      panelColor: draft.surface,
+      panelBorder: mix(draft.ink, draft.variant === "dark" ? 255 : 0, 0.78),
+      textColor: draft.ink,
+      mutedTextColor: mix(draft.ink, draft.variant === "dark" ? 255 : 0, 0.42),
+      accentColor: draft.accent,
+      accentSoft: mix(draft.accent, draft.variant === "dark" ? 0 : 255, 0.78),
+      codeColor: draft.accent,
+      shadow: `0 28px 80px ${mix(draft.accent, 0, 0.45)}55`,
+      pattern: draft.category === "nature" ? "mist" : draft.category === "dark" ? "grid" : "paper",
+    },
+  };
+  return { desktop, catalog };
+}
+
+export async function createSubmissionArchive(draft: SubmissionDraft, preview: File, background?: File) {
+  const extension = background ? backgroundExtension(background) : undefined;
+  const { desktop, catalog } = createThemeManifests(draft, Boolean(background), extension);
+  const encoder = (value: unknown) => strToU8(`${JSON.stringify(value, null, 2)}\n`);
+  const previewBytes = new Uint8Array(await preview.arrayBuffer());
+  const files: Record<string, Uint8Array> = {
+    [`themes/${draft.slug}.json`]: encoder(desktop),
+    [`catalog/themes/${draft.slug}.json`]: encoder(catalog),
+    [`previews/${draft.slug}.png`]: previewBytes,
+    [`public/theme-previews/${draft.slug}.png`]: previewBytes,
+    "SUBMISSION.md": strToU8(`# ${draft.name}\n\n作者：${draft.author} (@${draft.handle})\n\n## 素材与许可\n\n${draft.licenseNotes}\n\n## 投稿说明\n\n此投稿包由 Codex-Skin-Store 主题工坊生成。包内只有声明式 JSON 与图片；维护者审核后由可信 CI 构建、签名和发布。\n`),
+  };
+  if (background && extension) files[`backgrounds/${draft.slug}.${extension}`] = new Uint8Array(await background.arrayBuffer());
+  const archive = await new Promise<Uint8Array>((resolve, reject) => {
+    zip(files, { level: 6 }, (error, data) => error ? reject(error) : resolve(data));
+  });
+  return new Blob([archive as BlobPart], { type: "application/zip" });
+}

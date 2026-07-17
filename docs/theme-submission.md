@@ -1,63 +1,61 @@
-# 主题投稿指南
+# 主题制作与投稿
 
-Codex-Skin-Store 采用 GitHub 原生投稿：GitHub 身份、Pull Request、Actions 自动预检和维护者审核共同组成发布流程。合并到 `main` 后，GitHub Pages 会重新生成静态商店；整个流程不需要自有账号服务器、数据库或对象存储。
+Codex-Skin-Store 提供在线主题工坊。普通创作者不需要 Fork 仓库、安装开发工具、手写 JSON、生成目录索引或接触签名私钥。
 
-## 投稿前准备
+## 最短投稿流程
 
-1. 安装 Git、Node.js 22.13 或更高版本；
-2. 准备主题作品以及图片、字体等全部素材的作者、来源和可再分发许可；
-3. 准备一张来自真实 Codex 应用效果的 PNG 预览，不要使用与主题不一致的概念图；
-4. 确定稳定的主题 ID，只能使用小写字母、数字和至少一个连字符，发布后不能改名；
-5. 确定 `1.0.0` 形式的 SemVer 版本以及 Windows、macOS 支持范围。
+1. 打开 [在线主题工坊](https://lixiaobaivv.github.io/Codex-Skin-Store/submit/)；
+2. 填写主题名称、作者、简介与稳定的英文主题 ID；
+3. 调整主题颜色和首页文案，在右侧即时检查效果；
+4. 上传一张来自真实 Codex 界面的 PNG 预览图，可选上传背景图；
+5. 说明主题和素材的作者、来源与再分发许可；
+6. 点击“生成标准投稿包”，再打开投稿页并把 ZIP 拖入指定区域。
 
-投稿者不需要、也不应索取官方 Ed25519 私钥。审核期间网页条目使用 `package: null`；即使合并到 `main`，未签名草稿也不会出现在公开商店。审核通过后，维护者手动运行发布工作流作为批准，再使用 GitHub Secret 完成构建和签名。仓库管理员可额外为 `theme-publishing` Environment 配置 Required reviewers。
+工坊会自动保存文字草稿，并生成以下文件：
 
-## 制作桌面主题
-
-1. 复制 `themes/dilraba-star.json` 为 `themes/<主题ID>.json`；
-2. 保持 `schemaVersion: 1`，让 `codeThemeId` 与文件名完全相同，并填写作者、分类、版本和浅色/深色模式；
-3. 设置背景、强调色、文字色、面板色、首页品牌文案、输入框提示和恰好四张快捷操作卡；
-4. 如需宠物，填写 `home.pet.image`、替代文本和 48-220 的显示尺寸；
-5. 将素材放到固定目录，并只用安全的相对路径引用。
-
-目录对应关系：
-
-| 内容 | 仓库目录 | 清单路径示例 |
-| --- | --- | --- |
-| 客户端预览 | `previews/` | `../previews/my-theme.png` |
-| 主背景 | `backgrounds/` | `../backgrounds/my-theme.jpg` |
-| Logo | `logos/` | `../logos/my-theme.png` |
-| 可选宠物 | `pets/` | `../pets/my-theme.png` |
-
-图片只接受 PNG、JPEG、WebP 或 AVIF，扩展名必须与真实文件格式一致。主题不能修改用户项目、任务、进度、对话内容或账号数据，也不能包含 JavaScript、HTML、CSS、SVG、Shell、PowerShell、可执行文件、符号链接或隐藏的额外文件。
-
-## 提交目录 PR
-
-1. Fork 本仓库并新建分支；
-2. 在 `theme-repository.json` 的 `themes` 数组登记 `themes/<主题ID>.json`，同时更新 UTC `updatedAt`；
-3. 复制一个 `catalog/themes/*.json` 为 `catalog/themes/<主题ID>.json`，让 `slug` 与主题 ID 相同并先设置 `package: null`；
-4. 将与客户端预览相同的 PNG 复制到 `public/theme-previews/<主题ID>.png`，并设置网页条目的 `previewImage`；
-5. 运行 `npm run catalog:generate`，提交同步生成的 `lib/generated-themes.ts` 和 `desktop-catalog-v2.json`；
-6. 运行下列完整检查；
-7. 创建 Pull Request，并完整填写投稿清单、真实截图、测试平台和素材许可。
-
-```bash
-npm ci
-npm run catalog:generate
-npm run catalog:check
-npm run lint
-npm test
-npm run build:pages
+```text
+themes/<theme-id>.json
+catalog/themes/<theme-id>.json
+previews/<theme-id>.png
+public/theme-previews/<theme-id>.png
+backgrounds/<theme-id>.<ext>  # 可选
+SUBMISSION.md
 ```
 
-投稿者始终保留 `package: null`，不要自行填写 URL、大小或摘要。发布工作流会按 `theme-<主题ID>-v<版本>` 创建独立的不可变 Release；同步工作流只接受与主题 ID、版本和文件名完全匹配的包，并自动写入精确大小和 SHA-256。目录仍会拒绝 HTTP、非 GitHub Release 包、占位哈希、重复 slug、重复包 ID/版本、未知字段和超过 20 MiB 的包。
+投稿包只有声明式 JSON 和图片。维护者审核后，由可信 CI 校验、构建、签名、双平台验签并发布 `.dreamskin`；投稿者不需要准备下载地址、文件大小、SHA-256 或签名包。
+
+## 图片与 ID
+
+- 主题 ID 使用两个以上小写英文或数字单词并以连字符连接，例如 `ocean-night`，发布后不可修改或转让；
+- 真实效果预览必须为 PNG，建议 1600×1000 或同等 16:10，最大 20 MB；
+- 可选背景接受 PNG、JPEG、WebP 或 AVIF，建议至少 1600px 宽，最大 20 MB；
+- 截图不能包含私有项目、对话、账号、密钥或其他个人信息；
+- 图片必须是原创内容，或已经取得投稿、公开展示和再分发许可。
 
 ## 审核与发布
 
-Actions 通过只代表结构和构建预检成功，不代表作品获得发布资格。维护者仍会检查预览一致性、冒充、版权、素材许可、平台兼容性和运行时效果。
+提交投稿表单不等于自动发布。维护者会检查：
 
-审核通过后的发布顺序是：合并主题 PR；维护者运行 Codex-Skin 发布工作流；工作流从 Store 的精确提交发现待发布主题，签名并完成 Windows、macOS 双平台导入验证；Store 同步任务重新下载、校验大小和 SHA-256、再次验签、提交生成目录并部署 GitHub Pages。日常发布只需要“合并 PR + 运行发布”，不再人工传递包元数据。
+- 真实预览与主题效果一致；
+- 文字、图片和人物素材不存在明显的冒充、版权或许可问题；
+- 主题保持声明式，不包含脚本、HTML、CSS、SVG、可执行文件或符号链接；
+- 主题在支持的平台上可读、可切换且可回滚；
+- 主题 ID、版本和目录条目没有冲突。
 
-签名工作流只接受维护者手动触发，避免未经批准自动使用私钥。Store 每半小时检查一次已发布包；需要立即上线时可手动运行本仓库的 **Sync verified theme releases**。两个工作流都可通过 `theme_id` 只处理一个主题。
+审核通过后，维护者将投稿包放入审核分支并创建 PR。Actions 根据封闭 Schema 进行预检；PR 合并后，维护者运行 **Publish reviewed Codex-Skin themes** 作为发布批准。发布工作流从精确 Store 提交构建并签名 `.dreamskin`，完成 Windows、macOS 双平台验签后创建不可变 Release。Store 随后重新下载、复验并更新远程增量目录。
 
-已经发布的内容如发现安全、版权或欺诈问题，可以撤下目录条目。未来若投稿量确实需要账号、上传队列和对象存储，再单独评估服务成本和治理方案。
+## 高级作者流程
+
+需要 Logo、宠物、四张自定义快捷卡、字体或完整文案控制的作者，可以直接提交仓库 PR：
+
+1. 按 `schemas/theme-v1.schema.json` 创建 `themes/<theme-id>.json`；
+2. 将素材放入 `previews/`、`backgrounds/`、`logos/` 和 `pets/`；
+3. 在 `catalog/themes/<theme-id>.json` 创建 `package: null` 的商店条目；
+4. 运行 `npm run catalog:generate`、`npm run catalog:check`、`npm run lint`、`npm test` 和 `npm run build:pages`；
+5. 创建 PR，并附上真实截图、测试平台和完整素材许可。
+
+高级流程同样不允许任意 CSS 或代码。主题编译始终由可信 Rust 编译器完成，用户提交内容不能改变项目、任务、对话、账号数据或客户端原生行为。
+
+## 更新与下架
+
+更新已有主题时保持主题 ID 不变并提升 SemVer 版本。已经发布的内容如发现安全、版权或欺诈问题，可以从远程目录下架；客户端仍会对本地缓存执行签名和完整性校验。

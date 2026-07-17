@@ -18,6 +18,7 @@
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next"
   },
   "dependencies": {
+    "fflate": "^0.8.2",
     "next": "16.2.6",
     "react": "19.2.6",
     "react-dom": "19.2.6"

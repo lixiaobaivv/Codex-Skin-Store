@@ -2,13 +2,13 @@ import assert from "node:assert/strict";
 import { access, readFile } from "node:fs/promises";
 import test from "node:test";
 
-async function render() {
+async function render(path = "/") {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
   const { default: worker } = await import(workerUrl.href);
 
   return worker.fetch(
-    new Request("http://localhost/", {
+    new Request(`http://localhost${path}`, {
       headers: { accept: "text/html" },
     }),
     {
@@ -43,6 +43,16 @@ test("server-renders the Codex-Skin-Store storefront", async () => {
   assert.doesNotMatch(html, /极光漫游|余烬终端|千玺星球签名示例/);
   assert.match(html, /非 OpenAI 官方产品/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/i);
+});
+
+test("server-renders the no-code theme workshop", async () => {
+  const response = await render("/submit/");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /不用写代码/);
+  assert.match(html, /生成标准投稿包/);
+  assert.match(html, /安全构建/);
+  assert.match(html, /主题名称/);
 });
 
 test("ships product metadata and removes the disposable starter", async () => {

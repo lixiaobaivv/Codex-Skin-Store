@@ -3,6 +3,7 @@
 import type { CSSProperties } from "react";
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { createDreamSkinInstallLink } from "@/lib/dreamskin-link";
 import {
   COLOR_OPTIONS,
@@ -288,6 +289,7 @@ export function Storefront() {
           <a href="#discover">发现主题</a>
           <a href="#how-it-works">如何导入</a>
           <a href="#creators">创作者</a>
+          <Link href="/submit/">主题工坊</Link>
         </nav>
         <a
           className="header-github"
@@ -460,15 +462,13 @@ export function Storefront() {
           <h2>你的想象，<br />下一位用户的桌面。</h2>
         </div>
         <div className="creator-copy">
-          <p>主题投稿现已开放：通过 GitHub Pull Request 提交，Actions 自动预检，维护者审核后由 Pages 发布。</p>
-          <a
+          <p>不需要 Fork 仓库或手写 JSON。在主题工坊里调整颜色、实时预览并生成标准投稿包。</p>
+          <Link
             className="primary-button"
-            href="https://github.com/lixiaobaivv/Codex-Skin-Store/blob/main/docs/theme-submission.md"
-            target="_blank"
-            rel="noreferrer"
+            href="/submit/"
           >
-            开始投稿主题 <span>↗</span>
-          </a>
+            打开主题工坊 <span>↗</span>
+          </Link>
         </div>
       </section>
 

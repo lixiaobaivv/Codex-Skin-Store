@@ -70,15 +70,8 @@ Themes cannot replace user projects, tasks, progress, conversations, account dat
 
 ## Create And Submit A Theme
 
-Anyone can submit a theme through a GitHub Pull Request; the official signing key is not required. See the [theme submission guide](docs/theme-submission.md) for every field and file location.
+Anyone can use the [online Theme Workshop](https://lixiaobaivv.github.io/Codex-Skin-Store/submit/) without forking the repository, installing Node.js, writing JSON, or handling a signing key. Fill in the theme and license details, tune the live preview, upload a real PNG screenshot and optional background, then attach the generated standard ZIP to the submission form.
 
-1. Fork this repository and copy an existing manifest from `themes/`.
-2. Add the real preview, background, logo, and optional pet images to their matching directories.
-3. Register the manifest in `theme-repository.json` and add a storefront draft under `catalog/themes/` with `package: null`.
-4. Put the same real preview PNG in `public/theme-previews/`.
-5. Run `npm ci`, `npm run catalog:generate`, `npm run catalog:check`, `npm run lint`, and `npm test`.
-6. Open a PR with asset sources, redistribution licenses, and tested platforms.
-
-After CI and maintainer review pass, the PR can be merged without manually entering a package URL, size, or digest. A maintainer runs **Publish reviewed Codex-Skin themes** as the publication approval. It discovers reviewed `package: null` entries, signs the exact Store commit, and verifies each package on Windows and macOS before creating an immutable Release. The Store then downloads and verifies the package again, fills in the catalog metadata, and deploys Pages automatically. Unsigned drafts are not shown on the public storefront.
+After maintainer review, trusted CI validates, builds, signs, and verifies the theme on Windows and macOS. Authors never enter package URLs, sizes, or SHA-256 digests. Advanced authors who need custom logos, pets, quick actions, or fonts can still use the repository PR workflow described in the [theme submission guide](docs/theme-submission.md).
 
 Storefront and catalog issues belong in [Codex-Skin-Store Issues](https://github.com/lixiaobaivv/Codex-Skin-Store/issues). Build and contribution details remain in [CONTRIBUTING.md](CONTRIBUTING.md); normal users do not need Node.js or a source checkout.

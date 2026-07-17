@@ -120,16 +120,14 @@ https://gh-proxy.com/https://github.com/lixiaobaivv/Codex-Skin/releases/latest/d
 
 ## 投稿主题
 
-任何人都可以通过 GitHub Pull Request 投稿，不需要官方签名私钥。完整字段、目录和示例见 [主题制作与投稿指南](docs/theme-submission.md)。最短流程如下：
+任何人都可以通过 [在线主题工坊](https://lixiaobaivv.github.io/Codex-Skin-Store/submit/) 投稿，不需要 Fork 仓库、安装 Node.js、手写 JSON 或接触官方签名私钥：
 
-1. Fork 本仓库，从 `themes/dilraba-star.json` 复制一份主题清单，修改主题 ID、颜色、文案、四张快捷卡和可选宠物；
-2. 把真实效果图和素材分别放入 `previews/`、`backgrounds/`、`logos/` 和可选的 `pets/`，不要提交 JavaScript、CSS、SVG 或可执行文件；
-3. 在 `theme-repository.json` 登记主题，并在 `catalog/themes/<主题ID>.json` 添加 `package: null` 的网页预览条目；
-4. 把同一张真实预览 PNG 放入 `public/theme-previews/<主题ID>.png`；
-5. 运行 `npm ci`、`npm run catalog:generate`、`npm run catalog:check`、`npm run lint` 和 `npm test`；
-6. 提交 PR，并说明素材来源、再分发许可以及已测试的平台。
+1. 填写主题、作者和许可信息；
+2. 调整颜色与首页文案，在页面中即时预览；
+3. 上传真实效果 PNG 和可选背景；
+4. 下载自动生成的标准投稿包，并拖入 GitHub 投稿表单。
 
-PR 通过自动校验和人工审核后即可合并，投稿者和维护者都不需要手工填写下载地址、大小或哈希。维护者运行一次 **Publish reviewed Codex-Skin themes** 作为发布批准，工作流会发现 `package: null` 的已审核主题，从该 Store 提交构建和签名 `.dreamskin`，在 Windows、macOS 双平台验签后发布到不可变 GitHub Release。商店同步任务会重新下载包、计算 SHA-256、再次验签、自动回填目录并部署 Pages。尚未完成签名的草稿不会显示在公开网页中。
+维护者审核后，由可信 CI 校验、构建、签名并完成 Windows、macOS 双平台验签。投稿者不需要填写下载地址、大小或 SHA-256。需要自定义 Logo、宠物、快捷卡和字体的作者仍可使用 [高级 PR 流程](docs/theme-submission.md#高级作者流程)。
 
 主题 ID 发布后不能改名，更新时只提升 SemVer 版本。素材来源、再分发许可和真实预览必须准确；商店代码的 MIT 许可证不会自动覆盖主题作品。
 
