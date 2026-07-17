@@ -51,8 +51,12 @@ export const DEFAULT_SUBMISSION: SubmissionDraft = {
 const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)+$/;
 const HANDLE = /^[A-Za-z0-9](?:[A-Za-z0-9-]{0,38}[A-Za-z0-9])?$/;
 const COLOR = /^#[0-9a-fA-F]{6}$/;
+export const PREVIEW_MAX_BYTES = 2 * 1024 * 1024;
+export const PREVIEW_MAX_DIMENSION = 2400;
+export const BACKGROUND_MAX_BYTES = 16 * 1024 * 1024;
+export const BACKGROUND_MAX_DIMENSION = 8192;
 
-export function validateSubmission(draft: SubmissionDraft, preview?: File, background?: File) {
+export function validateSubmission(draft: SubmissionDraft, preview?: File) {
   const errors: string[] = [];
   if (!SLUG.test(draft.slug) || draft.slug.length > 64) errors.push("主题 ID 需要两个以上小写英文/数字单词，并用连字符连接");
   if (!draft.name.trim() || draft.name.length > 60) errors.push("主题名称需要 1–60 个字符");
@@ -65,11 +69,33 @@ export function validateSubmission(draft: SubmissionDraft, preview?: File, backg
   if (!draft.brand.trim() || !draft.title.trim()) errors.push("品牌文字和首页标题不能为空");
   if (!draft.licenseNotes.trim()) errors.push("请说明主题与素材的授权来源");
   if (!preview) errors.push("请上传一张 PNG 真实效果预览图");
-  if (preview && preview.type !== "image/png") errors.push("真实效果预览图必须是 PNG");
-  if (preview && preview.size > 20 * 1024 * 1024) errors.push("预览图不能超过 20 MB");
-  if (background && !["image/png", "image/jpeg", "image/webp", "image/avif"].includes(background.type)) errors.push("背景图只接受 PNG、JPEG、WebP 或 AVIF");
-  if (background && background.size > 20 * 1024 * 1024) errors.push("背景图不能超过 20 MB");
   return errors;
+}
+
+export async function validateSubmissionAssets(preview?: File, background?: File) {
+  const errors: string[] = [];
+  if (preview) {
+    if (preview.type !== "image/png") errors.push("真实效果预览图必须是 PNG");
+    if (preview.size > PREVIEW_MAX_BYTES) errors.push("预览图不能超过 2 MB");
+    await validateDimensions(preview, "预览图", PREVIEW_MAX_DIMENSION, errors);
+  }
+  if (background) {
+    if (!["image/png", "image/jpeg"].includes(background.type)) errors.push("背景图只接受 PNG 或 JPEG");
+    if (background.size > BACKGROUND_MAX_BYTES) errors.push("背景图不能超过 16 MB");
+    await validateDimensions(background, "背景图", BACKGROUND_MAX_DIMENSION, errors);
+  }
+  return errors;
+}
+
+async function validateDimensions(file: File, label: string, limit: number, errors: string[]) {
+  try {
+    const bitmap = await createImageBitmap(file);
+    const { width, height } = bitmap;
+    bitmap.close();
+    if (width > limit || height > limit) errors.push(`${label}尺寸不能超过 ${limit}×${limit} 像素（当前 ${width}×${height}）`);
+  } catch {
+    errors.push(`${label}无法解码，请重新导出图片`);
+  }
 }
 
 function hexToRgb(hex: string) {
@@ -188,6 +214,8 @@ export function createThemeManifests(draft: SubmissionDraft, hasBackground: bool
 }
 
 export async function createSubmissionArchive(draft: SubmissionDraft, preview: File, background?: File) {
+  const errors = [...validateSubmission(draft, preview), ...await validateSubmissionAssets(preview, background)];
+  if (errors.length) throw new Error(errors.join("；"));
   const extension = background ? backgroundExtension(background) : undefined;
   const { desktop, catalog } = createThemeManifests(draft, Boolean(background), extension);
   const encoder = (value: unknown) => strToU8(`${JSON.stringify(value, null, 2)}\n`);

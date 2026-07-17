@@ -35,7 +35,7 @@ for (const entry of index.themes) {
   for (const [asset, directory] of assets) {
     if (!asset) continue;
     assert.match(asset, new RegExp(`^\\.\\./${directory}/[A-Za-z0-9._-]+\\.(?:png|jpe?g|webp|avif)$`), `${entry.id}: unsafe ${directory} path`);
-    await validateImage(join(root, "themes", asset), entry.id);
+    await validateImage(join(root, "themes", asset), entry.id, directory);
   }
 }
 
@@ -54,7 +54,7 @@ function exactKeys(value, expected, label) {
   assert.deepEqual(Object.keys(value).sort(), [...expected].sort(), `${label} contains missing or unknown fields`);
 }
 
-async function validateImage(path, themeId) {
+async function validateImage(path, themeId, role) {
   const absolute = resolve(path);
   assert.ok(absolute.startsWith(`${root}${sep}`), `${themeId}: asset escapes repository`);
   const bytes = await readFile(absolute);
@@ -69,4 +69,41 @@ async function validateImage(path, themeId) {
           ? bytes.subarray(4, 8).toString() === "ftyp" && ["avif", "avis"].some(brand => bytes.includes(Buffer.from(brand)))
           : false;
   assert.ok(valid, `${themeId}: image signature does not match ${relative(root, absolute)}`);
+  const limits = role === "previews"
+    ? { bytes: 2 * 1024 * 1024, dimension: 2400 }
+    : role === "backgrounds"
+      ? { bytes: 16 * 1024 * 1024, dimension: 8192 }
+      : { bytes: 20 * 1024 * 1024, dimension: 8192 };
+  assert.ok(bytes.length <= limits.bytes, `${themeId}: ${role} image exceeds ${limits.bytes} bytes`);
+  const dimensions = imageDimensions(bytes, extension);
+  assert.ok(dimensions.width <= limits.dimension && dimensions.height <= limits.dimension,
+    `${themeId}: ${role} image exceeds ${limits.dimension}x${limits.dimension} pixels`);
+}
+
+function imageDimensions(bytes, extension) {
+  if (extension === ".png") return { width: bytes.readUInt32BE(16), height: bytes.readUInt32BE(20) };
+  if (extension === ".jpg" || extension === ".jpeg") {
+    let offset = 2;
+    while (offset + 9 < bytes.length) {
+      if (bytes[offset] !== 0xff) { offset += 1; continue; }
+      const marker = bytes[offset + 1];
+      const length = bytes.readUInt16BE(offset + 2);
+      if (length < 2 || offset + 2 + length > bytes.length) break;
+      if ([0xc0, 0xc1, 0xc2, 0xc3, 0xc5, 0xc6, 0xc7, 0xc9, 0xca, 0xcb, 0xcd, 0xce, 0xcf].includes(marker)) {
+        return { height: bytes.readUInt16BE(offset + 5), width: bytes.readUInt16BE(offset + 7) };
+      }
+      offset += 2 + length;
+    }
+  }
+  if (extension === ".webp") {
+    const kind = bytes.subarray(12, 16).toString();
+    if (kind === "VP8X") return { width: 1 + bytes.readUIntLE(24, 3), height: 1 + bytes.readUIntLE(27, 3) };
+    if (kind === "VP8 ") return { width: bytes.readUInt16LE(26) & 0x3fff, height: bytes.readUInt16LE(28) & 0x3fff };
+    if (kind === "VP8L") return { width: 1 + bytes[21] + ((bytes[22] & 0x3f) << 8), height: 1 + (bytes[22] >> 6) + (bytes[23] << 2) + ((bytes[24] & 0x0f) << 10) };
+  }
+  if (extension === ".avif") {
+    const marker = bytes.indexOf(Buffer.from("ispe"));
+    if (marker >= 4 && marker + 16 <= bytes.length) return { width: bytes.readUInt32BE(marker + 8), height: bytes.readUInt32BE(marker + 12) };
+  }
+  assert.fail(`cannot read image dimensions for ${extension}`);
 }

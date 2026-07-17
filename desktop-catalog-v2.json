@@ -157,14 +157,14 @@
       },
       "preview": {
         "path": "previews/user-upload-test.png",
-        "sha256": "32d8be34cc797d57bfe64e1da3068bc1ff6d266703c978b27d298210c38532a2",
-        "size": 11004054
+        "sha256": "842685f368474332d11d3a972d62ec686f05105104a8693b47b3cc28f1ee8330",
+        "size": 1686113
       },
       "assets": [
         {
           "path": "previews/user-upload-test.png",
-          "sha256": "32d8be34cc797d57bfe64e1da3068bc1ff6d266703c978b27d298210c38532a2",
-          "size": 11004054
+          "sha256": "842685f368474332d11d3a972d62ec686f05105104a8693b47b3cc28f1ee8330",
+          "size": 1686113
         },
         {
           "path": "backgrounds/user-upload-test.jpg",

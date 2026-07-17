@@ -1,7 +1,7 @@
 "use client";
 
 import type { CSSProperties } from "react";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import {
   CATEGORY_OPTIONS,
@@ -9,6 +9,7 @@ import {
   createSubmissionArchive,
   type SubmissionDraft,
   validateSubmission,
+  validateSubmissionAssets,
 } from "@/lib/theme-submission";
 
 const DRAFT_KEY = "codex-skin-theme-workshop-v1";
@@ -42,6 +43,9 @@ export function ThemeWorkshop() {
   const [ready, setReady] = useState(false);
   const [generating, setGenerating] = useState(false);
   const [archiveError, setArchiveError] = useState("");
+  const [assetErrors, setAssetErrors] = useState<string[]>([]);
+  const [checkingAssets, setCheckingAssets] = useState(false);
+  const assetCheckId = useRef(0);
 
   useEffect(() => {
     const frame = requestAnimationFrame(() => {
@@ -60,15 +64,30 @@ export function ThemeWorkshop() {
 
   const backgroundUrl = useMemo(() => background ? URL.createObjectURL(background) : undefined, [background]);
   useEffect(() => () => { if (backgroundUrl) URL.revokeObjectURL(backgroundUrl); }, [backgroundUrl]);
-  const errors = validateSubmission(draft, preview, background);
+  async function checkAssets(nextPreview?: File, nextBackground?: File) {
+    const checkId = ++assetCheckId.current;
+    setCheckingAssets(true);
+    const nextErrors = await validateSubmissionAssets(nextPreview, nextBackground);
+    if (checkId === assetCheckId.current) {
+      setAssetErrors(nextErrors);
+      setCheckingAssets(false);
+    }
+  }
+  const selectPreview = (file?: File) => { setPreview(file); void checkAssets(file, background); };
+  const selectBackground = (file?: File) => { setBackground(file); void checkAssets(preview, file); };
+  const formErrors = validateSubmission(draft, preview);
+  const errors = [...formErrors, ...assetErrors];
   const set = <K extends keyof SubmissionDraft>(key: K, value: SubmissionDraft[K]) => setDraft((current) => ({ ...current, [key]: value }));
 
   async function download() {
     setSubmitted(true);
-    if (errors.length || !preview) return;
+    if (!preview || formErrors.length) return;
     setGenerating(true);
     setArchiveError("");
     try {
+      const latestAssetErrors = await validateSubmissionAssets(preview, background);
+      setAssetErrors(latestAssetErrors);
+      if (latestAssetErrors.length) return;
       const blob = await createSubmissionArchive(draft, preview, background);
       const url = URL.createObjectURL(blob);
       const anchor = document.createElement("a");
@@ -132,8 +151,8 @@ export function ThemeWorkshop() {
           <TextField label="首页副标题" value={draft.subtitle} maxLength={200} onChange={(value) => set("subtitle", value)} />
           <TextField label="输入框提示" value={draft.composerHint} maxLength={200} onChange={(value) => set("composerHint", value)} />
           <div className="workshop-files">
-            <FileField label="真实效果预览 PNG（必填）" hint="建议 1600×1000，最大 20 MB" accept="image/png" file={preview} onChange={setPreview} />
-            <FileField label="主题背景（可选）" hint="PNG / JPEG / WebP / AVIF" accept="image/png,image/jpeg,image/webp,image/avif" file={background} onChange={setBackground} />
+            <FileField label="真实效果预览 PNG（必填）" hint="建议 1600×1000；最长边 ≤2400；最大 2 MB" accept="image/png" file={preview} onChange={selectPreview} />
+            <FileField label="主题背景（可选）" hint="PNG / JPEG；最长边 ≤8192；最大 16 MB" accept="image/png,image/jpeg" file={background} onChange={selectBackground} />
           </div>
           {background && <div className="workshop-fields workshop-fields--two workshop-background-controls">
             <label className="workshop-field"><span>背景适配</span><select value={draft.backgroundFit} onChange={(event) => set("backgroundFit", event.target.value as SubmissionDraft["backgroundFit"])}><option value="smart">智能适配（推荐）</option><option value="cover">铺满并允许裁切</option><option value="contain">完整显示</option></select><small>智能模式会在运行时根据窗口和图片比例自动判断。</small></label>
@@ -142,10 +161,10 @@ export function ThemeWorkshop() {
 
           <div className="workshop-section-title"><b>03</b><div><h2>许可与投稿</h2><p>请确认你拥有主题和图片的投稿、展示及再分发权。</p></div></div>
           <label className="workshop-field"><span>素材来源与许可</span><textarea value={draft.licenseNotes} maxLength={1000} onChange={(event) => set("licenseNotes", event.target.value)} /></label>
-          {submitted && errors.length > 0 && <div className="workshop-errors" role="alert"><strong>还差一点：</strong><ul>{errors.map((error) => <li key={error}>{error}</li>)}</ul></div>}
+          {(submitted ? errors : assetErrors).length > 0 && <div className="workshop-errors" role="alert"><strong>还差一点：</strong><ul>{(submitted ? errors : assetErrors).map((error) => <li key={error}>{error}</li>)}</ul></div>}
           {archiveError && <div className="workshop-errors" role="alert">{archiveError}</div>}
           <div className="workshop-submit">
-            <button type="button" onClick={download} disabled={generating}>{generating ? "正在生成…" : "生成标准投稿包"} <span>↓</span></button>
+            <button type="button" onClick={download} disabled={generating || checkingAssets}>{checkingAssets ? "正在检查图片…" : generating ? "正在生成…" : "生成标准投稿包"} <span>↓</span></button>
             <a href={issueUrl} target="_blank" rel="noreferrer">打开投稿页 <span>↗</span></a>
           </div>
           <p className="workshop-submit-hint">先下载投稿包，再打开投稿页并将 ZIP 拖入“投稿包”区域。维护者审核后，CI 会负责验证、构建和签名。</p>

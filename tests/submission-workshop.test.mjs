@@ -16,6 +16,11 @@ test("theme workshop generates the complete review bundle", async () => {
   assert.match(source, /package: null/);
   assert.match(source, /zip\(files/);
   assert.match(source, /image\/png/);
+  assert.match(source, /PREVIEW_MAX_BYTES = 2 \* 1024 \* 1024/);
+  assert.match(source, /PREVIEW_MAX_DIMENSION = 2400/);
+  assert.match(source, /BACKGROUND_MAX_BYTES = 16 \* 1024 \* 1024/);
+  assert.match(source, /BACKGROUND_MAX_DIMENSION = 8192/);
+  assert.match(source, /validateSubmissionAssets/);
   assert.doesNotMatch(source, /javascript|text\/html|application\/x-executable/i);
 });
 
