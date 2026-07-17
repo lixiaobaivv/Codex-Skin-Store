@@ -151,7 +151,7 @@ export function ThemeWorkshop() {
           <TextField label="首页副标题" value={draft.subtitle} maxLength={200} onChange={(value) => set("subtitle", value)} />
           <TextField label="输入框提示" value={draft.composerHint} maxLength={200} onChange={(value) => set("composerHint", value)} />
           <div className="workshop-files">
-            <FileField label="真实效果预览 PNG（必填）" hint="建议 1600×1000；最长边 ≤2400；最大 2 MB" accept="image/png" file={preview} onChange={selectPreview} />
+            <FileField label="真实效果预览 PNG（必填）" hint="至少 1200×750，建议 1600×1000；最大 2 MB" accept="image/png" file={preview} onChange={selectPreview} />
             <FileField label="主题背景（可选）" hint="PNG / JPEG；最长边 ≤8192；最大 16 MB" accept="image/png,image/jpeg" file={background} onChange={selectBackground} />
           </div>
           {background && <div className="workshop-fields workshop-fields--two workshop-background-controls">
@@ -160,7 +160,7 @@ export function ThemeWorkshop() {
           </div>}
 
           <div className="workshop-section-title"><b>03</b><div><h2>许可与投稿</h2><p>请确认你拥有主题和图片的投稿、展示及再分发权。</p></div></div>
-          <label className="workshop-field"><span>素材来源与许可</span><textarea value={draft.licenseNotes} maxLength={1000} onChange={(event) => set("licenseNotes", event.target.value)} /></label>
+          <label className="workshop-field"><span>素材来源与许可</span><textarea value={draft.licenseNotes} maxLength={1000} placeholder="例如：主题和背景图均为本人原创，作者为……；或列出素材来源链接、作者及 CC BY 4.0 等再分发许可。" onChange={(event) => set("licenseNotes", event.target.value)} /><small>这段说明会进入审核记录；请逐项说明原创、授权或具体许可证，不能只写“网络素材”。</small></label>
           {(submitted ? errors : assetErrors).length > 0 && <div className="workshop-errors" role="alert"><strong>还差一点：</strong><ul>{(submitted ? errors : assetErrors).map((error) => <li key={error}>{error}</li>)}</ul></div>}
           {archiveError && <div className="workshop-errors" role="alert">{archiveError}</div>}
           <div className="workshop-submit">

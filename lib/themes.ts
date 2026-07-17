@@ -44,7 +44,7 @@ export interface ThemeStats {
 export interface ThemeLicense {
   readonly name: "Codex-Skin Theme Assets";
   readonly spdx: "LicenseRef-Codex-Skin-Theme";
-  readonly source: "project-curated-assets";
+  readonly source: "project-curated-assets" | "creator-submitted-assets";
 }
 
 export interface ThemePreviewStyle {

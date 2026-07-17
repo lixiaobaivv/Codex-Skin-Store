@@ -4,7 +4,7 @@
 
 Codex-Skin-Store 是 Codex-Skin 的公开主题商店。你可以在网页中浏览、筛选和下载主题，也可以通过 `dreamskin://` 一键交给本机 Codex-Skin 客户端验证和安装。
 
-网页当前展示 Dilraba Star、ENFP Pop、Jackson Sage、KUN Stage 和 Zhu Xudan Racing 五个正式主题，预览图直接来自客户端真实主题效果。
+网页只展示已经完成审核、签名和目录同步的正式主题，预览图直接来自客户端真实主题效果。
 
 - 在线商店：<https://lixiaobaivv.github.io/Codex-Skin-Store/>
 - 无代码主题工坊：<https://lixiaobaivv.github.io/Codex-Skin-Store/submit/>
@@ -141,7 +141,9 @@ backgrounds/<theme-id>.<ext>           可选背景
 SUBMISSION.md                           作者与素材许可
 ```
 
-提交表单不会立即上线主题。维护者会检查真实预览、可读性、主题 ID 冲突和素材权利，再把投稿包转换为审核 PR。Actions 校验封闭 Schema 和目录结构；审核合并后，可信发布流程从精确 Store 提交构建和签名 `.dreamskin`，完成 Windows、macOS 双平台验签，再自动回填版本、下载地址、大小和 SHA-256，并更新网页及桌面轻量目录。
+提交表单不会立即上线主题。维护者在 GitHub Actions 中输入 Issue 编号，手动运行 **Create theme review PR from Issue**。工作流会安全下载唯一 ZIP，限制大小、文件数和白名单路径，检查清单、社区许可、图片签名与真实预览尺寸，保存审核来源，重新生成目录并运行完整测试；通过后只创建 Draft PR，不直接修改 `main` 或发布主题。失败时会在 Issue 中给出日志链接。
+
+维护者在 Draft PR 中继续检查真实视觉、可读性、隐私、主题 ID 冲突和素材权利。审核合并后，可信发布流程从精确 Store 提交构建和签名 `.dreamskin`，完成 Windows、macOS 双平台验签，再自动回填版本、下载地址、大小和 SHA-256，并更新网页及桌面轻量目录。
 
 需要自定义 Logo、宠物、四张快捷卡、字体或全部首页文案的作者仍可使用 [高级 PR 流程](docs/theme-submission.md#高级作者流程)。普通投稿和高级投稿都只能包含声明式主题数据与允许的图片，不能加入任意 CSS、JavaScript、HTML、SVG、脚本或可执行文件。
 

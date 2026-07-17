@@ -1,0 +1,112 @@
+name: Create theme review PR from Issue
+
+on:
+  workflow_dispatch:
+    inputs:
+      issue_number:
+        description: Theme submission Issue number
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+concurrency:
+  group: theme-submission-${{ inputs.issue_number }}
+  cancel-in-progress: false
+
+jobs:
+  validate-and-open-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate Issue number
+        env:
+          ISSUE_NUMBER: ${{ inputs.issue_number }}
+        run: |
+          if [[ ! "$ISSUE_NUMBER" =~ ^[1-9][0-9]*$ ]]; then
+            echo "issue_number must be a positive integer" >&2
+            exit 1
+          fi
+
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Download the single standard submission bundle
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          ISSUE_NUMBER: ${{ inputs.issue_number }}
+        run: node tools/download-theme-submission.mjs --repo "$GITHUB_REPOSITORY" --issue "$ISSUE_NUMBER" --output "$RUNNER_TEMP/submission.zip"
+
+      - name: Validate and import the untrusted bundle
+        id: submission
+        env:
+          ISSUE_NUMBER: ${{ inputs.issue_number }}
+        run: node tools/import-theme-submission.mjs --archive "$RUNNER_TEMP/submission.zip" --root "$GITHUB_WORKSPACE" --issue-url "https://github.com/$GITHUB_REPOSITORY/issues/$ISSUE_NUMBER"
+
+      - name: Regenerate and validate every catalog artifact
+        run: |
+          npm run catalog:generate
+          npm run catalog:check
+          npm run lint
+          npm test
+          npm run build:pages
+        env:
+          BUILD_GITHUB_PAGES: "true"
+          NEXT_PUBLIC_SITE_URL: https://lixiaobaivv.github.io/Codex-Skin-Store/
+
+      - name: Create isolated review branch
+        id: branch
+        env:
+          ISSUE_NUMBER: ${{ inputs.issue_number }}
+          THEME_ID: ${{ steps.submission.outputs.theme_id }}
+          THEME_NAME: ${{ steps.submission.outputs.theme_name }}
+          AUTHOR_HANDLE: ${{ steps.submission.outputs.author_handle }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          branch="theme-review/issue-${ISSUE_NUMBER}-${THEME_ID}-${GITHUB_RUN_ID}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$branch"
+          git add -A
+          git commit -m "feat(theme): review ${THEME_ID} submission"
+          git push origin "$branch"
+          cat > "$RUNNER_TEMP/pr-body.md" <<EOF
+          ## 主题投稿审核
+
+          由主题工坊投稿 Issue #${ISSUE_NUMBER} 生成。
+
+          - 主题：${THEME_NAME}（\`${THEME_ID}\`）
+          - 作者：@${AUTHOR_HANDLE}
+          - 状态：自动结构、安全、Schema 和构建检查已通过；仍需人工检查真实视觉、素材权利和双平台效果。
+
+          Closes #${ISSUE_NUMBER}
+          EOF
+          pr_url=$(gh pr create --draft --base main --head "$branch" --title "theme: review ${THEME_NAME}" --body-file "$RUNNER_TEMP/pr-body.md")
+          echo "branch=$branch" >> "$GITHUB_OUTPUT"
+          echo "pr_url=$pr_url" >> "$GITHUB_OUTPUT"
+
+      - name: Link the review PR from the submission Issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_NUMBER: ${{ inputs.issue_number }}
+          PR_URL: ${{ steps.branch.outputs.pr_url }}
+        run: gh issue comment "$ISSUE_NUMBER" --body "投稿包已通过自动预检，并创建 Draft 审核 PR：$PR_URL。主题尚未发布，下一步是人工视觉、许可与双平台审核。"
+
+      - name: Report validation failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_NUMBER: ${{ inputs.issue_number }}
+          RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          if [[ "$ISSUE_NUMBER" =~ ^[1-9][0-9]*$ ]]; then
+            gh issue comment "$ISSUE_NUMBER" --body "投稿包未通过自动预检，请根据运行日志修正后重新上传 ZIP：$RUN_URL"
+          fi

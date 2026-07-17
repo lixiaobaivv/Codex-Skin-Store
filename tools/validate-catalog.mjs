@@ -64,7 +64,7 @@ export function validateTheme(theme, source = "theme") {
   if (!Number.isInteger(theme.stats.reviews) || theme.stats.reviews < 0) fail(source, "reviews must be a non-negative integer");
 
   exactKeys(theme.license, ["name", "spdx", "source"], `${source}.license`);
-  if (theme.license.name !== "Codex-Skin Theme Assets" || theme.license.spdx !== "LicenseRef-Codex-Skin-Theme" || theme.license.source !== "project-curated-assets") fail(source, "unsupported license declaration");
+  if (theme.license.name !== "Codex-Skin Theme Assets" || theme.license.spdx !== "LicenseRef-Codex-Skin-Theme" || !["project-curated-assets", "creator-submitted-assets"].includes(theme.license.source)) fail(source, "unsupported license declaration");
 
   if (typeof theme.previewImage !== "string" || !/^\/theme-previews\/[a-z0-9-]+\.png$/.test(theme.previewImage)) fail(source, "invalid previewImage path");
 

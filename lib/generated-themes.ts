@@ -289,7 +289,7 @@ export const GENERATED_THEMES = [
     "license": {
       "name": "Codex-Skin Theme Assets",
       "spdx": "LicenseRef-Codex-Skin-Theme",
-      "source": "project-curated-assets"
+      "source": "creator-submitted-assets"
     },
     "package": {
       "published": true,
@@ -349,7 +349,7 @@ export const GENERATED_THEMES = [
     "license": {
       "name": "Codex-Skin Theme Assets",
       "spdx": "LicenseRef-Codex-Skin-Theme",
-      "source": "project-curated-assets"
+      "source": "creator-submitted-assets"
     },
     "package": null,
     "previewImage": "/theme-previews/user-upload-test2.png",

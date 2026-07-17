@@ -45,13 +45,15 @@ export const DEFAULT_SUBMISSION: SubmissionDraft = {
   title: "今天想构建什么？",
   subtitle: "让界面安静下来，把注意力留给正在创造的东西。",
   composerHint: "向 Codex 说明你想完成的工作",
-  licenseNotes: "主题设计为本人原创；上传图片为本人原创或已获得可再分发授权。",
+  licenseNotes: "",
 };
 
 const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)+$/;
 const HANDLE = /^[A-Za-z0-9](?:[A-Za-z0-9-]{0,38}[A-Za-z0-9])?$/;
 const COLOR = /^#[0-9a-fA-F]{6}$/;
 export const PREVIEW_MAX_BYTES = 2 * 1024 * 1024;
+export const PREVIEW_MIN_WIDTH = 1200;
+export const PREVIEW_MIN_HEIGHT = 750;
 export const PREVIEW_MAX_DIMENSION = 2400;
 export const BACKGROUND_MAX_BYTES = 16 * 1024 * 1024;
 export const BACKGROUND_MAX_DIMENSION = 8192;
@@ -67,7 +69,11 @@ export function validateSubmission(draft: SubmissionDraft, preview?: File) {
   if (!["smart", "cover", "contain"].includes(draft.backgroundFit)) errors.push("背景适配模式无效");
   if (!["center", "center top", "center 20%", "center 30%", "center 40%", "center bottom", "left center", "right center"].includes(draft.backgroundPosition)) errors.push("背景主体焦点无效");
   if (!draft.brand.trim() || !draft.title.trim()) errors.push("品牌文字和首页标题不能为空");
-  if (!draft.licenseNotes.trim()) errors.push("请说明主题与素材的授权来源");
+  const licenseNotes = draft.licenseNotes.trim();
+  if (licenseNotes.length < 20) errors.push("请用至少 20 个字符说明每项素材的作者、来源和再分发许可");
+  if (licenseNotes && !/(原创|授权|许可|版权|license|https?:\/\/|\b(?:CC|MIT|Apache|GPL)\b)/i.test(licenseNotes)) {
+    errors.push("素材说明需要明确原创、授权、许可证名称或来源链接");
+  }
   if (!preview) errors.push("请上传一张 PNG 真实效果预览图");
   return errors;
 }
@@ -77,13 +83,20 @@ export async function validateSubmissionAssets(preview?: File, background?: File
   if (preview) {
     if (preview.type !== "image/png") errors.push("真实效果预览图必须是 PNG");
     if (preview.size > PREVIEW_MAX_BYTES) errors.push("预览图不能超过 2 MB");
-    await validateDimensions(preview, "预览图", PREVIEW_MAX_DIMENSION, errors);
+    const dimensions = await validateDimensions(preview, "预览图", PREVIEW_MAX_DIMENSION, errors);
+    if (dimensions && (dimensions.width < PREVIEW_MIN_WIDTH || dimensions.height < PREVIEW_MIN_HEIGHT)) {
+      errors.push(`预览图至少需要 ${PREVIEW_MIN_WIDTH}×${PREVIEW_MIN_HEIGHT} 像素（当前 ${dimensions.width}×${dimensions.height}）`);
+    }
+    if (dimensions && (dimensions.width / dimensions.height < 1.45 || dimensions.width / dimensions.height > 1.75)) {
+      errors.push("预览图需要接近 16:10 的横向真实界面截图");
+    }
   }
   if (background) {
     if (!["image/png", "image/jpeg"].includes(background.type)) errors.push("背景图只接受 PNG 或 JPEG");
     if (background.size > BACKGROUND_MAX_BYTES) errors.push("背景图不能超过 16 MB");
     await validateDimensions(background, "背景图", BACKGROUND_MAX_DIMENSION, errors);
   }
+  if (preview && background && await sameFileContents(preview, background)) errors.push("真实界面预览不能直接复用为主题背景图");
   return errors;
 }
 
@@ -93,9 +106,18 @@ async function validateDimensions(file: File, label: string, limit: number, erro
     const { width, height } = bitmap;
     bitmap.close();
     if (width > limit || height > limit) errors.push(`${label}尺寸不能超过 ${limit}×${limit} 像素（当前 ${width}×${height}）`);
+    return { width, height };
   } catch {
     errors.push(`${label}无法解码，请重新导出图片`);
+    return undefined;
   }
+}
+
+async function sameFileContents(left: File, right: File) {
+  if (left.size !== right.size) return false;
+  const [leftBytes, rightBytes] = await Promise.all([left.arrayBuffer(), right.arrayBuffer()]);
+  const [leftHash, rightHash] = await Promise.all([crypto.subtle.digest("SHA-256", leftBytes), crypto.subtle.digest("SHA-256", rightBytes)]);
+  return new Uint8Array(leftHash).every((value, index) => value === new Uint8Array(rightHash)[index]);
 }
 
 function hexToRgb(hex: string) {
@@ -193,7 +215,7 @@ export function createThemeManifests(draft: SubmissionDraft, hasBackground: bool
     version: "1.0.0",
     engineRange: ">=1.0.0 <2.0.0",
     publishedAt: new Date().toISOString(),
-    license: { name: "Codex-Skin Theme Assets", spdx: "LicenseRef-Codex-Skin-Theme", source: "project-curated-assets" },
+    license: { name: "Codex-Skin Theme Assets", spdx: "LicenseRef-Codex-Skin-Theme", source: "creator-submitted-assets" },
     package: null,
     previewImage: `/theme-previews/${draft.slug}.png`,
     previewStyle: {

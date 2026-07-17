@@ -4,7 +4,7 @@
 
 Codex-Skin-Store is the public theme catalog for Codex-Skin. Browse themes on the web, download them manually, or send a signed theme to the Windows or macOS client with one click.
 
-The storefront currently publishes Dilraba Star, ENFP Pop, Jackson Sage, KUN Stage, and Zhu Xudan Racing. Every card uses a real client theme preview.
+The storefront only shows themes that have completed review, signing, and catalog synchronization. Every card uses a real client preview.
 
 - Storefront: <https://lixiaobaivv.github.io/Codex-Skin-Store/>
 - No-code Theme Workshop: <https://lixiaobaivv.github.io/Codex-Skin-Store/submit/>
@@ -83,7 +83,9 @@ Anyone can use the [online Theme Workshop](https://lixiaobaivv.github.io/Codex-S
 
 Text fields are saved in the current browser. Images are not persisted and must be selected again after a page reload. The generated ZIP contains the desktop manifest, a `package: null` storefront draft, matching client and web previews, the optional background, and `SUBMISSION.md` license notes.
 
-Submitting the form does not publish the theme immediately. A maintainer reviews the real preview, readability, ID conflicts, and asset rights, then converts the bundle into a review PR. Actions validate the closed schemas and catalog structure. After approval, trusted CI builds and signs `.dreamskin` from the exact Store commit, verifies it on Windows and macOS, fills in the version, download URL, size, and SHA-256, and updates both the storefront and lightweight desktop catalog.
+Submitting the form does not publish the theme. A maintainer manually runs **Create theme review PR from Issue** with the Issue number. The workflow downloads the single ZIP safely, enforces size, entry-count, and exact-path limits, checks manifests, community licensing, image signatures, and real-preview dimensions, records provenance, regenerates catalogs, and runs the full test suite. Success creates an isolated Draft PR; failure only comments with a run-log link and never modifies `main`.
+
+Maintainers still review the Draft PR for real visual quality, readability, privacy, ID conflicts, asset rights, and both platforms. After approval, trusted CI builds and signs `.dreamskin` from the exact Store commit, verifies it on Windows and macOS, fills in the version, download URL, size, and SHA-256, and updates both the storefront and lightweight desktop catalog.
 
 Advanced authors who need custom logos, pets, four prompt cards, fonts, or complete copy control can still use the repository PR workflow in the [theme submission guide](docs/theme-submission.md). Both submission paths accept only declarative theme data and allowed images—never arbitrary CSS, JavaScript, HTML, SVG, scripts, or executables.
 

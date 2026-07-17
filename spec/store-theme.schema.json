@@ -54,7 +54,7 @@
       "properties": {
         "name": { "const": "Codex-Skin Theme Assets" },
         "spdx": { "const": "LicenseRef-Codex-Skin-Theme" },
-        "source": { "const": "project-curated-assets" }
+        "source": { "enum": ["project-curated-assets", "creator-submitted-assets"] }
       }
     },
     "package": {

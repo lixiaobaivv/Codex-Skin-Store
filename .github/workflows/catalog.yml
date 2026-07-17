@@ -10,6 +10,7 @@ on:
       - "backgrounds/**"
       - "logos/**"
       - "pets/**"
+      - "submissions/**"
       - "schemas/**"
       - "spec/**"
       - "tools/**"
@@ -20,6 +21,7 @@ on:
       - "package-lock.json"
       - ".github/workflows/catalog.yml"
       - ".github/workflows/sync-published-themes.yml"
+      - ".github/workflows/review-theme-submission.yml"
   workflow_dispatch:
 
 permissions:

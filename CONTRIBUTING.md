@@ -40,11 +40,13 @@ npm test
 
 ## 主题目录贡献
 
-普通创作者优先使用[在线主题工坊](https://lixiaobaivv.github.io/Codex-Skin-Store/submit/)生成标准投稿包，再通过主题投稿表单上传。维护者检查素材许可和预览后，把投稿包放入审核分支并创建 PR。
+普通创作者优先使用[在线主题工坊](https://lixiaobaivv.github.io/Codex-Skin-Store/submit/)生成标准投稿包，再通过主题投稿表单上传。维护者在 Actions 中手动运行 **Create theme review PR from Issue**；工作流安全校验 ZIP、导入白名单文件、生成目录并创建 Draft PR。不要直接把不可信 ZIP 解压到工作区或 `main`。
 
 需要完整字段控制的高级作者可以直接提交 GitHub Pull Request。请先阅读 [`docs/theme-submission.md`](docs/theme-submission.md)，在 `catalog/themes/` 新增或更新一个与 `slug` 同名的 JSON 文件，然后运行 `npm run catalog:generate` 并提交同步生成的 `lib/generated-themes.ts`。Actions 会根据封闭 schema 自动预检，维护者审核后才会合并并由 GitHub Pages 发布。
 
 不要把 `.dreamskin` 二进制或签名私钥提交到仓库或投稿表单。投稿者只提交主题工坊生成的标准 ZIP，或在高级 PR 中提交声明式源文件和 `package: null` 的网页草案；审核合并后，维护者运行签名发布工作流，自动同步任务会在双平台验签通过后补全一键导入信息。
+
+社区投稿必须使用 `license.source: creator-submitted-assets`，项目维护者直接整理且能够核验权利链的内置素材使用 `project-curated-assets`。作者提供的具体许可说明保存在 `submissions/<theme-id>.md`，不要只依赖目录中的分类字段。
 
 一个可审核的主题版本至少应提供：
 

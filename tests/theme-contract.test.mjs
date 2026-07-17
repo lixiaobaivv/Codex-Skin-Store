@@ -54,6 +54,7 @@ test("store catalog schema is closed and requires complete package metadata", as
     ["published", "id", "version", "url", "sha256", "size"],
   );
   assert.equal(schema.properties.package.oneOf[1].properties.published.const, true);
+  assert.deepEqual(schema.properties.license.properties.source.enum, ["project-curated-assets", "creator-submitted-assets"]);
 });
 
 test("catalog validation rejects placeholders, unknown fields, and duplicates", async () => {
@@ -74,6 +75,11 @@ test("catalog validation rejects placeholders, unknown fields, and duplicates", 
   assert.throws(
     () => validateTheme({ ...sample, slug: "single", package: null }, "bad-theme"),
     /package-compatible slug/,
+  );
+  assert.doesNotThrow(() => validateTheme({ ...sample, license: { ...sample.license, source: "creator-submitted-assets" } }, "community-theme"));
+  assert.throws(
+    () => validateTheme({ ...sample, license: { ...sample.license, source: "unknown" } }, "bad-theme"),
+    /unsupported license declaration/,
   );
 });
 
