@@ -4,6 +4,7 @@ import test from "node:test";
 import { validateCatalog, validateTheme } from "../tools/validate-catalog.mjs";
 
 const schemaUrl = new URL("../spec/theme-package.schema.json", import.meta.url);
+const RELEASE_PACKAGE_URL = /^https:\/\/github\.com\/lixiaobaivv\/Codex-Skin\/releases\/download\/(?:official-themes-v[1-9][0-9]*|theme-[a-z0-9]+(?:-[a-z0-9]+)*-v\d+\.\d+\.\d+)\/Codex-Skin-theme-/;
 
 test("theme package schema stays declarative and closed", async () => {
   const schema = JSON.parse(await readFile(schemaUrl, "utf8"));
@@ -77,6 +78,10 @@ test("catalog validation rejects placeholders, unknown fields, and duplicates", 
 });
 
 test("storefront exactly matches the desktop theme repository", async () => {
+  assert.match(
+    "https://github.com/lixiaobaivv/Codex-Skin/releases/download/theme-user-upload-test-v1.0.0/Codex-Skin-theme-user-upload-test-1.0.0.dreamskin",
+    RELEASE_PACKAGE_URL,
+  );
   const directory = new URL("../catalog/themes/", import.meta.url);
   const files = (await readdir(directory)).filter((name) => name.endsWith(".json")).sort();
   const themes = await Promise.all(files.map((name) => readFile(new URL(name, directory), "utf8").then(JSON.parse)));
@@ -94,7 +99,7 @@ test("storefront exactly matches the desktop theme repository", async () => {
   for (const theme of themes) {
     if (theme.package) {
       assert.equal(theme.package.id, theme.slug);
-      assert.match(theme.package.url, /^https:\/\/github\.com\/lixiaobaivv\/Codex-Skin\/releases\/download\/official-themes-v[1-9][0-9]*\/Codex-Skin-theme-/);
+      assert.match(theme.package.url, RELEASE_PACKAGE_URL);
     }
     await readFile(new URL(`../public${theme.previewImage}`, import.meta.url));
   }
