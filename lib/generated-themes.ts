@@ -291,7 +291,14 @@ export const GENERATED_THEMES = [
       "spdx": "LicenseRef-Codex-Skin-Theme",
       "source": "project-curated-assets"
     },
-    "package": null,
+    "package": {
+      "published": true,
+      "id": "user-upload-test",
+      "version": "1.0.0",
+      "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/theme-user-upload-test-v1.0.0/Codex-Skin-theme-user-upload-test-1.0.0.dreamskin",
+      "sha256": "1093139230d37e89c07c3a4d490b183aba23c1c58a425e34cf08a954a12555af",
+      "size": 4072529
+    },
     "previewImage": "/theme-previews/user-upload-test.png",
     "previewStyle": {
       "backgroundColor": "#f7f6f2",
