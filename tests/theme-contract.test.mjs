@@ -82,7 +82,7 @@ test("storefront exactly matches the desktop theme repository", async () => {
   const themes = await Promise.all(files.map((name) => readFile(new URL(name, directory), "utf8").then(JSON.parse)));
   const desktopIndex = JSON.parse(await readFile(new URL("../theme-repository.json", import.meta.url), "utf8"));
   const desktopIds = desktopIndex.themes.map(entry => entry.id).sort();
-  assert.equal(themes.length, 5);
+  assert.equal(themes.length, desktopIds.length);
   assert.deepEqual(themes.map(theme => theme.slug).sort(), desktopIds);
   const publishedThemes = themes.filter((theme) => theme.package?.published);
   assert.ok(publishedThemes.length > 0);

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "name": "Codex-Skin-Store Desktop Catalog",
-  "revision": "2026-07-17T08:11:01Z",
+  "revision": "2026-07-17T16:05:57Z",
   "themes": [
     {
       "id": "dilraba-star",
@@ -140,6 +140,36 @@
           "path": "logos/kun-stage-logo-ui-v1.png",
           "sha256": "7b790f78b8ed07a998b6de9ab6205c034a33384a075138bcd322a7855c4fa904",
           "size": 71152
+        }
+      ]
+    },
+    {
+      "id": "user-upload-test",
+      "version": "1.0.0",
+      "name": "我的第一个主题",
+      "description": "一个清晰、舒适，适合日常使用的 Codex 主题。",
+      "category": "风景",
+      "variant": "light",
+      "manifest": {
+        "path": "themes/user-upload-test.json",
+        "sha256": "6f0bb66e5f45a891d7be57298a98842f4df9e4435753a99362c6cb30c8511012",
+        "size": 2734
+      },
+      "preview": {
+        "path": "previews/user-upload-test.png",
+        "sha256": "32d8be34cc797d57bfe64e1da3068bc1ff6d266703c978b27d298210c38532a2",
+        "size": 11004054
+      },
+      "assets": [
+        {
+          "path": "previews/user-upload-test.png",
+          "sha256": "32d8be34cc797d57bfe64e1da3068bc1ff6d266703c978b27d298210c38532a2",
+          "size": 11004054
+        },
+        {
+          "path": "backgrounds/user-upload-test.jpg",
+          "sha256": "07c317b750b9f6d5f5b76a87cd3f0ef894ea35177da9fd80936490fe030f2616",
+          "size": 2384213
         }
       ]
     },
