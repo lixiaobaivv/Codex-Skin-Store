@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "name": "Codex-Skin-Store Desktop Catalog",
-  "revision": "2026-07-17T16:05:57Z",
+  "revision": "2026-07-17T17:09:40Z",
   "themes": [
     {
       "id": "dilraba-star",
@@ -170,6 +170,36 @@
           "path": "backgrounds/user-upload-test.jpg",
           "sha256": "07c317b750b9f6d5f5b76a87cd3f0ef894ea35177da9fd80936490fe030f2616",
           "size": 2384213
+        }
+      ]
+    },
+    {
+      "id": "user-upload-test2",
+      "version": "1.0.0",
+      "name": "我的第一个主题",
+      "description": "一个清晰、舒适，适合日常使用的 Codex 主题。",
+      "category": "风景",
+      "variant": "light",
+      "manifest": {
+        "path": "themes/user-upload-test2.json",
+        "sha256": "73fd42d8cbc1886f97329d0a9c622989b2a91b5b026b255031696d3dbf8b89ad",
+        "size": 2737
+      },
+      "preview": {
+        "path": "previews/user-upload-test2.png",
+        "sha256": "467f08840043e3d5cfc8ded796f0d3d52bb050910b2d1d9de1dff8b845a62c68",
+        "size": 1386674
+      },
+      "assets": [
+        {
+          "path": "previews/user-upload-test2.png",
+          "sha256": "467f08840043e3d5cfc8ded796f0d3d52bb050910b2d1d9de1dff8b845a62c68",
+          "size": 1386674
+        },
+        {
+          "path": "backgrounds/user-upload-test2.png",
+          "sha256": "467f08840043e3d5cfc8ded796f0d3d52bb050910b2d1d9de1dff8b845a62c68",
+          "size": 1386674
         }
       ]
     },

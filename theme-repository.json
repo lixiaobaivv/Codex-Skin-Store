@@ -2,13 +2,14 @@
   "$schema": "./schemas/theme-repository-v1.schema.json",
   "schemaVersion": 1,
   "name": "Codex-Skin-Store Desktop Catalog",
-  "updatedAt": "2026-07-17T16:05:57Z",
+  "updatedAt": "2026-07-17T17:09:40Z",
   "themes": [
     { "id": "dilraba-star", "manifest": "themes/dilraba-star.json" },
     { "id": "enfp-pop", "manifest": "themes/enfp-pop.json" },
     { "id": "jackson-sage", "manifest": "themes/jackson-sage.json" },
     { "id": "kun-stage", "manifest": "themes/kun-stage.json" },
     { "id": "user-upload-test", "manifest": "themes/user-upload-test.json" },
+    { "id": "user-upload-test2", "manifest": "themes/user-upload-test2.json" },
     { "id": "zhu-xudan-racing", "manifest": "themes/zhu-xudan-racing.json" }
   ]
 }

@@ -308,6 +308,59 @@ export const GENERATED_THEMES = [
     }
   },
   {
+    "slug": "user-upload-test2",
+    "name": "我的第一个主题",
+    "summary": "一个清晰、舒适，适合日常使用的 Codex 主题。",
+    "author": {
+      "name": "lixiaobai",
+      "handle": "lixiaobaivv",
+      "curated": false
+    },
+    "category": "nature",
+    "platforms": [
+      "macos",
+      "windows"
+    ],
+    "colors": [
+      "blue"
+    ],
+    "tags": [
+      "社区主题",
+      "浅色",
+      "双平台"
+    ],
+    "stats": {
+      "downloads": 0,
+      "rating": 0,
+      "reviews": 0
+    },
+    "featured": false,
+    "isNew": true,
+    "version": "1.0.0",
+    "engineRange": ">=1.0.0 <2.0.0",
+    "publishedAt": "2026-07-17T16:57:37.806Z",
+    "license": {
+      "name": "Codex-Skin Theme Assets",
+      "spdx": "LicenseRef-Codex-Skin-Theme",
+      "source": "project-curated-assets"
+    },
+    "package": null,
+    "previewImage": "/theme-previews/user-upload-test2.png",
+    "previewStyle": {
+      "backgroundColor": "#f7f6f2",
+      "backgroundImage": "linear-gradient(145deg, #f7f6f2, #dddbff)",
+      "panelColor": "#f7f6f2",
+      "panelBorder": "#070709",
+      "textColor": "#20212a",
+      "mutedTextColor": "#131318",
+      "accentColor": "#635bff",
+      "accentSoft": "#dddbff",
+      "codeColor": "#635bff",
+      "shadow": "0 28px 80px #36328c55",
+      "pattern": "mist"
+    }
+  },
+  {
     "slug": "zhu-xudan-racing",
     "name": "Zhu Xudan Racing",
     "summary": "赛车红黑与卡丁车疾速氛围，包含人物背景、竞速 Logo、首页引导与四张快捷操作卡。",
