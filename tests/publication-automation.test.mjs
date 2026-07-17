@@ -13,6 +13,8 @@ test("verified releases are synchronized and deployed without manual metadata", 
   assert.doesNotMatch(workflow, /CodexThemeStore\.Cli|setup-dotnet/);
   assert.match(workflow, /dreamskin-verify -- "\$package" macos/);
   assert.match(workflow, /dreamskin-verify -- "\$package" windows/);
+  assert.match(workflow, /Install Linux verifier dependencies/);
+  assert.match(workflow, /libwebkit2gtk-4\.1-dev/);
   assert.match(workflow, /git push origin HEAD:main/);
   assert.match(workflow, /actions\/deploy-pages@v5/);
   assert.match(synchronizer, /theme-\$\{entry\.id\}-v\$\{catalog\.version\}/);
