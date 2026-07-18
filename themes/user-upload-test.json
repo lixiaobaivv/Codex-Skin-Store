@@ -1,7 +1,7 @@
 {
   "$schema": "../schemas/theme-v1.schema.json",
   "schemaVersion": 1,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "displayName": "我的第一个主题",
   "codeThemeId": "user-upload-test",
   "category": "风景",

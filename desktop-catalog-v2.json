@@ -5,14 +5,14 @@
   "themes": [
     {
       "id": "dilraba-star",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "name": "Dilraba Star",
       "description": "星光蓝紫与甜酷舞台氛围",
       "category": "人物",
       "variant": "light",
       "manifest": {
         "path": "themes/dilraba-star.json",
-        "sha256": "3fcfb9202d3004d2087c688864c39d66b38e8d0a8d96f6053940305c8ad06e4e",
+        "sha256": "f131539a4dc09aed4b3d49cde5ba752209e86c3611206621baa70a6922e7bdbd",
         "size": 3109
       },
       "preview": {
@@ -40,14 +40,14 @@
     },
     {
       "id": "enfp-pop",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "name": "ENFP Pop",
       "description": "高饱和青橙与自由脑暴氛围",
       "category": "其他",
       "variant": "light",
       "manifest": {
         "path": "themes/enfp-pop.json",
-        "sha256": "ac55cc741a5e0e4f941b69e87df1b513100f6e49c7d311142aa01cd0a15ae1ea",
+        "sha256": "a3894739501757f3fe56d33c247a2d3426eb6ff573a66d4fdff0e2d9a957364b",
         "size": 3186
       },
       "preview": {
@@ -75,14 +75,14 @@
     },
     {
       "id": "jackson-sage",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "name": "Jackson Sage",
       "description": "鼠尾草绿与安静留白氛围",
       "category": "人物",
       "variant": "light",
       "manifest": {
         "path": "themes/jackson-sage.json",
-        "sha256": "c5f79d9d191a8de3b8fdd790dd5b83c9aec79398383dfcb718944d95cce08d25",
+        "sha256": "7979255ae33212aa93662a1f1b081635781ab08aa979eb35fe87a88416da4383",
         "size": 3048
       },
       "preview": {
@@ -110,14 +110,14 @@
     },
     {
       "id": "kun-stage",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "name": "KUN Stage",
       "description": "黑金舞台与聚光灯氛围",
       "category": "人物",
       "variant": "dark",
       "manifest": {
         "path": "themes/kun-stage.json",
-        "sha256": "6450512eeaf64992d46e5542ef99bb452c379d81fdeb1998d6643fd92afffeff",
+        "sha256": "a2a71d4da99aee03036e7da61fb4e0873dc803a5b3bbefdd2afe3b4e83aa4164",
         "size": 2985
       },
       "preview": {
@@ -145,14 +145,14 @@
     },
     {
       "id": "user-upload-test",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "name": "我的第一个主题",
       "description": "一个清晰、舒适，适合日常使用的 Codex 主题。",
       "category": "风景",
       "variant": "light",
       "manifest": {
         "path": "themes/user-upload-test.json",
-        "sha256": "905bbc6abf1d8c5bee05cbe6cb606d0debe4d5f2337ecbe4104955c3ec019230",
+        "sha256": "9f11d50acfc40403dc73b92fa27f5fbac90d050974a1a6e6cf593584655a44e1",
         "size": 2704
       },
       "preview": {
@@ -175,14 +175,14 @@
     },
     {
       "id": "user-upload-test2",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "name": "我的第一个主题2",
       "description": "一个清晰、舒适，适合日常使用的 Codex 主题。",
       "category": "风景",
       "variant": "light",
       "manifest": {
         "path": "themes/user-upload-test2.json",
-        "sha256": "dca24dd471ed18a6b025b05cb7970c226719ccfef185e249a853e33b4cd74401",
+        "sha256": "5090f3d9a11153f735dbac68279593b32327cec5c8a8fa8a0ecf6b09974aea2e",
         "size": 2709
       },
       "preview": {
@@ -205,14 +205,14 @@
     },
     {
       "id": "zhu-xudan-racing",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "name": "Zhu Xudan Racing",
       "description": "赛车红黑与卡丁车疾速氛围",
       "category": "人物",
       "variant": "dark",
       "manifest": {
         "path": "themes/zhu-xudan-racing.json",
-        "sha256": "ee9a161febddc32b861084872983ca8969594d44faaa2d55470d473370f25c1f",
+        "sha256": "b3f6540d57ce6c62fe1b2df4a2c85a3536e84195de94e1e792b454280ee85724",
         "size": 3017
       },
       "preview": {

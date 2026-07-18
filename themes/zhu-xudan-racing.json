@@ -1,7 +1,7 @@
 {
   "$schema": "../schemas/theme-v1.schema.json",
   "schemaVersion": 1,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "displayName": "Zhu Xudan Racing",
   "codeThemeId": "zhu-xudan-racing",
   "category": "人物",
