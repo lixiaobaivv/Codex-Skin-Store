@@ -19,6 +19,10 @@ test("desktop feed is lightweight, complete, and content addressed", async () =>
       const bytes = await readFile(new URL(resource.path, root));
       assert.equal(resource.size, bytes.length);
       assert.equal(resource.sha256, createHash("sha256").update(bytes).digest("hex"));
+      if (resource === theme.manifest) {
+        const manifest = JSON.parse(bytes.toString("utf8"));
+        assert.equal("backgroundFit" in manifest.theme, false, `${theme.id} must not use unsupported backgroundFit`);
+      }
     }
   }
 });

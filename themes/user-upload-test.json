@@ -16,7 +16,6 @@
     "contrast": 55,
     "opaqueWindows": true,
     "backgroundImage": "../backgrounds/user-upload-test.jpg",
-    "backgroundFit": "smart",
     "backgroundPosition": "center",
     "backgroundImageOpacity": 1,
     "backgroundImageBlur": 0,

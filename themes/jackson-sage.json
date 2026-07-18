@@ -26,7 +26,6 @@
     },
     "surface": "#f6f4ea",
     "backgroundImage": "../backgrounds/jackson-sage-hero-v2.jpg",
-    "backgroundFit": "cover",
     "logoImage": "../logos/jackson-sage-logo-ui-v1.png",
     "backgroundImageOpacity": 1,
     "backgroundImageBlur": 0

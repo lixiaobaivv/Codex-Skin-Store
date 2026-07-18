@@ -26,7 +26,6 @@
     },
     "surface": "#101211",
     "backgroundImage": "../backgrounds/kun-stage-hero-v2.jpg",
-    "backgroundFit": "cover",
     "logoImage": "../logos/kun-stage-logo-ui-v1.png",
     "backgroundImageOpacity": 1,
     "backgroundImageBlur": 0

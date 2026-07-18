@@ -26,7 +26,6 @@
     },
     "surface": "#f4f1ff",
     "backgroundImage": "../backgrounds/dilraba-star-hero-v3.jpg",
-    "backgroundFit": "cover",
     "backgroundPosition": "center top",
     "logoImage": "../logos/dilraba-star-logo-ui-v1.png",
     "backgroundImageOpacity": 1,

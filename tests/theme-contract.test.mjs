@@ -14,6 +14,9 @@ test("theme package schema stays declarative and closed", async () => {
   assert.ok(schema.required.includes("signature"));
   assert.ok(schema.required.includes("assets"));
 
+  const themeSchema = JSON.parse(await readFile(new URL("../schemas/theme-v1.schema.json", import.meta.url), "utf8"));
+  assert.equal("backgroundFit" in themeSchema.properties.theme.properties, false);
+
   const source = JSON.stringify(schema);
   assert.doesNotMatch(source, /javascript|text\/css|image\/svg\+xml/i);
   assert.match(source, /image\/png/);

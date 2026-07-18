@@ -108,7 +108,7 @@ export function ThemeWorkshop() {
     "--workshop-ink": draft.ink,
     "--workshop-surface": draft.surface,
     "--workshop-background": backgroundUrl ? `url(${backgroundUrl})` : "none",
-    "--workshop-background-size": draft.backgroundFit === "cover" ? "cover" : "contain",
+    "--workshop-background-size": "contain",
     "--workshop-background-position": draft.backgroundPosition,
   } as CSSProperties;
 
@@ -154,9 +154,8 @@ export function ThemeWorkshop() {
             <FileField label="真实效果预览 PNG（必填）" hint="至少 1200×750，建议 1600×1000；最大 2 MB" accept="image/png" file={preview} onChange={selectPreview} />
             <FileField label="主题背景（可选）" hint="PNG / JPEG；最长边 ≤8192；最大 16 MB" accept="image/png,image/jpeg" file={background} onChange={selectBackground} />
           </div>
-          {background && <div className="workshop-fields workshop-fields--two workshop-background-controls">
-            <label className="workshop-field"><span>背景适配</span><select value={draft.backgroundFit} onChange={(event) => set("backgroundFit", event.target.value as SubmissionDraft["backgroundFit"])}><option value="smart">智能适配（推荐）</option><option value="cover">铺满并允许裁切</option><option value="contain">完整显示</option></select><small>智能模式会在运行时根据窗口和图片比例自动判断。</small></label>
-            <label className="workshop-field"><span>主体焦点</span><select value={draft.backgroundPosition} onChange={(event) => set("backgroundPosition", event.target.value as SubmissionDraft["backgroundPosition"])}><option value="center">居中</option><option value="center top">顶部居中</option><option value="center 20%">上方 20%</option><option value="center 30%">上方 30%</option><option value="center 40%">上方 40%</option><option value="center bottom">底部居中</option><option value="left center">左侧居中</option><option value="right center">右侧居中</option></select><small>人物头部靠近上缘时建议选择“顶部居中”。</small></label>
+          {background && <div className="workshop-background-controls">
+            <label className="workshop-field"><span>主体焦点</span><select value={draft.backgroundPosition} onChange={(event) => set("backgroundPosition", event.target.value as SubmissionDraft["backgroundPosition"])}><option value="center">居中</option><option value="center top">顶部居中</option><option value="center 20%">上方 20%</option><option value="center 30%">上方 30%</option><option value="center 40%">上方 40%</option><option value="center bottom">底部居中</option><option value="left center">左侧居中</option><option value="right center">右侧居中</option></select><small>背景适配由 Codex-Skin 自动处理；人物头部靠近上缘时建议选择“顶部居中”。</small></label>
           </div>}
 
           <div className="workshop-section-title"><b>03</b><div><h2>许可与投稿</h2><p>请确认你拥有主题和图片的投稿、展示及再分发权。</p></div></div>

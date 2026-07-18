@@ -26,7 +26,6 @@
     },
     "surface": "#17191e",
     "backgroundImage": "../backgrounds/zhu-xudan-racing-hero-v1.png",
-    "backgroundFit": "cover",
     "backgroundPosition": "center 30%",
     "logoImage": "../logos/zhu-xudan-racing-logo-v1.png",
     "backgroundImageOpacity": 1,
