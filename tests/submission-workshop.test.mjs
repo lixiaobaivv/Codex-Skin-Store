@@ -38,7 +38,9 @@ test("submission issue accepts workshop bundles instead of prebuilt signed packa
   assert.doesNotMatch(form, /id: license/);
   const workflow = await readFile(new URL("../.github/workflows/review-theme-submission.yml", import.meta.url), "utf8");
   assert.match(workflow, /workflow_dispatch/);
+  assert.match(workflow, /issues:\s*\n\s*types: \[opened\]/);
+  assert.match(workflow, /github\.event\.issue\.number \|\| inputs\.issue_number/);
+  assert.match(workflow, /contains\(github\.event\.issue\.labels\.\*\.name, 'theme-submission'\)/);
   assert.match(workflow, /import-theme-submission\.mjs/);
   assert.match(workflow, /gh pr create --draft/);
-  assert.doesNotMatch(workflow, /^\s*issues:\s*$/m);
 });

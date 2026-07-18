@@ -44,7 +44,7 @@ SUBMISSION.md
 - 主题在支持的平台上可读、可切换且可回滚；
 - 主题 ID、版本和目录条目没有冲突。
 
-维护者不需要手工解压投稿包。打开仓库 **Actions → Create theme review PR from Issue → Run workflow**，输入投稿 Issue 编号：
+维护者不需要手工解压投稿包。使用“主题投稿”表单创建并自动添加 `theme-submission` 标签后，**Create theme review PR from Issue** 会立即开始预检。若自动任务需要补跑，维护者仍可打开 Actions 手动运行并输入纯数字 Issue 编号：
 
 - 工作流只接受一个标准 GitHub ZIP 附件；
 - 限制压缩包、解压总量、文件数量和精确白名单路径，拒绝路径穿越及额外文件；
