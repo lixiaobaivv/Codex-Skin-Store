@@ -14,6 +14,16 @@ Codex-Skin-Store 是 Codex-Skin 的公开主题商店。你可以在网页中浏
 
 > Codex-Skin-Store 是社区开源项目，不是 OpenAI 或 Codex 官方产品。网页不会读取 Codex 凭证、API Key、项目、任务或聊天内容，也不会连接本机 CDP。
 
+## 界面预览
+
+### 主题商店
+
+![Codex-Skin-Store 主题商店首页](docs/images/store-homepage.png)
+
+### 无代码主题工坊
+
+![Codex-Skin-Store 无代码主题工坊](docs/images/theme-workshop.png)
+
 ## 开始使用
 
 1. 安装适合系统的 Codex-Skin 客户端。
