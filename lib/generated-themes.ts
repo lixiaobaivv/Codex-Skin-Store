@@ -255,6 +255,59 @@ export const GENERATED_THEMES = [
     }
   },
   {
+    "slug": "my-first-theme",
+    "name": "我的第一个主题",
+    "summary": "1111",
+    "author": {
+      "name": "测试",
+      "handle": "w05shuo01ang-creator",
+      "curated": false
+    },
+    "category": "nature",
+    "platforms": [
+      "macos",
+      "windows"
+    ],
+    "colors": [
+      "blue"
+    ],
+    "tags": [
+      "社区主题",
+      "深色",
+      "双平台"
+    ],
+    "stats": {
+      "downloads": 0,
+      "rating": 0,
+      "reviews": 0
+    },
+    "featured": false,
+    "isNew": true,
+    "version": "1.0.0",
+    "engineRange": ">=1.0.0 <2.0.0",
+    "publishedAt": "2026-07-18T02:24:20.199Z",
+    "license": {
+      "name": "Codex-Skin Theme Assets",
+      "spdx": "LicenseRef-Codex-Skin-Theme",
+      "source": "creator-submitted-assets"
+    },
+    "package": null,
+    "previewImage": "/theme-previews/my-first-theme.png",
+    "previewStyle": {
+      "backgroundColor": "#f7f6f2",
+      "backgroundImage": "linear-gradient(145deg, #f7f6f2, #161438)",
+      "panelColor": "#f7f6f2",
+      "panelBorder": "#ceced0",
+      "textColor": "#20212a",
+      "mutedTextColor": "#7e7e83",
+      "accentColor": "#635bff",
+      "accentSoft": "#161438",
+      "codeColor": "#635bff",
+      "shadow": "0 28px 80px #36328c55",
+      "pattern": "mist"
+    }
+  },
+  {
     "slug": "user-upload-test",
     "name": "我的第一个主题",
     "summary": "一个清晰、舒适，适合日常使用的 Codex 主题。",
