@@ -43,4 +43,6 @@ test("submission issue accepts workshop bundles instead of prebuilt signed packa
   assert.match(workflow, /contains\(github\.event\.issue\.labels\.\*\.name, 'theme-submission'\)/);
   assert.match(workflow, /import-theme-submission\.mjs/);
   assert.match(workflow, /gh pr create --draft/);
+  const desktopFeed = await readFile(new URL("../tools/build-desktop-feed.mjs", import.meta.url), "utf8");
+  assert.match(desktopFeed, /manifest\.theme\?\.backgroundImage, "backgrounds", true/);
 });

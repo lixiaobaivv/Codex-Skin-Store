@@ -19,7 +19,7 @@ for (const entry of repository.themes) {
   const previewPath = resolveAsset(manifestPath, manifest.previewImage, "previews");
   const assetPaths = [
     previewPath,
-    resolveAsset(manifestPath, manifest.theme?.backgroundImage, "backgrounds"),
+    resolveAsset(manifestPath, manifest.theme?.backgroundImage, "backgrounds", true),
     resolveAsset(manifestPath, manifest.theme?.logoImage, "logos", true),
     resolveAsset(manifestPath, manifest.home?.pet?.image, "pets", true),
   ].filter(Boolean);
