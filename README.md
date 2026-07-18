@@ -170,3 +170,7 @@ SUBMISSION.md                           作者与素材许可
 协议和安全细节见 [架构文档](docs/architecture.md)、[导入协议](spec/import-protocol.md)、[主题包 Schema](spec/theme-package.schema.json) 和 [桌面目录规范](spec/desktop-theme-repository.md)。
 
 商店页面或主题目录问题请提交 [Issue](https://github.com/lixiaobaivv/Codex-Skin-Store/issues)。开发者需要的本地构建、测试和贡献流程位于 [CONTRIBUTING.md](CONTRIBUTING.md)，普通用户不需要安装 Node.js 或克隆仓库。
+
+## 友链
+
+**LinuxDo** — [https://linux.do](https://linux.do/)
