@@ -57,10 +57,7 @@ jobs:
           npm run catalog:check
           npm run lint
           npm test
-          npm run build:pages
-        env:
-          BUILD_GITHUB_PAGES: "true"
-          NEXT_PUBLIC_SITE_URL: https://lixiaobaivv.github.io/Codex-Skin-Store/
+          NEXT_PUBLIC_SITE_URL=https://lixiaobaivv.github.io/Codex-Skin-Store/ npm run build:pages
 
       - name: Create isolated review branch
         id: branch
