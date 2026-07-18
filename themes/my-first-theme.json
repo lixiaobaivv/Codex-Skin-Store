@@ -1,0 +1,82 @@
+{
+  "$schema": "../schemas/theme-v1.schema.json",
+  "schemaVersion": 1,
+  "version": "1.0.0",
+  "displayName": "我的第一个主题",
+  "codeThemeId": "my-first-theme",
+  "category": "风景",
+  "description": "1111",
+  "author": "测试",
+  "variant": "dark",
+  "previewImage": "../previews/my-first-theme.png",
+  "theme": {
+    "accent": "#635bff",
+    "ink": "#20212a",
+    "surface": "#f7f6f2",
+    "contrast": 55,
+    "opaqueWindows": true,
+    "fonts": {
+      "ui": "\"Microsoft YaHei UI\", \"PingFang SC\", \"Segoe UI\", sans-serif",
+      "display": "\"Microsoft YaHei UI\", \"PingFang SC\", \"Segoe UI\", sans-serif",
+      "code": "\"Cascadia Code\", \"SFMono-Regular\", monospace"
+    },
+    "semanticColors": {
+      "diffAdded": "#18864B",
+      "diffRemoved": "#C43D4B",
+      "skill": "#635bff"
+    }
+  },
+  "home": {
+    "brand": "FOCUS",
+    "eyebrow": "CODEX COMMUNITY THEME",
+    "badge": "NEW",
+    "title": "今天想构建什么？",
+    "subtitle": "让界面安静下来，把注意力留给正在创造的东西。",
+    "footerNote": "Theme by 测试",
+    "composerHint": "向 Codex 说明你想完成的工作",
+    "tags": [
+      "社区主题",
+      "深色",
+      "专注"
+    ],
+    "sidebarLabels": {
+      "newTask": "新建任务",
+      "scheduled": "已安排",
+      "plugins": "插件",
+      "settings": "设置"
+    },
+    "quickActions": [
+      {
+        "icon": "</>",
+        "title": "理解代码",
+        "description": "梳理结构和关键流程",
+        "prompt": "请概览当前代码库的结构、关键模块和主要流程。"
+      },
+      {
+        "icon": "+",
+        "title": "构建功能",
+        "description": "实现可运行的新能力",
+        "prompt": "请基于当前项目实现一个新功能，并完成必要验证。"
+      },
+      {
+        "icon": "✓",
+        "title": "审查代码",
+        "description": "查找缺陷和回归风险",
+        "prompt": "请审查当前代码，优先指出缺陷、风险和缺失测试。"
+      },
+      {
+        "icon": "!",
+        "title": "修复问题",
+        "description": "定位根因并验证修复",
+        "prompt": "请诊断当前问题，修复根因并验证修复结果。"
+      }
+    ]
+  },
+  "copy": {
+    "title": "Codex 我的第一个主题",
+    "replacePlaceholders": {
+      "Ask Codex": "向 Codex 说明你想完成的工作",
+      "Ask Codex anything": "向 Codex 说明你想完成的工作"
+    }
+  }
+}
