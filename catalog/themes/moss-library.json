@@ -39,7 +39,14 @@
     "spdx": "LicenseRef-Codex-Skin-Theme",
     "source": "project-curated-assets"
   },
-  "package": null,
+  "package": {
+    "published": true,
+    "id": "moss-library",
+    "version": "1.0.0",
+    "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/theme-moss-library-v1.0.0/Codex-Skin-theme-moss-library-1.0.0.dreamskin",
+    "sha256": "ff0cf4e379788f25d073012c454c551ce4a2d2a139e787a56a0cadae841f6b38",
+    "size": 424279
+  },
   "previewImage": "/theme-previews/moss-library.png",
   "previewStyle": {
     "backgroundColor": "#16231c",

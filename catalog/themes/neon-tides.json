@@ -39,7 +39,14 @@
     "spdx": "LicenseRef-Codex-Skin-Theme",
     "source": "project-curated-assets"
   },
-  "package": null,
+  "package": {
+    "published": true,
+    "id": "neon-tides",
+    "version": "1.0.0",
+    "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/theme-neon-tides-v1.0.0/Codex-Skin-theme-neon-tides-1.0.0.dreamskin",
+    "sha256": "94430b0e843b1e71885e254bc86a1dd7184906b3e05ea743f7dd71cd481182d6",
+    "size": 4164795
+  },
   "previewImage": "/theme-previews/neon-tides.png",
   "previewStyle": {
     "backgroundColor": "#07111f",

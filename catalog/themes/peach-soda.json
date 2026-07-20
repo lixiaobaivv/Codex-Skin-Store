@@ -39,7 +39,14 @@
     "spdx": "LicenseRef-Codex-Skin-Theme",
     "source": "project-curated-assets"
   },
-  "package": null,
+  "package": {
+    "published": true,
+    "id": "peach-soda",
+    "version": "1.0.0",
+    "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/theme-peach-soda-v1.0.0/Codex-Skin-theme-peach-soda-1.0.0.dreamskin",
+    "sha256": "5444d5abfa2aac1a7a89ad419a40a5122c971e0d256323b3067b410abbcfa8d8",
+    "size": 307433
+  },
   "previewImage": "/theme-previews/peach-soda.png",
   "previewStyle": {
     "backgroundColor": "#fff4ed",

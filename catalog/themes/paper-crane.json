@@ -38,7 +38,14 @@
     "spdx": "LicenseRef-Codex-Skin-Theme",
     "source": "project-curated-assets"
   },
-  "package": null,
+  "package": {
+    "published": true,
+    "id": "paper-crane",
+    "version": "1.0.0",
+    "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/theme-paper-crane-v1.0.0/Codex-Skin-theme-paper-crane-1.0.0.dreamskin",
+    "sha256": "7d0efa37ec340973562c324da85b56e8a56ffb95310c2e318059b8fcb2e787af",
+    "size": 309457
+  },
   "previewImage": "/theme-previews/paper-crane.png",
   "previewStyle": {
     "backgroundColor": "#f4eddc",

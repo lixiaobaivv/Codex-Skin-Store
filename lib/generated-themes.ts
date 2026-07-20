@@ -43,7 +43,14 @@ export const GENERATED_THEMES = [
       "spdx": "LicenseRef-Codex-Skin-Theme",
       "source": "project-curated-assets"
     },
-    "package": null,
+    "package": {
+      "published": true,
+      "id": "desert-signal",
+      "version": "1.0.0",
+      "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/theme-desert-signal-v1.0.0/Codex-Skin-theme-desert-signal-1.0.0.dreamskin",
+      "sha256": "b04700a19de8333b93b9466bc98b5cf33074957e801cff33f3e65c54280f1a87",
+      "size": 273794
+    },
     "previewImage": "/theme-previews/desert-signal.png",
     "previewStyle": {
       "backgroundColor": "#f3dfbd",
@@ -226,7 +233,14 @@ export const GENERATED_THEMES = [
       "spdx": "LicenseRef-Codex-Skin-Theme",
       "source": "project-curated-assets"
     },
-    "package": null,
+    "package": {
+      "published": true,
+      "id": "glacier-glass",
+      "version": "1.0.0",
+      "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/theme-glacier-glass-v1.0.0/Codex-Skin-theme-glacier-glass-1.0.0.dreamskin",
+      "sha256": "2efa9581698e40cd57e97663afab2b7e32999632975d893d04fc2bf73c6c85bc",
+      "size": 338761
+    },
     "previewImage": "/theme-previews/glacier-glass.png",
     "previewStyle": {
       "backgroundColor": "#eaf7fa",
@@ -409,7 +423,14 @@ export const GENERATED_THEMES = [
       "spdx": "LicenseRef-Codex-Skin-Theme",
       "source": "project-curated-assets"
     },
-    "package": null,
+    "package": {
+      "published": true,
+      "id": "lunar-terminal",
+      "version": "1.0.0",
+      "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/theme-lunar-terminal-v1.0.0/Codex-Skin-theme-lunar-terminal-1.0.0.dreamskin",
+      "sha256": "1164089b1f17ce929a5c3431aac63b7caca0c99ceda2c65600d43af3565d8b1a",
+      "size": 263434
+    },
     "previewImage": "/theme-previews/lunar-terminal.png",
     "previewStyle": {
       "backgroundColor": "#0b1424",
@@ -466,7 +487,14 @@ export const GENERATED_THEMES = [
       "spdx": "LicenseRef-Codex-Skin-Theme",
       "source": "project-curated-assets"
     },
-    "package": null,
+    "package": {
+      "published": true,
+      "id": "mono-focus",
+      "version": "1.0.0",
+      "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/theme-mono-focus-v1.0.0/Codex-Skin-theme-mono-focus-1.0.0.dreamskin",
+      "sha256": "8e71d5c4ecc4bfc3391ad3615d0b62e90d5a758ced911a1791831b03e7cb2793",
+      "size": 221402
+    },
     "previewImage": "/theme-previews/mono-focus.png",
     "previewStyle": {
       "backgroundColor": "#f5f4ef",
@@ -523,7 +551,14 @@ export const GENERATED_THEMES = [
       "spdx": "LicenseRef-Codex-Skin-Theme",
       "source": "project-curated-assets"
     },
-    "package": null,
+    "package": {
+      "published": true,
+      "id": "moss-library",
+      "version": "1.0.0",
+      "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/theme-moss-library-v1.0.0/Codex-Skin-theme-moss-library-1.0.0.dreamskin",
+      "sha256": "ff0cf4e379788f25d073012c454c551ce4a2d2a139e787a56a0cadae841f6b38",
+      "size": 424279
+    },
     "previewImage": "/theme-previews/moss-library.png",
     "previewStyle": {
       "backgroundColor": "#16231c",
@@ -580,7 +615,14 @@ export const GENERATED_THEMES = [
       "spdx": "LicenseRef-Codex-Skin-Theme",
       "source": "project-curated-assets"
     },
-    "package": null,
+    "package": {
+      "published": true,
+      "id": "neon-tides",
+      "version": "1.0.0",
+      "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/theme-neon-tides-v1.0.0/Codex-Skin-theme-neon-tides-1.0.0.dreamskin",
+      "sha256": "94430b0e843b1e71885e254bc86a1dd7184906b3e05ea743f7dd71cd481182d6",
+      "size": 4164795
+    },
     "previewImage": "/theme-previews/neon-tides.png",
     "previewStyle": {
       "backgroundColor": "#07111f",
@@ -636,7 +678,14 @@ export const GENERATED_THEMES = [
       "spdx": "LicenseRef-Codex-Skin-Theme",
       "source": "project-curated-assets"
     },
-    "package": null,
+    "package": {
+      "published": true,
+      "id": "paper-crane",
+      "version": "1.0.0",
+      "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/theme-paper-crane-v1.0.0/Codex-Skin-theme-paper-crane-1.0.0.dreamskin",
+      "sha256": "7d0efa37ec340973562c324da85b56e8a56ffb95310c2e318059b8fcb2e787af",
+      "size": 309457
+    },
     "previewImage": "/theme-previews/paper-crane.png",
     "previewStyle": {
       "backgroundColor": "#f4eddc",
@@ -693,7 +742,14 @@ export const GENERATED_THEMES = [
       "spdx": "LicenseRef-Codex-Skin-Theme",
       "source": "project-curated-assets"
     },
-    "package": null,
+    "package": {
+      "published": true,
+      "id": "peach-soda",
+      "version": "1.0.0",
+      "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/theme-peach-soda-v1.0.0/Codex-Skin-theme-peach-soda-1.0.0.dreamskin",
+      "sha256": "5444d5abfa2aac1a7a89ad419a40a5122c971e0d256323b3067b410abbcfa8d8",
+      "size": 307433
+    },
     "previewImage": "/theme-previews/peach-soda.png",
     "previewStyle": {
       "backgroundColor": "#fff4ed",
@@ -863,7 +919,14 @@ export const GENERATED_THEMES = [
       "spdx": "LicenseRef-Codex-Skin-Theme",
       "source": "project-curated-assets"
     },
-    "package": null,
+    "package": {
+      "published": true,
+      "id": "violet-rain",
+      "version": "1.0.0",
+      "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/theme-violet-rain-v1.0.0/Codex-Skin-theme-violet-rain-1.0.0.dreamskin",
+      "sha256": "d8fc89fe56645152e49b7e211d7af96d4fb369d4e9bef3a90a95ce0b3a131847",
+      "size": 672542
+    },
     "previewImage": "/theme-previews/violet-rain.png",
     "previewStyle": {
       "backgroundColor": "#151126",

@@ -39,7 +39,14 @@
     "spdx": "LicenseRef-Codex-Skin-Theme",
     "source": "project-curated-assets"
   },
-  "package": null,
+  "package": {
+    "published": true,
+    "id": "violet-rain",
+    "version": "1.0.0",
+    "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/theme-violet-rain-v1.0.0/Codex-Skin-theme-violet-rain-1.0.0.dreamskin",
+    "sha256": "d8fc89fe56645152e49b7e211d7af96d4fb369d4e9bef3a90a95ce0b3a131847",
+    "size": 672542
+  },
   "previewImage": "/theme-previews/violet-rain.png",
   "previewStyle": {
     "backgroundColor": "#151126",

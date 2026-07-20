@@ -39,7 +39,14 @@
     "spdx": "LicenseRef-Codex-Skin-Theme",
     "source": "project-curated-assets"
   },
-  "package": null,
+  "package": {
+    "published": true,
+    "id": "mono-focus",
+    "version": "1.0.0",
+    "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/theme-mono-focus-v1.0.0/Codex-Skin-theme-mono-focus-1.0.0.dreamskin",
+    "sha256": "8e71d5c4ecc4bfc3391ad3615d0b62e90d5a758ced911a1791831b03e7cb2793",
+    "size": 221402
+  },
   "previewImage": "/theme-previews/mono-focus.png",
   "previewStyle": {
     "backgroundColor": "#f5f4ef",

@@ -39,7 +39,14 @@
     "spdx": "LicenseRef-Codex-Skin-Theme",
     "source": "project-curated-assets"
   },
-  "package": null,
+  "package": {
+    "published": true,
+    "id": "lunar-terminal",
+    "version": "1.0.0",
+    "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/theme-lunar-terminal-v1.0.0/Codex-Skin-theme-lunar-terminal-1.0.0.dreamskin",
+    "sha256": "1164089b1f17ce929a5c3431aac63b7caca0c99ceda2c65600d43af3565d8b1a",
+    "size": 263434
+  },
   "previewImage": "/theme-previews/lunar-terminal.png",
   "previewStyle": {
     "backgroundColor": "#0b1424",

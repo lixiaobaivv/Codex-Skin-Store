@@ -39,7 +39,14 @@
     "spdx": "LicenseRef-Codex-Skin-Theme",
     "source": "project-curated-assets"
   },
-  "package": null,
+  "package": {
+    "published": true,
+    "id": "glacier-glass",
+    "version": "1.0.0",
+    "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/theme-glacier-glass-v1.0.0/Codex-Skin-theme-glacier-glass-1.0.0.dreamskin",
+    "sha256": "2efa9581698e40cd57e97663afab2b7e32999632975d893d04fc2bf73c6c85bc",
+    "size": 338761
+  },
   "previewImage": "/theme-previews/glacier-glass.png",
   "previewStyle": {
     "backgroundColor": "#eaf7fa",

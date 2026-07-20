@@ -39,7 +39,14 @@
     "spdx": "LicenseRef-Codex-Skin-Theme",
     "source": "project-curated-assets"
   },
-  "package": null,
+  "package": {
+    "published": true,
+    "id": "desert-signal",
+    "version": "1.0.0",
+    "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/theme-desert-signal-v1.0.0/Codex-Skin-theme-desert-signal-1.0.0.dreamskin",
+    "sha256": "b04700a19de8333b93b9466bc98b5cf33074957e801cff33f3e65c54280f1a87",
+    "size": 273794
+  },
   "previewImage": "/theme-previews/desert-signal.png",
   "previewStyle": {
     "backgroundColor": "#f3dfbd",
