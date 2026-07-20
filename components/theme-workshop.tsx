@@ -1,8 +1,11 @@
 "use client";
+/* Blob preview URLs are local and intentionally bypass Next image optimization. */
+/* eslint-disable @next/next/no-img-element */
 
 import type { CSSProperties } from "react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
+import { extractImagePalette, type ImagePalette } from "@/lib/image-palette";
 import {
   CATEGORY_OPTIONS,
   DEFAULT_SUBMISSION,
@@ -39,12 +42,16 @@ export function ThemeWorkshop() {
   const [draft, setDraft] = useState<SubmissionDraft>(DEFAULT_SUBMISSION);
   const [preview, setPreview] = useState<File>();
   const [background, setBackground] = useState<File>();
+  const [effectOverlay, setEffectOverlay] = useState<File>();
+  const [composerAccent, setComposerAccent] = useState<File>();
   const [submitted, setSubmitted] = useState(false);
   const [ready, setReady] = useState(false);
   const [generating, setGenerating] = useState(false);
   const [archiveError, setArchiveError] = useState("");
   const [assetErrors, setAssetErrors] = useState<string[]>([]);
   const [checkingAssets, setCheckingAssets] = useState(false);
+  const [suggestedPalette, setSuggestedPalette] = useState<ImagePalette>();
+  const [analyzingPalette, setAnalyzingPalette] = useState(false);
   const assetCheckId = useRef(0);
 
   useEffect(() => {
@@ -63,18 +70,41 @@ export function ThemeWorkshop() {
   }, [draft, ready]);
 
   const backgroundUrl = useMemo(() => background ? URL.createObjectURL(background) : undefined, [background]);
+  const effectOverlayUrl = useMemo(() => effectOverlay ? URL.createObjectURL(effectOverlay) : undefined, [effectOverlay]);
+  const composerAccentUrl = useMemo(() => composerAccent ? URL.createObjectURL(composerAccent) : undefined, [composerAccent]);
   useEffect(() => () => { if (backgroundUrl) URL.revokeObjectURL(backgroundUrl); }, [backgroundUrl]);
-  async function checkAssets(nextPreview?: File, nextBackground?: File) {
+  useEffect(() => () => { if (effectOverlayUrl) URL.revokeObjectURL(effectOverlayUrl); }, [effectOverlayUrl]);
+  useEffect(() => () => { if (composerAccentUrl) URL.revokeObjectURL(composerAccentUrl); }, [composerAccentUrl]);
+  useEffect(() => {
+    let cancelled = false;
+    if (!background || !["image/png", "image/jpeg"].includes(background.type)) {
+      return;
+    }
+    queueMicrotask(() => { if (!cancelled) setAnalyzingPalette(true); });
+    extractImagePalette(background, draft.variant)
+      .then((palette) => { if (!cancelled) setSuggestedPalette(palette); })
+      .catch(() => { if (!cancelled) setSuggestedPalette(undefined); })
+      .finally(() => { if (!cancelled) setAnalyzingPalette(false); });
+    return () => { cancelled = true; };
+  }, [background, draft.variant]);
+  async function checkAssets(nextPreview?: File, nextBackground?: File, nextEffectOverlay?: File, nextComposerAccent?: File) {
     const checkId = ++assetCheckId.current;
     setCheckingAssets(true);
-    const nextErrors = await validateSubmissionAssets(nextPreview, nextBackground);
+    const nextErrors = await validateSubmissionAssets(nextPreview, nextBackground, nextEffectOverlay, nextComposerAccent);
     if (checkId === assetCheckId.current) {
       setAssetErrors(nextErrors);
       setCheckingAssets(false);
     }
   }
-  const selectPreview = (file?: File) => { setPreview(file); void checkAssets(file, background); };
-  const selectBackground = (file?: File) => { setBackground(file); void checkAssets(preview, file); };
+  const selectPreview = (file?: File) => { setPreview(file); void checkAssets(file, background, effectOverlay, composerAccent); };
+  const selectBackground = (file?: File) => {
+    setBackground(file);
+    setSuggestedPalette(undefined);
+    setAnalyzingPalette(false);
+    void checkAssets(preview, file, effectOverlay, composerAccent);
+  };
+  const selectEffectOverlay = (file?: File) => { setEffectOverlay(file); void checkAssets(preview, background, file, composerAccent); };
+  const selectComposerAccent = (file?: File) => { setComposerAccent(file); void checkAssets(preview, background, effectOverlay, file); };
   const formErrors = validateSubmission(draft, preview);
   const errors = [...formErrors, ...assetErrors];
   const set = <K extends keyof SubmissionDraft>(key: K, value: SubmissionDraft[K]) => setDraft((current) => ({ ...current, [key]: value }));
@@ -85,10 +115,10 @@ export function ThemeWorkshop() {
     setGenerating(true);
     setArchiveError("");
     try {
-      const latestAssetErrors = await validateSubmissionAssets(preview, background);
+      const latestAssetErrors = await validateSubmissionAssets(preview, background, effectOverlay, composerAccent);
       setAssetErrors(latestAssetErrors);
       if (latestAssetErrors.length) return;
-      const blob = await createSubmissionArchive(draft, preview, background);
+      const blob = await createSubmissionArchive(draft, preview, background, effectOverlay, composerAccent);
       const url = URL.createObjectURL(blob);
       const anchor = document.createElement("a");
       anchor.href = url;
@@ -108,8 +138,14 @@ export function ThemeWorkshop() {
     "--workshop-ink": draft.ink,
     "--workshop-surface": draft.surface,
     "--workshop-background": backgroundUrl ? `url(${backgroundUrl})` : "none",
-    "--workshop-background-size": "contain",
-    "--workshop-background-position": draft.backgroundPosition,
+    "--workshop-background-size": "cover",
+    "--workshop-background-position": `${draft.backgroundFocusX}% ${draft.backgroundFocusY}%`,
+    "--workshop-background-focus-x": `${draft.backgroundFocusX}%`,
+    "--workshop-background-focus-y": `${draft.backgroundFocusY}%`,
+    "--workshop-effect-x": `${draft.effectPositionX}%`,
+    "--workshop-effect-y": `${draft.effectPositionY}%`,
+    "--workshop-effect-width": `${draft.effectWidthPercent}%`,
+    "--workshop-composer-accent-width": `${Math.round(draft.composerAccentWidthPx / 2.4)}px`,
   } as CSSProperties;
 
   return (
@@ -144,6 +180,10 @@ export function ThemeWorkshop() {
           <div className="workshop-colors">
             {(["accent", "ink", "surface"] as const).map((key) => <label key={key}><span>{{ accent: "强调色", ink: "文字色", surface: "界面底色" }[key]}</span><input type="color" value={draft[key]} onChange={(event) => set(key, event.target.value)} /><code>{draft[key]}</code></label>)}
           </div>
+          {background && <div className="workshop-palette-suggestion">
+            <div><b>图片自动配色</b><small>{analyzingPalette ? "正在分析背景中的主色…" : suggestedPalette ? "已从背景提取强调色、文字色和界面底色。" : "未能从这张图片提取颜色，你仍可手动调整。"}</small></div>
+            {suggestedPalette && <><span style={{ background: suggestedPalette.accent }} /><span style={{ background: suggestedPalette.surface }} /><button type="button" onClick={() => setDraft((current) => ({ ...current, ...suggestedPalette }))}>应用自动配色</button></>}
+          </div>}
           <div className="workshop-fields workshop-fields--two">
             <TextField label="品牌文字" value={draft.brand} maxLength={40} onChange={(value) => set("brand", value)} />
             <TextField label="首页标题" value={draft.title} maxLength={200} onChange={(value) => set("title", value)} />
@@ -155,8 +195,28 @@ export function ThemeWorkshop() {
             <FileField label="主题背景（可选）" hint="PNG / JPEG；最长边 ≤8192；最大 16 MB" accept="image/png,image/jpeg" file={background} onChange={selectBackground} />
           </div>
           {background && <div className="workshop-background-controls">
-            <label className="workshop-field"><span>主体焦点</span><select value={draft.backgroundPosition} onChange={(event) => set("backgroundPosition", event.target.value as SubmissionDraft["backgroundPosition"])}><option value="center">居中</option><option value="center top">顶部居中</option><option value="center 20%">上方 20%</option><option value="center 30%">上方 30%</option><option value="center 40%">上方 40%</option><option value="center bottom">底部居中</option><option value="left center">左侧居中</option><option value="right center">右侧居中</option></select><small>背景适配由 Codex-Skin 自动处理；人物头部靠近上缘时建议选择“顶部居中”。</small></label>
+            <div className="workshop-focus-grid">
+              <label className="workshop-field"><span>主体水平位置：{draft.backgroundFocusX}%</span><input type="range" min="0" max="100" value={draft.backgroundFocusX} onChange={(event) => set("backgroundFocusX", Number(event.target.value))} /></label>
+              <label className="workshop-field"><span>主体垂直位置：{draft.backgroundFocusY}%</span><input type="range" min="0" max="100" value={draft.backgroundFocusY} onChange={(event) => set("backgroundFocusY", Number(event.target.value))} /></label>
+            </div>
+            <label className="workshop-field"><span>视觉强度</span><select value={draft.visualIntensity} onChange={(event) => set("visualIntensity", event.target.value as SubmissionDraft["visualIntensity"])}><option value="clear">清晰 · 内容优先</option><option value="balanced">平衡 · 默认推荐</option><option value="immersive">沉浸 · 展示更多背景</option></select><small>焦点会随窗口比例自适应；请把十字交点移动到人物面部或画面主体。</small></label>
           </div>}
+          <div className="workshop-effect-controls">
+            <div className="workshop-fields workshop-fields--two">
+              <label className="workshop-field"><span>氛围特效</span><select value={draft.ambientEffect} onChange={(event) => set("ambientEffect", event.target.value as SubmissionDraft["ambientEffect"])}><option value="none">关闭</option><option value="rain">雨丝</option><option value="particles">能量粒子</option><option value="storm">雨丝、粒子与闪电</option></select></label>
+              <label className="workshop-field"><span>特效强度</span><select value={draft.effectIntensity} onChange={(event) => set("effectIntensity", event.target.value as SubmissionDraft["effectIntensity"])}><option value="subtle">克制</option><option value="balanced">平衡</option><option value="vivid">鲜明</option></select></label>
+            </div>
+            <div className="workshop-files">
+              <FileField label="任务瞬时叠加素材（可选）" hint="透明 PNG；任务开始或发送时淡入；最大 4 MB" accept="image/png" file={effectOverlay} onChange={selectEffectOverlay} />
+              <FileField label="输入框装饰素材（可选）" hint="透明 PNG；自动锚定输入框；最大 4 MB" accept="image/png" file={composerAccent} onChange={selectComposerAccent} />
+            </div>
+            {(effectOverlay || composerAccent) && <div className="workshop-focus-grid workshop-effect-ranges">
+              {effectOverlay && <><label className="workshop-field"><span>叠加素材水平位置：{draft.effectPositionX}%</span><input type="range" min="0" max="100" value={draft.effectPositionX} onChange={(event) => set("effectPositionX", Number(event.target.value))} /></label>
+              <label className="workshop-field"><span>叠加素材垂直位置：{draft.effectPositionY}%</span><input type="range" min="0" max="100" value={draft.effectPositionY} onChange={(event) => set("effectPositionY", Number(event.target.value))} /></label>
+              <label className="workshop-field"><span>叠加素材宽度：{draft.effectWidthPercent}%</span><input type="range" min="10" max="80" value={draft.effectWidthPercent} onChange={(event) => set("effectWidthPercent", Number(event.target.value))} /></label></>}
+              {composerAccent && <label className="workshop-field"><span>输入框装饰宽度：{draft.composerAccentWidthPx}px</span><input type="range" min="48" max="240" value={draft.composerAccentWidthPx} onChange={(event) => set("composerAccentWidthPx", Number(event.target.value))} /></label>}
+            </div>}
+          </div>
 
           <div className="workshop-section-title"><b>03</b><div><h2>许可与投稿</h2><p>请确认你拥有主题和图片的投稿、展示及再分发权。</p></div></div>
           <label className="workshop-field"><span>素材来源与许可</span><textarea value={draft.licenseNotes} maxLength={1000} placeholder="例如：主题和背景图均为本人原创，作者为……；或列出素材来源链接、作者及 CC BY 4.0 等再分发许可。" onChange={(event) => set("licenseNotes", event.target.value)} /><small>这段说明会进入审核记录；请逐项说明原创、授权或具体许可证，不能只写“网络素材”。</small></label>
@@ -172,9 +232,9 @@ export function ThemeWorkshop() {
         <aside className="workshop-preview-column">
           <div className="workshop-preview-sticky">
             <div className="workshop-preview-heading"><span>实时预览</span><small>自动保存草稿</small></div>
-            <div className={`workshop-app-preview workshop-app-preview--${draft.variant}`} style={previewStyle}>
+            <div className={`workshop-app-preview workshop-app-preview--${draft.variant} workshop-app-preview--${draft.visualIntensity} workshop-effects--${draft.ambientEffect} workshop-effects--${draft.effectIntensity}`} style={previewStyle}>
               <div className="workshop-app-sidebar"><strong>{draft.brand || "THEME"}</strong><button>＋ 新建任务</button><span>⌘ 已安排</span><span>◇ 插件</span><span className="workshop-app-bottom">⚙ 设置</span></div>
-              <div className="workshop-app-main"><p>CODEX COMMUNITY THEME</p><h2>{draft.title || "首页标题"}</h2><em>{draft.subtitle || "首页副标题"}</em><div className="workshop-app-cards"><span>理解代码<small>梳理结构和关键流程</small></span><span>构建功能<small>实现可运行的新能力</small></span><span>审查代码<small>查找缺陷和回归风险</small></span><span>修复问题<small>定位根因并验证修复</small></span></div><div className="workshop-app-composer">{draft.composerHint || "向 Codex 说明你想完成的工作"}<b>↑</b></div></div>
+              <div className="workshop-app-main">{background && <i className="workshop-focus-marker" aria-hidden="true" />}{draft.ambientEffect !== "none" && <div className="workshop-ambient" aria-hidden="true">{Array.from({ length: 14 }, (_, index) => <i key={index} style={{ "--i": index } as CSSProperties} />)}</div>}{effectOverlayUrl && <img className="workshop-effect-overlay" src={effectOverlayUrl} alt="" />}<p>CODEX COMMUNITY THEME</p><h2>{draft.title || "首页标题"}</h2><em>{draft.subtitle || "首页副标题"}</em><div className="workshop-app-cards"><span>理解代码<small>梳理结构和关键流程</small></span><span>构建功能<small>实现可运行的新能力</small></span><span>审查代码<small>查找缺陷和回归风险</small></span><span>修复问题<small>定位根因并验证修复</small></span></div><div className="workshop-app-composer">{composerAccentUrl && <img src={composerAccentUrl} alt="" />}{draft.composerHint || "向 Codex 说明你想完成的工作"}<b>↑</b></div></div>
             </div>
             <div className="workshop-safety"><b>安全构建</b><p>投稿包只包含声明式 JSON 和图片，不接受脚本、HTML、CSS 或可执行文件。</p></div>
           </div>

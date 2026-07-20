@@ -19,7 +19,15 @@ export type SubmissionDraft = {
   accent: string;
   ink: string;
   surface: string;
-  backgroundPosition: "center" | "center top" | "center 20%" | "center 30%" | "center 40%" | "center bottom" | "left center" | "right center";
+  backgroundFocusX: number;
+  backgroundFocusY: number;
+  visualIntensity: "clear" | "balanced" | "immersive";
+  ambientEffect: "none" | "rain" | "particles" | "storm";
+  effectIntensity: "subtle" | "balanced" | "vivid";
+  effectPositionX: number;
+  effectPositionY: number;
+  effectWidthPercent: number;
+  composerAccentWidthPx: number;
   brand: string;
   title: string;
   subtitle: string;
@@ -38,7 +46,15 @@ export const DEFAULT_SUBMISSION: SubmissionDraft = {
   accent: "#635bff",
   ink: "#20212a",
   surface: "#f7f6f2",
-  backgroundPosition: "center",
+  backgroundFocusX: 50,
+  backgroundFocusY: 50,
+  visualIntensity: "balanced",
+  ambientEffect: "none",
+  effectIntensity: "balanced",
+  effectPositionX: 72,
+  effectPositionY: 28,
+  effectWidthPercent: 42,
+  composerAccentWidthPx: 120,
   brand: "FOCUS",
   title: "今天想构建什么？",
   subtitle: "让界面安静下来，把注意力留给正在创造的东西。",
@@ -55,6 +71,8 @@ export const PREVIEW_MIN_HEIGHT = 750;
 export const PREVIEW_MAX_DIMENSION = 2400;
 export const BACKGROUND_MAX_BYTES = 16 * 1024 * 1024;
 export const BACKGROUND_MAX_DIMENSION = 8192;
+export const EFFECT_MAX_BYTES = 4 * 1024 * 1024;
+export const EFFECT_MAX_DIMENSION = 4096;
 
 export function validateSubmission(draft: SubmissionDraft, preview?: File) {
   const errors: string[] = [];
@@ -64,7 +82,13 @@ export function validateSubmission(draft: SubmissionDraft, preview?: File) {
   if (!HANDLE.test(draft.handle)) errors.push("GitHub 用户名格式不正确");
   if (!draft.summary.trim() || draft.summary.length > 120) errors.push("主题简介需要 1–120 个字符");
   if (![draft.accent, draft.ink, draft.surface].every((value) => COLOR.test(value))) errors.push("主题颜色必须是六位十六进制颜色");
-  if (!["center", "center top", "center 20%", "center 30%", "center 40%", "center bottom", "left center", "right center"].includes(draft.backgroundPosition)) errors.push("背景主体焦点无效");
+  if (![draft.backgroundFocusX, draft.backgroundFocusY].every((value) => Number.isInteger(value) && value >= 0 && value <= 100)) errors.push("背景主体焦点需要在 0–100 之间");
+  if (!["clear", "balanced", "immersive"].includes(draft.visualIntensity)) errors.push("视觉强度无效");
+  if (!["none", "rain", "particles", "storm"].includes(draft.ambientEffect)) errors.push("氛围特效无效");
+  if (!["subtle", "balanced", "vivid"].includes(draft.effectIntensity)) errors.push("特效强度无效");
+  if (![draft.effectPositionX, draft.effectPositionY].every((value) => Number.isInteger(value) && value >= 0 && value <= 100)) errors.push("瞬时素材位置需要在 0–100 之间");
+  if (!Number.isInteger(draft.effectWidthPercent) || draft.effectWidthPercent < 10 || draft.effectWidthPercent > 80) errors.push("瞬时素材宽度需要在 10–80 之间");
+  if (!Number.isInteger(draft.composerAccentWidthPx) || draft.composerAccentWidthPx < 48 || draft.composerAccentWidthPx > 240) errors.push("输入框装饰宽度需要在 48–240 之间");
   if (!draft.brand.trim() || !draft.title.trim()) errors.push("品牌文字和首页标题不能为空");
   const licenseNotes = draft.licenseNotes.trim();
   if (licenseNotes.length < 20) errors.push("请用至少 20 个字符说明每项素材的作者、来源和再分发许可");
@@ -75,7 +99,7 @@ export function validateSubmission(draft: SubmissionDraft, preview?: File) {
   return errors;
 }
 
-export async function validateSubmissionAssets(preview?: File, background?: File) {
+export async function validateSubmissionAssets(preview?: File, background?: File, effectOverlay?: File, composerAccent?: File) {
   const errors: string[] = [];
   if (preview) {
     if (preview.type !== "image/png") errors.push("真实效果预览图必须是 PNG");
@@ -93,7 +117,16 @@ export async function validateSubmissionAssets(preview?: File, background?: File
     if (background.size > BACKGROUND_MAX_BYTES) errors.push("背景图不能超过 16 MB");
     await validateDimensions(background, "背景图", BACKGROUND_MAX_DIMENSION, errors);
   }
-  if (preview && background && await sameFileContents(preview, background)) errors.push("真实界面预览不能直接复用为主题背景图");
+  for (const [file, label] of [[effectOverlay, "瞬时叠加素材"], [composerAccent, "输入框装饰素材"]] as const) {
+    if (!file) continue;
+    if (file.type !== "image/png") errors.push(`${label}必须是支持透明背景的 PNG`);
+    if (file.size > EFFECT_MAX_BYTES) errors.push(`${label}不能超过 4 MB`);
+    await validateDimensions(file, label, EFFECT_MAX_DIMENSION, errors);
+  }
+  const supplied = [preview, background, effectOverlay, composerAccent].filter((file): file is File => Boolean(file));
+  for (let left = 0; left < supplied.length; left += 1) for (let right = left + 1; right < supplied.length; right += 1) {
+    if (await sameFileContents(supplied[left], supplied[right])) errors.push("预览图、背景图和特效素材不能直接复用同一个文件");
+  }
   return errors;
 }
 
@@ -140,7 +173,7 @@ function backgroundExtension(file: File) {
   return ({ "image/png": "png", "image/jpeg": "jpg", "image/webp": "webp", "image/avif": "avif" })[file.type];
 }
 
-export function createThemeManifests(draft: SubmissionDraft, hasBackground: boolean, backgroundExt = "jpg") {
+export function createThemeManifests(draft: SubmissionDraft, hasBackground: boolean, backgroundExt = "jpg", hasEffectOverlay = false, hasComposerAccent = false) {
   const desktopCategory = CATEGORY_OPTIONS.find((item) => item.value === draft.category)?.desktop ?? "其他";
   const backgroundImage = hasBackground ? `../backgrounds/${draft.slug}.${backgroundExt}` : undefined;
   const desktop = {
@@ -162,9 +195,18 @@ export function createThemeManifests(draft: SubmissionDraft, hasBackground: bool
       opaqueWindows: true,
       ...(backgroundImage ? {
         backgroundImage,
-        backgroundPosition: draft.backgroundPosition,
+        backgroundFocus: { x: draft.backgroundFocusX, y: draft.backgroundFocusY },
+        visualIntensity: draft.visualIntensity,
         backgroundImageOpacity: 1,
         backgroundImageBlur: 0,
+      } : {}),
+      ...((draft.ambientEffect !== "none" || hasEffectOverlay || hasComposerAccent) ? {
+        effects: {
+          ambient: draft.ambientEffect,
+          intensity: draft.effectIntensity,
+          ...(hasEffectOverlay ? { overlay: { image: `../effects/${draft.slug}-overlay.png`, triggers: ["task-start", "message-send"], position: { x: draft.effectPositionX, y: draft.effectPositionY }, widthPercent: draft.effectWidthPercent } } : {}),
+          ...(hasComposerAccent ? { composerAccent: { image: `../effects/${draft.slug}-composer.png`, triggers: ["task-start"], widthPx: draft.composerAccentWidthPx } } : {}),
+        },
       } : {}),
       fonts: {
         ui: "\"Microsoft YaHei UI\", \"PingFang SC\", \"Segoe UI\", sans-serif",
@@ -231,11 +273,11 @@ export function createThemeManifests(draft: SubmissionDraft, hasBackground: bool
   return { desktop, catalog };
 }
 
-export async function createSubmissionArchive(draft: SubmissionDraft, preview: File, background?: File) {
-  const errors = [...validateSubmission(draft, preview), ...await validateSubmissionAssets(preview, background)];
+export async function createSubmissionArchive(draft: SubmissionDraft, preview: File, background?: File, effectOverlay?: File, composerAccent?: File) {
+  const errors = [...validateSubmission(draft, preview), ...await validateSubmissionAssets(preview, background, effectOverlay, composerAccent)];
   if (errors.length) throw new Error(errors.join("；"));
   const extension = background ? backgroundExtension(background) : undefined;
-  const { desktop, catalog } = createThemeManifests(draft, Boolean(background), extension);
+  const { desktop, catalog } = createThemeManifests(draft, Boolean(background), extension, Boolean(effectOverlay), Boolean(composerAccent));
   const encoder = (value: unknown) => strToU8(`${JSON.stringify(value, null, 2)}\n`);
   const previewBytes = new Uint8Array(await preview.arrayBuffer());
   const files: Record<string, Uint8Array> = {
@@ -246,6 +288,8 @@ export async function createSubmissionArchive(draft: SubmissionDraft, preview: F
     "SUBMISSION.md": strToU8(`# ${draft.name}\n\n作者：${draft.author} (@${draft.handle})\n\n## 素材与许可\n\n${draft.licenseNotes}\n\n## 投稿说明\n\n此投稿包由 Codex-Skin-Store 主题工坊生成。包内只有声明式 JSON 与图片；维护者审核后由可信 CI 构建、签名和发布。\n`),
   };
   if (background && extension) files[`backgrounds/${draft.slug}.${extension}`] = new Uint8Array(await background.arrayBuffer());
+  if (effectOverlay) files[`effects/${draft.slug}-overlay.png`] = new Uint8Array(await effectOverlay.arrayBuffer());
+  if (composerAccent) files[`effects/${draft.slug}-composer.png`] = new Uint8Array(await composerAccent.arrayBuffer());
   const archive = await new Promise<Uint8Array>((resolve, reject) => {
     zip(files, { level: 6 }, (error, data) => error ? reject(error) : resolve(data));
   });

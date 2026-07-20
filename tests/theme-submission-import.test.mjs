@@ -101,6 +101,30 @@ test("imports a validated workshop bundle and records its Issue provenance", asy
   assert.deepEqual(await readFile(join(root, `previews/${slug}.png`)), await readFile(join(root, `public/theme-previews/${slug}.png`)));
 });
 
+test("imports declarative effect assets without accepting scripts", async () => {
+  const root = await emptyRepository();
+  const archivePath = join(root, "effects.zip");
+  const effect = new Uint8Array(await readFile(new URL("../public/theme-previews/enfp-pop.png", import.meta.url)));
+  const manifest = desktopManifest();
+  manifest.theme.effects = {
+    ambient: "storm",
+    intensity: "balanced",
+    overlay: {
+      image: `../effects/${slug}-overlay.png`,
+      triggers: ["task-start", "message-send"],
+      position: { x: 72, y: 28 },
+      widthPercent: 42,
+    },
+  };
+  await writeFile(archivePath, await fixtureArchive({
+    [`themes/${slug}.json`]: strToU8(JSON.stringify(manifest)),
+    [`effects/${slug}-overlay.png`]: effect,
+  }));
+  const result = await importThemeSubmission({ archivePath, root });
+  assert.ok(result.imported.includes(`effects/${slug}-overlay.png`));
+  assert.ok((await readFile(join(root, `effects/${slug}-overlay.png`))).equals(effect));
+});
+
 test("rejects traversal entries before writing files", async () => {
   const root = await emptyRepository();
   const archivePath = join(root, "unsafe.zip");

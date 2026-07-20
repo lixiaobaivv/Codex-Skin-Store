@@ -28,6 +28,45 @@
         "opaqueWindows": { "type": "boolean" },
         "backgroundImage": { "$ref": "#/$defs/backgroundPath" },
         "backgroundPosition": { "enum": ["center", "center top", "center 20%", "center 30%", "center 40%", "center bottom", "left center", "right center"] },
+        "backgroundFocus": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["x", "y"],
+          "properties": {
+            "x": { "type": "integer", "minimum": 0, "maximum": 100 },
+            "y": { "type": "integer", "minimum": 0, "maximum": 100 }
+          }
+        },
+        "visualIntensity": { "enum": ["clear", "balanced", "immersive"] },
+        "effects": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "ambient": { "enum": ["none", "rain", "particles", "storm"] },
+            "intensity": { "enum": ["subtle", "balanced", "vivid"] },
+            "overlay": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["image", "triggers"],
+              "properties": {
+                "image": { "$ref": "#/$defs/effectPath" },
+                "triggers": { "$ref": "#/$defs/effectTriggers" },
+                "position": { "$ref": "#/$defs/focus" },
+                "widthPercent": { "type": "integer", "minimum": 10, "maximum": 80 }
+              }
+            },
+            "composerAccent": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["image", "triggers"],
+              "properties": {
+                "image": { "$ref": "#/$defs/effectPath" },
+                "triggers": { "$ref": "#/$defs/effectTriggers" },
+                "widthPx": { "type": "integer", "minimum": 48, "maximum": 240 }
+              }
+            }
+          }
+        },
         "logoImage": { "$ref": "#/$defs/logoPath" },
         "backgroundImageOpacity": { "type": "number", "minimum": 0, "maximum": 1 },
         "backgroundImageBlur": { "type": "number", "minimum": 0, "maximum": 24 },
@@ -119,10 +158,27 @@
   "$defs": {
     "previewPath": { "type": "string", "pattern": "^\\.\\./previews/[A-Za-z0-9._-]+\\.(png|jpg|jpeg|webp|avif)$" },
     "backgroundPath": { "type": "string", "pattern": "^\\.\\./backgrounds/[A-Za-z0-9._-]+\\.(png|jpg|jpeg|webp|avif)$" },
+    "effectPath": { "type": "string", "pattern": "^\\.\\./effects/[A-Za-z0-9._-]+\\.(png|jpg|jpeg|webp|avif)$" },
     "logoPath": { "type": "string", "pattern": "^\\.\\./logos/[A-Za-z0-9._-]+\\.(png|jpg|jpeg|webp|avif)$" },
     "petPath": { "type": "string", "pattern": "^\\.\\./pets/[A-Za-z0-9._-]+\\.(png|jpg|jpeg|webp|avif)$" },
     "color": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
     "copy": { "type": "string", "maxLength": 200 },
-    "shortCopy": { "type": "string", "maxLength": 40 }
+    "shortCopy": { "type": "string", "maxLength": 40 },
+    "focus": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["x", "y"],
+      "properties": {
+        "x": { "type": "integer", "minimum": 0, "maximum": 100 },
+        "y": { "type": "integer", "minimum": 0, "maximum": 100 }
+      }
+    },
+    "effectTriggers": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 2,
+      "uniqueItems": true,
+      "items": { "enum": ["task-start", "message-send"] }
+    }
   }
 }

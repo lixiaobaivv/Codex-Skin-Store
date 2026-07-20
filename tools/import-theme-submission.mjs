@@ -9,15 +9,17 @@ import { unzipSync } from "fflate";
 import { validateTheme } from "./validate-catalog.mjs";
 
 const DEFAULT_ROOT = fileURLToPath(new URL("../", import.meta.url));
-const MAX_ARCHIVE_BYTES = 24 * 1024 * 1024;
-const MAX_EXPANDED_BYTES = 24 * 1024 * 1024;
-const MAX_ENTRIES = 6;
+const MAX_ARCHIVE_BYTES = 28 * 1024 * 1024;
+const MAX_EXPANDED_BYTES = 28 * 1024 * 1024;
+const MAX_ENTRIES = 8;
 const PREVIEW_MAX_BYTES = 2 * 1024 * 1024;
 const PREVIEW_MIN_WIDTH = 1200;
 const PREVIEW_MIN_HEIGHT = 750;
 const PREVIEW_MAX_DIMENSION = 2400;
 const BACKGROUND_MAX_BYTES = 16 * 1024 * 1024;
-const ENTRY_PATTERN = /^(?:themes\/[a-z0-9-]+\.json|catalog\/themes\/[a-z0-9-]+\.json|previews\/[a-z0-9-]+\.png|public\/theme-previews\/[a-z0-9-]+\.png|backgrounds\/[a-z0-9-]+\.(?:png|jpg)|SUBMISSION\.md)$/;
+const EFFECT_MAX_BYTES = 4 * 1024 * 1024;
+const EFFECT_MAX_DIMENSION = 4096;
+const ENTRY_PATTERN = /^(?:themes\/[a-z0-9-]+\.json|catalog\/themes\/[a-z0-9-]+\.json|previews\/[a-z0-9-]+\.png|public\/theme-previews\/[a-z0-9-]+\.png|backgrounds\/[a-z0-9-]+\.(?:png|jpg)|effects\/[a-z0-9-]+-(?:overlay|composer)\.png|SUBMISSION\.md)$/;
 const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)+$/;
 const ajv = new Ajv2020({ allErrors: true, strict: false });
 addFormats(ajv);
@@ -82,6 +84,12 @@ function validateBackground(bytes, extension) {
   }
 }
 
+function validateEffect(bytes, label) {
+  if (bytes.length > EFFECT_MAX_BYTES) fail(`${label}不能超过 4 MB`);
+  const { width, height } = pngDimensions(bytes, label);
+  if (width > EFFECT_MAX_DIMENSION || height > EFFECT_MAX_DIMENSION) fail(`${label}尺寸不能超过 ${EFFECT_MAX_DIMENSION}×${EFFECT_MAX_DIMENSION}`);
+}
+
 function licenseNotes(markdown) {
   const match = markdown.match(/## 素材与许可\s+([\s\S]*?)(?=\n## |$)/);
   const notes = match?.[1]?.trim() ?? "";
@@ -93,7 +101,7 @@ function licenseNotes(markdown) {
 }
 
 function safeEntries(archiveBytes) {
-  if (archiveBytes.length > MAX_ARCHIVE_BYTES) fail("ZIP 不能超过 24 MB");
+  if (archiveBytes.length > MAX_ARCHIVE_BYTES) fail("ZIP 不能超过 28 MB");
   let count = 0;
   let expanded = 0;
   const names = new Set();
@@ -108,14 +116,14 @@ function safeEntries(archiveBytes) {
       if (names.has(name)) fail(`ZIP 包含重复文件：${name}`);
       names.add(name);
       expanded += entry.originalSize;
-      if (expanded > MAX_EXPANDED_BYTES) fail("解压后总大小不能超过 24 MB");
+      if (expanded > MAX_EXPANDED_BYTES) fail("解压后总大小不能超过 28 MB");
       return true;
     },
   });
   return files;
 }
 
-function expectedPaths(slug, backgroundPath) {
+function expectedPaths(slug, backgroundPath, effectPaths) {
   return new Set([
     `themes/${slug}.json`,
     `catalog/themes/${slug}.json`,
@@ -123,10 +131,11 @@ function expectedPaths(slug, backgroundPath) {
     `public/theme-previews/${slug}.png`,
     "SUBMISSION.md",
     ...(backgroundPath ? [backgroundPath] : []),
+    ...effectPaths,
   ]);
 }
 
-function validateManifest(manifest, catalog, slug, backgroundPath) {
+function validateManifest(manifest, catalog, slug, backgroundPath, effectPaths) {
   if (!validateDesktopSchema(manifest)) fail(`桌面主题 Schema 无效：${ajv.errorsText(validateDesktopSchema.errors)}`);
   if (!validateStoreSchema(catalog)) fail(`商店主题 Schema 无效：${ajv.errorsText(validateStoreSchema.errors)}`);
   if (manifest.codeThemeId !== slug || catalog.slug !== slug) fail("文件名、桌面主题 ID 和商店 slug 必须一致");
@@ -141,6 +150,13 @@ function validateManifest(manifest, catalog, slug, backgroundPath) {
   } else if (manifest.theme?.backgroundImage) {
     fail("清单引用了 ZIP 中不存在的背景图");
   }
+  const referencedEffects = [manifest.theme?.effects?.overlay?.image, manifest.theme?.effects?.composerAccent?.image]
+    .filter(Boolean)
+    .map((path) => path.replace(/^\.\.\//, ""))
+    .sort();
+  if (JSON.stringify(referencedEffects) !== JSON.stringify([...effectPaths].sort())) fail("特效素材路径与 ZIP 内容不一致");
+  if (manifest.theme?.effects?.overlay?.image && manifest.theme.effects.overlay.image !== `../effects/${slug}-overlay.png`) fail("瞬时叠加素材路径与主题 ID 不一致");
+  if (manifest.theme?.effects?.composerAccent?.image && manifest.theme.effects.composerAccent.image !== `../effects/${slug}-composer.png`) fail("输入框装饰素材路径与主题 ID 不一致");
   validateTheme(catalog, `catalog/themes/${slug}.json`);
 }
 
@@ -161,13 +177,17 @@ export async function importThemeSubmission({ archivePath, root = DEFAULT_ROOT, 
   const backgroundPaths = Object.keys(files).filter((name) => name.startsWith("backgrounds/"));
   if (backgroundPaths.length > 1) fail("只能包含一张背景图");
   const backgroundPath = backgroundPaths[0];
-  const expected = expectedPaths(slug, backgroundPath);
+  const effectPaths = Object.keys(files).filter((name) => name.startsWith("effects/"));
+  if (effectPaths.length > 2) fail("最多只能包含两张特效素材");
+  const allowedEffectPaths = new Set([`effects/${slug}-overlay.png`, `effects/${slug}-composer.png`]);
+  if (effectPaths.some((path) => !allowedEffectPaths.has(path))) fail("特效素材文件名必须与主题 ID 和素材角色一致");
+  const expected = expectedPaths(slug, backgroundPath, effectPaths);
   const actual = new Set(Object.keys(files));
   assert.deepEqual([...actual].sort(), [...expected].sort(), "投稿包只能包含当前主题的标准文件");
 
   const manifest = parseJson(files[`themes/${slug}.json`], "桌面主题清单");
   const catalog = parseJson(files[`catalog/themes/${slug}.json`], "商店主题条目");
-  validateManifest(manifest, catalog, slug, backgroundPath);
+  validateManifest(manifest, catalog, slug, backgroundPath, effectPaths);
 
   const preview = files[`previews/${slug}.png`];
   const publicPreview = files[`public/theme-previews/${slug}.png`];
@@ -177,6 +197,15 @@ export async function importThemeSubmission({ archivePath, root = DEFAULT_ROOT, 
     const background = files[backgroundPath];
     validateBackground(background, backgroundPath.endsWith(".png") ? "png" : "jpg");
     if (equalBytes(preview, background)) fail("真实界面预览不能直接复用为主题背景图");
+  }
+  for (const effectPath of effectPaths) validateEffect(files[effectPath], effectPath.includes("-overlay.png") ? "瞬时叠加素材" : "输入框装饰素材");
+  const submittedImages = [
+    ["真实效果预览", preview],
+    ...(backgroundPath ? [["背景图", files[backgroundPath]]] : []),
+    ...effectPaths.map((path) => [path, files[path]]),
+  ];
+  for (let left = 0; left < submittedImages.length; left += 1) for (let right = left + 1; right < submittedImages.length; right += 1) {
+    if (equalBytes(submittedImages[left][1], submittedImages[right][1])) fail(`${submittedImages[left][0]}与${submittedImages[right][0]}不能复用同一个文件`);
   }
 
   const submissionMarkdown = decode(files["SUBMISSION.md"], "SUBMISSION.md");
@@ -198,6 +227,7 @@ export async function importThemeSubmission({ archivePath, root = DEFAULT_ROOT, 
     `previews/${slug}.png`,
     `public/theme-previews/${slug}.png`,
     ...(backgroundPath ? [backgroundPath] : []),
+    ...effectPaths,
   ];
   if (!checkOnly) {
     for (const relativePath of imported) {

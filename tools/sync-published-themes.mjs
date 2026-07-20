@@ -41,7 +41,7 @@ for (const entry of entries) {
   const response = await fetch(asset.browser_download_url, { redirect: "follow" });
   if (!response.ok) throw new Error(`${entry.id}: package download returned HTTP ${response.status}.`);
   const bytes = Buffer.from(await response.arrayBuffer());
-  if (bytes.length !== asset.size || bytes.length < 1 || bytes.length > 20 * 1024 * 1024) {
+  if (bytes.length !== asset.size || bytes.length < 1 || bytes.length > 28 * 1024 * 1024) {
     throw new Error(`${entry.id}: downloaded package size does not match the Release asset.`);
   }
   const sha256 = createHash("sha256").update(bytes).digest("hex");
