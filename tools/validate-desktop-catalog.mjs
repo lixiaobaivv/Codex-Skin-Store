@@ -30,6 +30,8 @@ for (const entry of index.themes) {
     [theme.previewImage, "previews"],
     [theme.theme?.backgroundImage, "backgrounds"],
     [theme.theme?.logoImage, "logos"],
+    [theme.theme?.effects?.overlay?.image, "effects"],
+    [theme.theme?.effects?.composerAccent?.image, "effects"],
     [theme.home?.pet?.image, "pets"],
   ];
   for (const [asset, directory] of assets) {
@@ -73,6 +75,8 @@ async function validateImage(path, themeId, role) {
     ? { bytes: 2 * 1024 * 1024, dimension: 2400 }
     : role === "backgrounds"
       ? { bytes: 16 * 1024 * 1024, dimension: 8192 }
+      : role === "effects"
+        ? { bytes: 4 * 1024 * 1024, dimension: 4096 }
       : { bytes: 20 * 1024 * 1024, dimension: 8192 };
   assert.ok(bytes.length <= limits.bytes, `${themeId}: ${role} image exceeds ${limits.bytes} bytes`);
   const dimensions = imageDimensions(bytes, extension);

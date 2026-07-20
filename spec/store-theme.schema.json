@@ -69,7 +69,7 @@
             "version": { "$ref": "#/$defs/semver" },
             "url": { "type": "string", "format": "uri", "pattern": "^https://github\\.com/[^/]+/[^/]+/releases/download/[^/]+/[^/?#]+\\.dreamskin$" },
             "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
-            "size": { "type": "integer", "minimum": 1, "maximum": 20971520 }
+            "size": { "type": "integer", "minimum": 1, "maximum": 29360128 }
           }
         }
       ]

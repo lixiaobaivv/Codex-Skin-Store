@@ -3,6 +3,63 @@ import type { Theme } from "@/lib/themes";
 
 export const GENERATED_THEMES = [
   {
+    "slug": "desert-signal",
+    "name": "Desert Signal",
+    "summary": "沙丘金、陶土橙与绿洲青组成的暖色主题，适合规划路线和持续推进长任务。",
+    "author": {
+      "name": "Codex Skin",
+      "handle": "codex-skin",
+      "curated": true
+    },
+    "category": "nature",
+    "platforms": [
+      "macos",
+      "windows"
+    ],
+    "colors": [
+      "orange",
+      "teal",
+      "neutral"
+    ],
+    "tags": [
+      "原创",
+      "沙丘",
+      "暖色",
+      "绿洲",
+      "双平台"
+    ],
+    "stats": {
+      "downloads": 0,
+      "rating": 0,
+      "reviews": 0
+    },
+    "featured": false,
+    "isNew": true,
+    "version": "1.0.0",
+    "engineRange": ">=1.0.0 <2.0.0",
+    "publishedAt": "2026-07-18T04:06:00.000Z",
+    "license": {
+      "name": "Codex-Skin Theme Assets",
+      "spdx": "LicenseRef-Codex-Skin-Theme",
+      "source": "project-curated-assets"
+    },
+    "package": null,
+    "previewImage": "/theme-previews/desert-signal.png",
+    "previewStyle": {
+      "backgroundColor": "#f3dfbd",
+      "backgroundImage": "linear-gradient(145deg, #f3dfbd, #ead0a4)",
+      "panelColor": "#f3dfbd",
+      "panelBorder": "#d5b786",
+      "textColor": "#3d3028",
+      "mutedTextColor": "#806d5e",
+      "accentColor": "#d86f3d",
+      "accentSoft": "#ead0a4",
+      "codeColor": "#147f78",
+      "shadow": "0 28px 80px rgba(43,54,67,.18)",
+      "pattern": "horizon"
+    }
+  },
+  {
     "slug": "dilraba-star",
     "name": "Dilraba Star",
     "summary": "星光蓝紫与甜酷舞台氛围，包含真实背景、Logo、首页引导与四张快捷操作卡。",
@@ -126,6 +183,63 @@ export const GENERATED_THEMES = [
       "codeColor": "#ffb31a",
       "shadow": "0 28px 80px rgba(255,106,87,.2)",
       "pattern": "paper"
+    }
+  },
+  {
+    "slug": "glacier-glass",
+    "name": "Glacier Glass",
+    "summary": "冰川蓝、玻璃白与极光青构成的清透主题，适合审查、整理与高密度信息阅读。",
+    "author": {
+      "name": "Codex Skin",
+      "handle": "codex-skin",
+      "curated": true
+    },
+    "category": "gradient",
+    "platforms": [
+      "macos",
+      "windows"
+    ],
+    "colors": [
+      "blue",
+      "teal",
+      "neutral"
+    ],
+    "tags": [
+      "原创",
+      "冰川",
+      "玻璃",
+      "清透",
+      "双平台"
+    ],
+    "stats": {
+      "downloads": 0,
+      "rating": 0,
+      "reviews": 0
+    },
+    "featured": false,
+    "isNew": true,
+    "version": "1.0.0",
+    "engineRange": ">=1.0.0 <2.0.0",
+    "publishedAt": "2026-07-18T04:08:00.000Z",
+    "license": {
+      "name": "Codex-Skin Theme Assets",
+      "spdx": "LicenseRef-Codex-Skin-Theme",
+      "source": "project-curated-assets"
+    },
+    "package": null,
+    "previewImage": "/theme-previews/glacier-glass.png",
+    "previewStyle": {
+      "backgroundColor": "#eaf7fa",
+      "backgroundImage": "linear-gradient(145deg, #eaf7fa, #ccebf2)",
+      "panelColor": "#eaf7fa",
+      "panelBorder": "#acd3dc",
+      "textColor": "#173746",
+      "mutedTextColor": "#66818d",
+      "accentColor": "#168fb2",
+      "accentSoft": "#ccebf2",
+      "codeColor": "#5c69d8",
+      "shadow": "0 28px 80px rgba(43,54,67,.18)",
+      "pattern": "aurora"
     }
   },
   {
@@ -255,6 +369,347 @@ export const GENERATED_THEMES = [
     }
   },
   {
+    "slug": "lunar-terminal",
+    "name": "Lunar Terminal",
+    "summary": "月面银、深空蓝与冷光网格塑造的工程终端，专为调试、构建与发布节奏设计。",
+    "author": {
+      "name": "Codex Skin",
+      "handle": "codex-skin",
+      "curated": true
+    },
+    "category": "dark",
+    "platforms": [
+      "macos",
+      "windows"
+    ],
+    "colors": [
+      "blue",
+      "neutral",
+      "black"
+    ],
+    "tags": [
+      "原创",
+      "月面",
+      "终端",
+      "工程感",
+      "双平台"
+    ],
+    "stats": {
+      "downloads": 0,
+      "rating": 0,
+      "reviews": 0
+    },
+    "featured": true,
+    "isNew": true,
+    "version": "1.0.0",
+    "engineRange": ">=1.0.0 <2.0.0",
+    "publishedAt": "2026-07-18T04:03:00.000Z",
+    "license": {
+      "name": "Codex-Skin Theme Assets",
+      "spdx": "LicenseRef-Codex-Skin-Theme",
+      "source": "project-curated-assets"
+    },
+    "package": null,
+    "previewImage": "/theme-previews/lunar-terminal.png",
+    "previewStyle": {
+      "backgroundColor": "#0b1424",
+      "backgroundImage": "linear-gradient(145deg, #0b1424, #182b45)",
+      "panelColor": "#0b1424",
+      "panelBorder": "#29466d",
+      "textColor": "#eef6ff",
+      "mutedTextColor": "#8fa1b8",
+      "accentColor": "#7db9ff",
+      "accentSoft": "#182b45",
+      "codeColor": "#b7c8e8",
+      "shadow": "0 28px 80px rgba(0,0,0,.48)",
+      "pattern": "grid"
+    }
+  },
+  {
+    "slug": "mono-focus",
+    "name": "Mono Focus",
+    "summary": "黑白留白中只保留一笔钴蓝，强调层级、键盘效率与无干扰工作。",
+    "author": {
+      "name": "Codex Skin",
+      "handle": "codex-skin",
+      "curated": true
+    },
+    "category": "minimal",
+    "platforms": [
+      "macos",
+      "windows"
+    ],
+    "colors": [
+      "neutral",
+      "black",
+      "blue"
+    ],
+    "tags": [
+      "原创",
+      "黑白",
+      "极简",
+      "专注",
+      "双平台"
+    ],
+    "stats": {
+      "downloads": 0,
+      "rating": 0,
+      "reviews": 0
+    },
+    "featured": false,
+    "isNew": true,
+    "version": "1.0.0",
+    "engineRange": ">=1.0.0 <2.0.0",
+    "publishedAt": "2026-07-18T04:05:00.000Z",
+    "license": {
+      "name": "Codex-Skin Theme Assets",
+      "spdx": "LicenseRef-Codex-Skin-Theme",
+      "source": "project-curated-assets"
+    },
+    "package": null,
+    "previewImage": "/theme-previews/mono-focus.png",
+    "previewStyle": {
+      "backgroundColor": "#f5f4ef",
+      "backgroundImage": "linear-gradient(145deg, #f5f4ef, #dfe5ff)",
+      "panelColor": "#f5f4ef",
+      "panelBorder": "#c9c7c0",
+      "textColor": "#151515",
+      "mutedTextColor": "#74726c",
+      "accentColor": "#2457ff",
+      "accentSoft": "#dfe5ff",
+      "codeColor": "#2457ff",
+      "shadow": "0 28px 80px rgba(43,54,67,.18)",
+      "pattern": "grid"
+    }
+  },
+  {
+    "slug": "moss-library",
+    "name": "Moss Library",
+    "summary": "苔绿、旧木与琥珀灯光组成的安静书房，适合长时间阅读代码与梳理知识。",
+    "author": {
+      "name": "Codex Skin",
+      "handle": "codex-skin",
+      "curated": true
+    },
+    "category": "nature",
+    "platforms": [
+      "macos",
+      "windows"
+    ],
+    "colors": [
+      "green",
+      "orange",
+      "black"
+    ],
+    "tags": [
+      "原创",
+      "苔藓",
+      "书房",
+      "自然",
+      "双平台"
+    ],
+    "stats": {
+      "downloads": 0,
+      "rating": 0,
+      "reviews": 0
+    },
+    "featured": false,
+    "isNew": true,
+    "version": "1.0.0",
+    "engineRange": ">=1.0.0 <2.0.0",
+    "publishedAt": "2026-07-18T04:02:00.000Z",
+    "license": {
+      "name": "Codex-Skin Theme Assets",
+      "spdx": "LicenseRef-Codex-Skin-Theme",
+      "source": "project-curated-assets"
+    },
+    "package": null,
+    "previewImage": "/theme-previews/moss-library.png",
+    "previewStyle": {
+      "backgroundColor": "#16231c",
+      "backgroundImage": "linear-gradient(145deg, #16231c, #2b4032)",
+      "panelColor": "#16231c",
+      "panelBorder": "#405546",
+      "textColor": "#f0f1df",
+      "mutedTextColor": "#9aa995",
+      "accentColor": "#9fbd76",
+      "accentSoft": "#2b4032",
+      "codeColor": "#e2b66d",
+      "shadow": "0 28px 80px rgba(0,0,0,.48)",
+      "pattern": "mist"
+    }
+  },
+  {
+    "slug": "neon-tides",
+    "name": "Neon Tides",
+    "summary": "深海黑与青粉流光交叠的沉浸主题，为夜间编码保留安静、清晰的视觉中心。",
+    "author": {
+      "name": "Codex Skin",
+      "handle": "codex-skin",
+      "curated": true
+    },
+    "category": "dark",
+    "platforms": [
+      "macos",
+      "windows"
+    ],
+    "colors": [
+      "teal",
+      "rose",
+      "black"
+    ],
+    "tags": [
+      "原创",
+      "霓虹",
+      "深色",
+      "沉浸",
+      "双平台"
+    ],
+    "stats": {
+      "downloads": 0,
+      "rating": 0,
+      "reviews": 0
+    },
+    "featured": true,
+    "isNew": true,
+    "version": "1.0.0",
+    "engineRange": ">=1.0.0 <2.0.0",
+    "publishedAt": "2026-07-18T04:00:00.000Z",
+    "license": {
+      "name": "Codex-Skin Theme Assets",
+      "spdx": "LicenseRef-Codex-Skin-Theme",
+      "source": "project-curated-assets"
+    },
+    "package": null,
+    "previewImage": "/theme-previews/neon-tides.png",
+    "previewStyle": {
+      "backgroundColor": "#07111f",
+      "backgroundImage": "linear-gradient(145deg, #07111f, #123746)",
+      "panelColor": "#07111f",
+      "panelBorder": "#24576a",
+      "textColor": "#eafcff",
+      "mutedTextColor": "#8da7b5",
+      "accentColor": "#24d6d1",
+      "accentSoft": "#123746",
+      "codeColor": "#ff4fa3",
+      "shadow": "0 28px 80px rgba(0,0,0,.48)",
+      "pattern": "aurora"
+    }
+  },
+  {
+    "slug": "paper-crane",
+    "name": "Paper Crane",
+    "summary": "米纸、朱砂与墨色构成的东方编辑风主题，适合写作、阅读与耐心推演。",
+    "author": {
+      "name": "Codex Skin",
+      "handle": "codex-skin",
+      "curated": true
+    },
+    "category": "editorial",
+    "platforms": [
+      "macos",
+      "windows"
+    ],
+    "colors": [
+      "neutral",
+      "orange"
+    ],
+    "tags": [
+      "原创",
+      "纸张",
+      "东方",
+      "编辑风",
+      "双平台"
+    ],
+    "stats": {
+      "downloads": 0,
+      "rating": 0,
+      "reviews": 0
+    },
+    "featured": true,
+    "isNew": true,
+    "version": "1.0.0",
+    "engineRange": ">=1.0.0 <2.0.0",
+    "publishedAt": "2026-07-18T04:01:00.000Z",
+    "license": {
+      "name": "Codex-Skin Theme Assets",
+      "spdx": "LicenseRef-Codex-Skin-Theme",
+      "source": "project-curated-assets"
+    },
+    "package": null,
+    "previewImage": "/theme-previews/paper-crane.png",
+    "previewStyle": {
+      "backgroundColor": "#f4eddc",
+      "backgroundImage": "linear-gradient(145deg, #f4eddc, #ead9c3)",
+      "panelColor": "#f4eddc",
+      "panelBorder": "#cdbda8",
+      "textColor": "#2f2923",
+      "mutedTextColor": "#776d61",
+      "accentColor": "#c94b32",
+      "accentSoft": "#ead9c3",
+      "codeColor": "#315f68",
+      "shadow": "0 28px 80px rgba(43,54,67,.18)",
+      "pattern": "paper"
+    }
+  },
+  {
+    "slug": "peach-soda",
+    "name": "Peach Soda",
+    "summary": "蜜桃粉、薄荷绿与奶油白的轻快主题，让原型、脑暴和小步迭代更有活力。",
+    "author": {
+      "name": "Codex Skin",
+      "handle": "codex-skin",
+      "curated": true
+    },
+    "category": "gradient",
+    "platforms": [
+      "macos",
+      "windows"
+    ],
+    "colors": [
+      "rose",
+      "teal",
+      "orange"
+    ],
+    "tags": [
+      "原创",
+      "蜜桃",
+      "汽水",
+      "轻快",
+      "双平台"
+    ],
+    "stats": {
+      "downloads": 0,
+      "rating": 0,
+      "reviews": 0
+    },
+    "featured": false,
+    "isNew": true,
+    "version": "1.0.0",
+    "engineRange": ">=1.0.0 <2.0.0",
+    "publishedAt": "2026-07-18T04:04:00.000Z",
+    "license": {
+      "name": "Codex-Skin Theme Assets",
+      "spdx": "LicenseRef-Codex-Skin-Theme",
+      "source": "project-curated-assets"
+    },
+    "package": null,
+    "previewImage": "/theme-previews/peach-soda.png",
+    "previewStyle": {
+      "backgroundColor": "#fff4ed",
+      "backgroundImage": "linear-gradient(145deg, #fff4ed, #ffd9d0)",
+      "panelColor": "#fff4ed",
+      "panelBorder": "#f1c3b9",
+      "textColor": "#3e3440",
+      "mutedTextColor": "#88757c",
+      "accentColor": "#f06f7f",
+      "accentSoft": "#ffd9d0",
+      "codeColor": "#20a995",
+      "shadow": "0 28px 80px rgba(43,54,67,.18)",
+      "pattern": "orb"
+    }
+  },
+  {
     "slug": "user-upload-test",
     "name": "我的第一个主题",
     "summary": "一个清晰、舒适，适合日常使用的 Codex 主题。",
@@ -365,6 +820,63 @@ export const GENERATED_THEMES = [
       "codeColor": "#635bff",
       "shadow": "0 28px 80px #36328c55",
       "pattern": "mist"
+    }
+  },
+  {
+    "slug": "violet-rain",
+    "name": "Violet Rain",
+    "summary": "深紫雨幕与蓝色路灯交织的夜行主题，为排错和深夜创作提供低亮专注感。",
+    "author": {
+      "name": "Codex Skin",
+      "handle": "codex-skin",
+      "curated": true
+    },
+    "category": "dark",
+    "platforms": [
+      "macos",
+      "windows"
+    ],
+    "colors": [
+      "violet",
+      "blue",
+      "black"
+    ],
+    "tags": [
+      "原创",
+      "紫雨",
+      "夜行",
+      "低亮",
+      "双平台"
+    ],
+    "stats": {
+      "downloads": 0,
+      "rating": 0,
+      "reviews": 0
+    },
+    "featured": false,
+    "isNew": true,
+    "version": "1.0.0",
+    "engineRange": ">=1.0.0 <2.0.0",
+    "publishedAt": "2026-07-18T04:07:00.000Z",
+    "license": {
+      "name": "Codex-Skin Theme Assets",
+      "spdx": "LicenseRef-Codex-Skin-Theme",
+      "source": "project-curated-assets"
+    },
+    "package": null,
+    "previewImage": "/theme-previews/violet-rain.png",
+    "previewStyle": {
+      "backgroundColor": "#151126",
+      "backgroundImage": "linear-gradient(145deg, #151126, #2d2449)",
+      "panelColor": "#151126",
+      "panelBorder": "#433766",
+      "textColor": "#f0ecff",
+      "mutedTextColor": "#9c94b5",
+      "accentColor": "#a98bff",
+      "accentSoft": "#2d2449",
+      "codeColor": "#67c4ff",
+      "shadow": "0 28px 80px rgba(0,0,0,.48)",
+      "pattern": "stars"
     }
   },
   {

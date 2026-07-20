@@ -180,6 +180,35 @@
         }
       }
     },
+    "effects": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ambient": { "enum": ["none", "rain", "particles", "storm"] },
+        "intensity": { "enum": ["subtle", "balanced", "vivid"] },
+        "overlay": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["image", "triggers"],
+          "properties": {
+            "image": { "const": "effect-overlay.png" },
+            "triggers": { "$ref": "#/$defs/effectTriggers" },
+            "position": { "$ref": "#/$defs/focus" },
+            "widthPercent": { "type": "integer", "minimum": 10, "maximum": 80 }
+          }
+        },
+        "composerAccent": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["image", "triggers"],
+          "properties": {
+            "image": { "const": "composer-accent.png" },
+            "triggers": { "$ref": "#/$defs/effectTriggers" },
+            "widthPx": { "type": "integer", "minimum": 48, "maximum": 240 }
+          }
+        }
+      }
+    },
     "assets": {
       "type": "object",
       "additionalProperties": false,
@@ -193,6 +222,12 @@
         },
         "preview": {
           "$ref": "#/$defs/previewAsset"
+        },
+        "effectOverlay": {
+          "$ref": "#/$defs/effectOverlayAsset"
+        },
+        "composerAccent": {
+          "$ref": "#/$defs/composerAccentAsset"
         }
       }
     },
@@ -460,6 +495,48 @@
           ]
         }
       ]
+    },
+    "effectAssetCore": {
+      "allOf": [
+        { "$ref": "#/$defs/assetCore" },
+        {
+          "type": "object",
+          "properties": {
+            "mediaType": { "const": "image/png" },
+            "bytes": { "type": "integer", "maximum": 4194304 },
+            "width": { "type": "integer", "maximum": 4096 },
+            "height": { "type": "integer", "maximum": 4096 }
+          }
+        }
+      ]
+    },
+    "effectOverlayAsset": {
+      "allOf": [
+        { "$ref": "#/$defs/effectAssetCore" },
+        { "type": "object", "properties": { "path": { "const": "effect-overlay.png" } } }
+      ]
+    },
+    "composerAccentAsset": {
+      "allOf": [
+        { "$ref": "#/$defs/effectAssetCore" },
+        { "type": "object", "properties": { "path": { "const": "composer-accent.png" } } }
+      ]
+    },
+    "focus": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["x", "y"],
+      "properties": {
+        "x": { "type": "integer", "minimum": 0, "maximum": 100 },
+        "y": { "type": "integer", "minimum": 0, "maximum": 100 }
+      }
+    },
+    "effectTriggers": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 2,
+      "uniqueItems": true,
+      "items": { "enum": ["task-start", "message-send"] }
     }
   }
 }

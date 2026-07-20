@@ -21,6 +21,8 @@ for (const entry of repository.themes) {
     previewPath,
     resolveAsset(manifestPath, manifest.theme?.backgroundImage, "backgrounds", true),
     resolveAsset(manifestPath, manifest.theme?.logoImage, "logos", true),
+    resolveAsset(manifestPath, manifest.theme?.effects?.overlay?.image, "effects", true),
+    resolveAsset(manifestPath, manifest.theme?.effects?.composerAccent?.image, "effects", true),
     resolveAsset(manifestPath, manifest.home?.pet?.image, "pets", true),
   ].filter(Boolean);
   const assets = [];

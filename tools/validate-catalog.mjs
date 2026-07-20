@@ -82,7 +82,7 @@ export function validateTheme(theme, source = "theme") {
     if (!SEMVER.test(theme.package.version) || theme.package.version !== theme.version) fail(source, "package version must be valid and match theme.version");
     if (typeof theme.package.url !== "string" || !RELEASE_URL.test(theme.package.url)) fail(source, "package URL must be an immutable GitHub Release HTTPS .dreamskin URL");
     if (typeof theme.package.sha256 !== "string" || !SHA256.test(theme.package.sha256) || /^0{64}$/.test(theme.package.sha256)) fail(source, "package sha256 must be a real lowercase digest");
-    if (!Number.isInteger(theme.package.size) || theme.package.size < 1 || theme.package.size > 20 * 1024 * 1024) fail(source, "package size must be 1-20971520 bytes");
+    if (!Number.isInteger(theme.package.size) || theme.package.size < 1 || theme.package.size > 28 * 1024 * 1024) fail(source, "package size must be 1-29360128 bytes");
   }
   return theme;
 }

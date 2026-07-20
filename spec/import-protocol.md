@@ -29,8 +29,8 @@ application/vnd.codex-dream-skin+zip
 
 | 项目 | 上限或规则 |
 | --- | --- |
-| ZIP 文件 | 20 MiB |
-| 解压后总大小 | 20 MiB，流式执行，不能信任 ZIP 元数据 |
+| ZIP 文件 | 28 MiB |
+| 解压后总大小 | 28 MiB，流式执行，不能信任 ZIP 元数据 |
 | `theme.json` | 64 KiB，严格 UTF-8，无 BOM |
 | 背景图 | 16 MiB，最大 8192 × 8192，最大 40 MP |
 | 预览图 | 2 MiB，最大 2400 × 2400，最大 8 MP |
@@ -98,7 +98,7 @@ dreamskin://install?url=<percent-encoded-https-url>&sha256=<64-lower-hex>&size=<
 | --- | --- | --- |
 | `url` | 是 | UTF-8 百分号编码的绝对 HTTPS 下载地址 |
 | `sha256` | 是 | `.dreamskin` 文件的 SHA-256 |
-| `size` | 是 | 商店声明的包字节数，范围为 1 到 20971520 |
+| `size` | 是 | 商店声明的包字节数，范围为 1 到 29360128 |
 | `id` | 否 | 仅用于下载前提示；下载后必须与清单一致 |
 | `version` | 否 | 仅用于下载前提示；下载后必须与清单一致 |
 
@@ -114,7 +114,7 @@ dreamskin://install?url=https%3A%2F%2Fthemes.example.com%2Fpackages%2Flixiaobai.
 - 限制深链接总长度，建议不超过 4096 字节；解析一次且只解析一次百分号编码。
 - 只允许 HTTPS。默认拒绝 loopback、私网、链路本地、组播、保留地址和非 443 端口，并在每次重定向后重新解析 DNS 与检查目标。
 - 最多跟随 3 次 HTTPS 重定向；禁止 HTTPS 降级，不转发 Cookie、Authorization 或商店页面凭据。
-- 在读取响应体前校验 `Content-Length`（如果存在），下载时仍须执行 20 MiB 流式硬限制。
+- 在读取响应体前校验 `Content-Length`（如果存在），下载时仍须执行 28 MiB 流式硬限制。
 - 将 `id` 和 `version` 当作不可信提示，不得用它们决定安装路径。
 - 只有在明确的用户点击后打开导入确认界面。协议唤起本身不得静默下载、安装或应用主题。
 

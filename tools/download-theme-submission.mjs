@@ -20,7 +20,7 @@ export async function downloadIssueSubmission({ repository, issueNumber, output,
   const archiveResponse = await fetch(url, { headers, redirect: "follow" });
   if (!archiveResponse.ok) throw new Error(`下载投稿附件失败：HTTP ${archiveResponse.status}`);
   const bytes = new Uint8Array(await archiveResponse.arrayBuffer());
-  if (bytes.length > 24 * 1024 * 1024) throw new Error("投稿 ZIP 不能超过 24 MB");
+  if (bytes.length > 28 * 1024 * 1024) throw new Error("投稿 ZIP 不能超过 28 MB");
   await writeFile(output, bytes);
   return { issueUrl: issue.html_url, title: issue.title, attachmentUrl: url, size: bytes.length };
 }

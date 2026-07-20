@@ -1,0 +1,57 @@
+{
+  "slug": "glacier-glass",
+  "name": "Glacier Glass",
+  "summary": "冰川蓝、玻璃白与极光青构成的清透主题，适合审查、整理与高密度信息阅读。",
+  "author": {
+    "name": "Codex Skin",
+    "handle": "codex-skin",
+    "curated": true
+  },
+  "category": "gradient",
+  "platforms": [
+    "macos",
+    "windows"
+  ],
+  "colors": [
+    "blue",
+    "teal",
+    "neutral"
+  ],
+  "tags": [
+    "原创",
+    "冰川",
+    "玻璃",
+    "清透",
+    "双平台"
+  ],
+  "stats": {
+    "downloads": 0,
+    "rating": 0,
+    "reviews": 0
+  },
+  "featured": false,
+  "isNew": true,
+  "version": "1.0.0",
+  "engineRange": ">=1.0.0 <2.0.0",
+  "publishedAt": "2026-07-18T04:08:00.000Z",
+  "license": {
+    "name": "Codex-Skin Theme Assets",
+    "spdx": "LicenseRef-Codex-Skin-Theme",
+    "source": "project-curated-assets"
+  },
+  "package": null,
+  "previewImage": "/theme-previews/glacier-glass.png",
+  "previewStyle": {
+    "backgroundColor": "#eaf7fa",
+    "backgroundImage": "linear-gradient(145deg, #eaf7fa, #ccebf2)",
+    "panelColor": "#eaf7fa",
+    "panelBorder": "#acd3dc",
+    "textColor": "#173746",
+    "mutedTextColor": "#66818d",
+    "accentColor": "#168fb2",
+    "accentSoft": "#ccebf2",
+    "codeColor": "#5c69d8",
+    "shadow": "0 28px 80px rgba(43,54,67,.18)",
+    "pattern": "aurora"
+  }
+}

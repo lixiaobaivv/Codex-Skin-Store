@@ -1,0 +1,94 @@
+{
+  "$schema": "../schemas/theme-v1.schema.json",
+  "schemaVersion": 1,
+  "version": "1.0.0",
+  "displayName": "Violet Rain",
+  "codeThemeId": "violet-rain",
+  "category": "风景",
+  "description": "深紫雨幕与蓝色路灯交织的夜行主题，为排错和深夜创作提供低亮专注感。",
+  "author": "Codex Skin",
+  "variant": "dark",
+  "previewImage": "../previews/violet-rain.png",
+  "theme": {
+    "accent": "#a98bff",
+    "contrast": 68,
+    "fonts": {
+      "code": "JetBrainsMono NFM",
+      "ui": "\"Microsoft YaHei UI\", \"PingFang SC\", \"Noto Sans SC\", \"Segoe UI\", sans-serif",
+      "display": "\"Microsoft YaHei UI\", \"PingFang SC\", \"Noto Sans SC\", \"Segoe UI\", sans-serif"
+    },
+    "ink": "#f0ecff",
+    "opaqueWindows": false,
+    "semanticColors": {
+      "diffAdded": "#38b980",
+      "diffRemoved": "#ef6472",
+      "skill": "#67c4ff"
+    },
+    "surface": "#151126",
+    "backgroundImage": "../backgrounds/violet-rain.png",
+    "backgroundPosition": "center",
+    "visualIntensity": "immersive",
+    "effects": {
+      "ambient": "rain",
+      "intensity": "subtle"
+    },
+    "backgroundImageOpacity": 0.88,
+    "backgroundImageBlur": 0
+  },
+  "home": {
+    "brand": "紫雨夜行",
+    "eyebrow": "Violet Rain",
+    "badge": "AFTER HOURS",
+    "title": "在雨声里找到问题的节奏",
+    "subtitle": "让每条线索发光，让每次修复落地",
+    "tags": [
+      "理解",
+      "构建",
+      "审查",
+      "修复"
+    ],
+    "sidebarLabels": {
+      "newTask": "新建任务",
+      "scheduled": "任务排期",
+      "plugins": "插件",
+      "settings": "设置"
+    },
+    "composerHint": "描述你的目标，我们从最清楚的一步开始…",
+    "footerNote": "Violet Rain · Codex Skin Original",
+    "quickActions": [
+      {
+        "icon": "⌁",
+        "title": "理解代码",
+        "description": "梳理结构与关键路径",
+        "prompt": "请探索当前代码库，概览结构、关键模块与主要数据流。"
+      },
+      {
+        "icon": "+",
+        "title": "构建功能",
+        "description": "把目标变成可靠实现",
+        "prompt": "请根据当前项目构建这个功能，并验证核心体验。"
+      },
+      {
+        "icon": "✓",
+        "title": "审查改动",
+        "description": "发现风险与遗漏",
+        "prompt": "请审查当前改动，优先寻找缺陷、回归风险和缺失测试。"
+      },
+      {
+        "icon": "!",
+        "title": "修复问题",
+        "description": "定位根因并完成验证",
+        "prompt": "请诊断当前问题，找到根因、完成修复并验证结果。"
+      }
+    ]
+  },
+  "copy": {
+    "title": "Codex · 紫雨夜行",
+    "replacePlaceholders": {
+      "Ask Codex": "Describe the next step...",
+      "Ask Codex anything": "描述你的目标，我们从最清楚的一步开始…",
+      "向 Codex 询问任何问题": "描述你的目标，我们从最清楚的一步开始…",
+      "给 Codex 发送消息": "描述你的目标，我们从最清楚的一步开始…"
+    }
+  }
+}

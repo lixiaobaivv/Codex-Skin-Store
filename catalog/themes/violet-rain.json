@@ -1,0 +1,57 @@
+{
+  "slug": "violet-rain",
+  "name": "Violet Rain",
+  "summary": "深紫雨幕与蓝色路灯交织的夜行主题，为排错和深夜创作提供低亮专注感。",
+  "author": {
+    "name": "Codex Skin",
+    "handle": "codex-skin",
+    "curated": true
+  },
+  "category": "dark",
+  "platforms": [
+    "macos",
+    "windows"
+  ],
+  "colors": [
+    "violet",
+    "blue",
+    "black"
+  ],
+  "tags": [
+    "原创",
+    "紫雨",
+    "夜行",
+    "低亮",
+    "双平台"
+  ],
+  "stats": {
+    "downloads": 0,
+    "rating": 0,
+    "reviews": 0
+  },
+  "featured": false,
+  "isNew": true,
+  "version": "1.0.0",
+  "engineRange": ">=1.0.0 <2.0.0",
+  "publishedAt": "2026-07-18T04:07:00.000Z",
+  "license": {
+    "name": "Codex-Skin Theme Assets",
+    "spdx": "LicenseRef-Codex-Skin-Theme",
+    "source": "project-curated-assets"
+  },
+  "package": null,
+  "previewImage": "/theme-previews/violet-rain.png",
+  "previewStyle": {
+    "backgroundColor": "#151126",
+    "backgroundImage": "linear-gradient(145deg, #151126, #2d2449)",
+    "panelColor": "#151126",
+    "panelBorder": "#433766",
+    "textColor": "#f0ecff",
+    "mutedTextColor": "#9c94b5",
+    "accentColor": "#a98bff",
+    "accentSoft": "#2d2449",
+    "codeColor": "#67c4ff",
+    "shadow": "0 28px 80px rgba(0,0,0,.48)",
+    "pattern": "stars"
+  }
+}

@@ -16,6 +16,11 @@ test("theme package schema stays declarative and closed", async () => {
 
   const themeSchema = JSON.parse(await readFile(new URL("../schemas/theme-v1.schema.json", import.meta.url), "utf8"));
   assert.equal("backgroundFit" in themeSchema.properties.theme.properties, false);
+  assert.deepEqual(themeSchema.properties.theme.properties.visualIntensity.enum, ["clear", "balanced", "immersive"]);
+  assert.deepEqual(themeSchema.properties.theme.properties.backgroundFocus.required, ["x", "y"]);
+  assert.equal(themeSchema.properties.theme.properties.backgroundFocus.properties.x.maximum, 100);
+  assert.deepEqual(themeSchema.properties.theme.properties.effects.properties.ambient.enum, ["none", "rain", "particles", "storm"]);
+  assert.equal(themeSchema.$defs.effectTriggers.maxItems, 2);
 
   const source = JSON.stringify(schema);
   assert.doesNotMatch(source, /javascript|text\/css|image\/svg\+xml/i);

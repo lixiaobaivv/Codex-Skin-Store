@@ -22,11 +22,33 @@ test("theme workshop generates the complete review bundle", async () => {
   assert.match(source, /PREVIEW_MAX_DIMENSION = 2400/);
   assert.match(source, /BACKGROUND_MAX_BYTES = 16 \* 1024 \* 1024/);
   assert.match(source, /BACKGROUND_MAX_DIMENSION = 8192/);
+  assert.match(source, /EFFECT_MAX_BYTES = 4 \* 1024 \* 1024/);
+  assert.match(source, /effects\/\$\{draft\.slug\}-overlay\.png/);
+  assert.match(source, /effects\/\$\{draft\.slug\}-composer\.png/);
   assert.match(source, /validateSubmissionAssets/);
   assert.match(source, /sameFileContents/);
   assert.match(source, /creator-submitted-assets/);
+  assert.match(source, /backgroundFocus: \{ x: draft\.backgroundFocusX, y: draft\.backgroundFocusY \}/);
+  assert.match(source, /visualIntensity: draft\.visualIntensity/);
   assert.match(source, /至少 20 个字符/);
   assert.doesNotMatch(source, /javascript|text\/html|application\/x-executable/i);
+});
+
+test("theme workshop supports image-derived colors and precise focus controls", async () => {
+  const [workshop, palette] = await Promise.all([
+    readFile(new URL("../components/theme-workshop.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../lib/image-palette.ts", import.meta.url), "utf8"),
+  ]);
+  assert.match(workshop, /extractImagePalette/);
+  assert.match(workshop, /应用自动配色/);
+  assert.match(workshop, /backgroundFocusX/);
+  assert.match(workshop, /backgroundFocusY/);
+  assert.match(workshop, /immersive/);
+  assert.match(workshop, /氛围特效/);
+  assert.match(workshop, /任务瞬时叠加素材/);
+  assert.match(palette, /64 \/ Math\.max/);
+  assert.match(palette, /createImageBitmap/);
+  assert.match(palette, /getImageData/);
 });
 
 test("submission issue accepts workshop bundles instead of prebuilt signed packages", async () => {
