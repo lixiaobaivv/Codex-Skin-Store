@@ -1,0 +1,57 @@
+{
+  "slug": "moss-library",
+  "name": "Moss Library",
+  "summary": "苔绿、旧木与琥珀灯光组成的安静书房，适合长时间阅读代码与梳理知识。",
+  "author": {
+    "name": "Codex Skin",
+    "handle": "codex-skin",
+    "curated": true
+  },
+  "category": "nature",
+  "platforms": [
+    "macos",
+    "windows"
+  ],
+  "colors": [
+    "green",
+    "orange",
+    "black"
+  ],
+  "tags": [
+    "原创",
+    "苔藓",
+    "书房",
+    "自然",
+    "双平台"
+  ],
+  "stats": {
+    "downloads": 0,
+    "rating": 0,
+    "reviews": 0
+  },
+  "featured": false,
+  "isNew": true,
+  "version": "1.0.0",
+  "engineRange": ">=1.0.0 <2.0.0",
+  "publishedAt": "2026-07-18T04:02:00.000Z",
+  "license": {
+    "name": "Codex-Skin Theme Assets",
+    "spdx": "LicenseRef-Codex-Skin-Theme",
+    "source": "project-curated-assets"
+  },
+  "package": null,
+  "previewImage": "/theme-previews/moss-library.png",
+  "previewStyle": {
+    "backgroundColor": "#16231c",
+    "backgroundImage": "linear-gradient(145deg, #16231c, #2b4032)",
+    "panelColor": "#16231c",
+    "panelBorder": "#405546",
+    "textColor": "#f0f1df",
+    "mutedTextColor": "#9aa995",
+    "accentColor": "#9fbd76",
+    "accentSoft": "#2b4032",
+    "codeColor": "#e2b66d",
+    "shadow": "0 28px 80px rgba(0,0,0,.48)",
+    "pattern": "mist"
+  }
+}

@@ -2,14 +2,71 @@
   "$schema": "./schemas/theme-repository-v1.schema.json",
   "schemaVersion": 1,
   "name": "Codex-Skin-Store Desktop Catalog",
-  "updatedAt": "2026-07-17T17:09:40Z",
+  "updatedAt": "2026-07-18T12:00:00Z",
   "themes": [
-    { "id": "dilraba-star", "manifest": "themes/dilraba-star.json" },
-    { "id": "enfp-pop", "manifest": "themes/enfp-pop.json" },
-    { "id": "jackson-sage", "manifest": "themes/jackson-sage.json" },
-    { "id": "kun-stage", "manifest": "themes/kun-stage.json" },
-    { "id": "user-upload-test", "manifest": "themes/user-upload-test.json" },
-    { "id": "user-upload-test2", "manifest": "themes/user-upload-test2.json" },
-    { "id": "zhu-xudan-racing", "manifest": "themes/zhu-xudan-racing.json" }
+    {
+      "id": "desert-signal",
+      "manifest": "themes/desert-signal.json"
+    },
+    {
+      "id": "dilraba-star",
+      "manifest": "themes/dilraba-star.json"
+    },
+    {
+      "id": "enfp-pop",
+      "manifest": "themes/enfp-pop.json"
+    },
+    {
+      "id": "glacier-glass",
+      "manifest": "themes/glacier-glass.json"
+    },
+    {
+      "id": "jackson-sage",
+      "manifest": "themes/jackson-sage.json"
+    },
+    {
+      "id": "kun-stage",
+      "manifest": "themes/kun-stage.json"
+    },
+    {
+      "id": "lunar-terminal",
+      "manifest": "themes/lunar-terminal.json"
+    },
+    {
+      "id": "mono-focus",
+      "manifest": "themes/mono-focus.json"
+    },
+    {
+      "id": "moss-library",
+      "manifest": "themes/moss-library.json"
+    },
+    {
+      "id": "neon-tides",
+      "manifest": "themes/neon-tides.json"
+    },
+    {
+      "id": "paper-crane",
+      "manifest": "themes/paper-crane.json"
+    },
+    {
+      "id": "peach-soda",
+      "manifest": "themes/peach-soda.json"
+    },
+    {
+      "id": "user-upload-test",
+      "manifest": "themes/user-upload-test.json"
+    },
+    {
+      "id": "user-upload-test2",
+      "manifest": "themes/user-upload-test2.json"
+    },
+    {
+      "id": "violet-rain",
+      "manifest": "themes/violet-rain.json"
+    },
+    {
+      "id": "zhu-xudan-racing",
+      "manifest": "themes/zhu-xudan-racing.json"
+    }
   ]
 }

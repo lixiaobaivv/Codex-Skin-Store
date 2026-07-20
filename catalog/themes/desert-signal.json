@@ -1,0 +1,57 @@
+{
+  "slug": "desert-signal",
+  "name": "Desert Signal",
+  "summary": "沙丘金、陶土橙与绿洲青组成的暖色主题，适合规划路线和持续推进长任务。",
+  "author": {
+    "name": "Codex Skin",
+    "handle": "codex-skin",
+    "curated": true
+  },
+  "category": "nature",
+  "platforms": [
+    "macos",
+    "windows"
+  ],
+  "colors": [
+    "orange",
+    "teal",
+    "neutral"
+  ],
+  "tags": [
+    "原创",
+    "沙丘",
+    "暖色",
+    "绿洲",
+    "双平台"
+  ],
+  "stats": {
+    "downloads": 0,
+    "rating": 0,
+    "reviews": 0
+  },
+  "featured": false,
+  "isNew": true,
+  "version": "1.0.0",
+  "engineRange": ">=1.0.0 <2.0.0",
+  "publishedAt": "2026-07-18T04:06:00.000Z",
+  "license": {
+    "name": "Codex-Skin Theme Assets",
+    "spdx": "LicenseRef-Codex-Skin-Theme",
+    "source": "project-curated-assets"
+  },
+  "package": null,
+  "previewImage": "/theme-previews/desert-signal.png",
+  "previewStyle": {
+    "backgroundColor": "#f3dfbd",
+    "backgroundImage": "linear-gradient(145deg, #f3dfbd, #ead0a4)",
+    "panelColor": "#f3dfbd",
+    "panelBorder": "#d5b786",
+    "textColor": "#3d3028",
+    "mutedTextColor": "#806d5e",
+    "accentColor": "#d86f3d",
+    "accentSoft": "#ead0a4",
+    "codeColor": "#147f78",
+    "shadow": "0 28px 80px rgba(43,54,67,.18)",
+    "pattern": "horizon"
+  }
+}

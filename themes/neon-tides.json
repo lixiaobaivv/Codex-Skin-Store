@@ -1,0 +1,90 @@
+{
+  "$schema": "../schemas/theme-v1.schema.json",
+  "schemaVersion": 1,
+  "version": "1.0.0",
+  "displayName": "Neon Tides",
+  "codeThemeId": "neon-tides",
+  "category": "其他",
+  "description": "深海黑与青粉流光交叠的沉浸主题，为夜间编码保留安静、清晰的视觉中心。",
+  "author": "Codex Skin",
+  "variant": "dark",
+  "previewImage": "../previews/neon-tides.png",
+  "theme": {
+    "accent": "#24d6d1",
+    "contrast": 68,
+    "fonts": {
+      "code": "JetBrainsMono NFM",
+      "ui": "\"Microsoft YaHei UI\", \"PingFang SC\", \"Noto Sans SC\", \"Segoe UI\", sans-serif",
+      "display": "\"Microsoft YaHei UI\", \"PingFang SC\", \"Noto Sans SC\", \"Segoe UI\", sans-serif"
+    },
+    "ink": "#eafcff",
+    "opaqueWindows": false,
+    "semanticColors": {
+      "diffAdded": "#38b980",
+      "diffRemoved": "#ef6472",
+      "skill": "#ff4fa3"
+    },
+    "surface": "#07111f",
+    "backgroundImage": "../backgrounds/neon-tides.png",
+    "backgroundPosition": "center",
+    "visualIntensity": "immersive",
+    "backgroundImageOpacity": 0.88,
+    "backgroundImageBlur": 0
+  },
+  "home": {
+    "brand": "霓虹潮汐",
+    "eyebrow": "Neon Tides",
+    "badge": "NIGHT FLOW",
+    "title": "让灵感顺着光流抵达",
+    "subtitle": "深潜、专注，然后把复杂问题带回水面",
+    "tags": [
+      "理解",
+      "构建",
+      "审查",
+      "修复"
+    ],
+    "sidebarLabels": {
+      "newTask": "新建任务",
+      "scheduled": "任务排期",
+      "plugins": "插件",
+      "settings": "设置"
+    },
+    "composerHint": "描述你的目标，我们从最清楚的一步开始…",
+    "footerNote": "Neon Tides · Codex Skin Original",
+    "quickActions": [
+      {
+        "icon": "⌁",
+        "title": "理解代码",
+        "description": "梳理结构与关键路径",
+        "prompt": "请探索当前代码库，概览结构、关键模块与主要数据流。"
+      },
+      {
+        "icon": "+",
+        "title": "构建功能",
+        "description": "把目标变成可靠实现",
+        "prompt": "请根据当前项目构建这个功能，并验证核心体验。"
+      },
+      {
+        "icon": "✓",
+        "title": "审查改动",
+        "description": "发现风险与遗漏",
+        "prompt": "请审查当前改动，优先寻找缺陷、回归风险和缺失测试。"
+      },
+      {
+        "icon": "!",
+        "title": "修复问题",
+        "description": "定位根因并完成验证",
+        "prompt": "请诊断当前问题，找到根因、完成修复并验证结果。"
+      }
+    ]
+  },
+  "copy": {
+    "title": "Codex · 霓虹潮汐",
+    "replacePlaceholders": {
+      "Ask Codex": "Describe the next step...",
+      "Ask Codex anything": "描述你的目标，我们从最清楚的一步开始…",
+      "向 Codex 询问任何问题": "描述你的目标，我们从最清楚的一步开始…",
+      "给 Codex 发送消息": "描述你的目标，我们从最清楚的一步开始…"
+    }
+  }
+}

@@ -1,8 +1,38 @@
 {
   "schemaVersion": 2,
   "name": "Codex-Skin-Store Desktop Catalog",
-  "revision": "2026-07-17T17:09:40Z",
+  "revision": "2026-07-18T12:00:00Z",
   "themes": [
+    {
+      "id": "desert-signal",
+      "version": "1.0.0",
+      "name": "Desert Signal",
+      "description": "沙丘金、陶土橙与绿洲青组成的暖色主题，适合规划路线和持续推进长任务。",
+      "category": "风景",
+      "variant": "light",
+      "manifest": {
+        "path": "themes/desert-signal.json",
+        "sha256": "0051824191b3f23baf21c9ccd9532d91bdb217414f20304d5669249580a009c3",
+        "size": 3031
+      },
+      "preview": {
+        "path": "previews/desert-signal.png",
+        "sha256": "bc72b52e44857333c17303d79a2876e422f29c0ba843e67a395cbc6df748b60f",
+        "size": 144723
+      },
+      "assets": [
+        {
+          "path": "previews/desert-signal.png",
+          "sha256": "bc72b52e44857333c17303d79a2876e422f29c0ba843e67a395cbc6df748b60f",
+          "size": 144723
+        },
+        {
+          "path": "backgrounds/desert-signal.png",
+          "sha256": "ebbd2fdddb4ec04630c79d5fde5f66744e83a5d8c0378c15fd6feb7949e5ae57",
+          "size": 126841
+        }
+      ]
+    },
     {
       "id": "dilraba-star",
       "version": "1.0.1",
@@ -70,6 +100,36 @@
           "path": "logos/enfp-pop-logo-ui-v1.png",
           "sha256": "e63a62c8c5a26f8c9c83776c5f4085e3b4ef06a6bce98c988a36a39ad93ef2d3",
           "size": 115220
+        }
+      ]
+    },
+    {
+      "id": "glacier-glass",
+      "version": "1.0.0",
+      "name": "Glacier Glass",
+      "description": "冰川蓝、玻璃白与极光青构成的清透主题，适合审查、整理与高密度信息阅读。",
+      "category": "风景",
+      "variant": "light",
+      "manifest": {
+        "path": "themes/glacier-glass.json",
+        "sha256": "c627bcd523d03412de4af4391dbfa47ce775fb24d0289723939e6cac167bdba7",
+        "size": 3039
+      },
+      "preview": {
+        "path": "previews/glacier-glass.png",
+        "sha256": "c658897303d93ab44e2aaf6971987a5bf9e117fda380b536ecfa2a05e3adfd0c",
+        "size": 155325
+      },
+      "assets": [
+        {
+          "path": "previews/glacier-glass.png",
+          "sha256": "c658897303d93ab44e2aaf6971987a5bf9e117fda380b536ecfa2a05e3adfd0c",
+          "size": 155325
+        },
+        {
+          "path": "backgrounds/glacier-glass.png",
+          "sha256": "16fb2b7da3545ad54bf54b15e056024e60a5b209039b819ea978428c14a260c2",
+          "size": 181198
         }
       ]
     },
@@ -144,6 +204,186 @@
       ]
     },
     {
+      "id": "lunar-terminal",
+      "version": "1.0.0",
+      "name": "Lunar Terminal",
+      "description": "月面银、深空蓝与冷光网格塑造的工程终端，专为调试、构建与发布节奏设计。",
+      "category": "游戏",
+      "variant": "dark",
+      "manifest": {
+        "path": "themes/lunar-terminal.json",
+        "sha256": "96714248d8f4aafbcc866a6ed6026b502cc7b9d99488413728df39ccc5a00fd9",
+        "size": 3044
+      },
+      "preview": {
+        "path": "previews/lunar-terminal.png",
+        "sha256": "0b035bd414bbdb229f94d9c262dcd47c311ea1a3859adbeb4f8083d6c56cdf51",
+        "size": 139064
+      },
+      "assets": [
+        {
+          "path": "previews/lunar-terminal.png",
+          "sha256": "0b035bd414bbdb229f94d9c262dcd47c311ea1a3859adbeb4f8083d6c56cdf51",
+          "size": 139064
+        },
+        {
+          "path": "backgrounds/lunar-terminal.png",
+          "sha256": "58c820fb8ad084beb459f8e33a9b600961f2125121719dafa1b1364e4a421fc4",
+          "size": 122129
+        }
+      ]
+    },
+    {
+      "id": "mono-focus",
+      "version": "1.0.0",
+      "name": "Mono Focus",
+      "description": "黑白留白中只保留一笔钴蓝，强调层级、键盘效率与无干扰工作。",
+      "category": "极简",
+      "variant": "light",
+      "manifest": {
+        "path": "themes/mono-focus.json",
+        "sha256": "9f83291b646dfa0105815884799958324ffdba51bb7ddb29b8744b48a2ec3a9f",
+        "size": 2988
+      },
+      "preview": {
+        "path": "previews/mono-focus.png",
+        "sha256": "4ee6f08ee8d473ace8003d467c757aea64b6f909ec29403052d0941b4bcea0c3",
+        "size": 143649
+      },
+      "assets": [
+        {
+          "path": "previews/mono-focus.png",
+          "sha256": "4ee6f08ee8d473ace8003d467c757aea64b6f909ec29403052d0941b4bcea0c3",
+          "size": 143649
+        },
+        {
+          "path": "backgrounds/mono-focus.png",
+          "sha256": "cdba63aed580439342349acf5875d7806b738afaa077cd115aa8c03c33a40ec9",
+          "size": 75561
+        }
+      ]
+    },
+    {
+      "id": "moss-library",
+      "version": "1.0.0",
+      "name": "Moss Library",
+      "description": "苔绿、旧木与琥珀灯光组成的安静书房，适合长时间阅读代码与梳理知识。",
+      "category": "风景",
+      "variant": "dark",
+      "manifest": {
+        "path": "themes/moss-library.json",
+        "sha256": "9297877d4be2fc9cbaaca56f7ed349f4373f72e152d0df0be5294ee31893adde",
+        "size": 3017
+      },
+      "preview": {
+        "path": "previews/moss-library.png",
+        "sha256": "7db0a27dc1e92d88663bb261ec880bae8d2d8e5935b9f7224ef618c67f896716",
+        "size": 167724
+      },
+      "assets": [
+        {
+          "path": "previews/moss-library.png",
+          "sha256": "7db0a27dc1e92d88663bb261ec880bae8d2d8e5935b9f7224ef618c67f896716",
+          "size": 167724
+        },
+        {
+          "path": "backgrounds/moss-library.png",
+          "sha256": "291fa1a6b8ba8384ed0ebaf85398595e515c40be9bd07e3d6e9d0e24caadd813",
+          "size": 254331
+        }
+      ]
+    },
+    {
+      "id": "neon-tides",
+      "version": "1.0.0",
+      "name": "Neon Tides",
+      "description": "深海黑与青粉流光交叠的沉浸主题，为夜间编码保留安静、清晰的视觉中心。",
+      "category": "其他",
+      "variant": "dark",
+      "manifest": {
+        "path": "themes/neon-tides.json",
+        "sha256": "76ccae0d5a77b9bb45100108529fbb2e48f4c7651c88e95536e744f9ef655502",
+        "size": 3009
+      },
+      "preview": {
+        "path": "previews/neon-tides.png",
+        "sha256": "3d51fc4647fcf6f9f8b2cf979d00c6592c3f56060a11ccd44557158b4fabe196",
+        "size": 720593
+      },
+      "assets": [
+        {
+          "path": "previews/neon-tides.png",
+          "sha256": "3d51fc4647fcf6f9f8b2cf979d00c6592c3f56060a11ccd44557158b4fabe196",
+          "size": 720593
+        },
+        {
+          "path": "backgrounds/neon-tides.png",
+          "sha256": "f6ac264068f80dc0b8d3372bf1d56adfb2a6f3a72f3eedf9b656b7132af76e51",
+          "size": 3441978
+        }
+      ]
+    },
+    {
+      "id": "paper-crane",
+      "version": "1.0.0",
+      "name": "Paper Crane",
+      "description": "米纸、朱砂与墨色构成的东方编辑风主题，适合写作、阅读与耐心推演。",
+      "category": "极简",
+      "variant": "light",
+      "manifest": {
+        "path": "themes/paper-crane.json",
+        "sha256": "cab434180bde0c09ae6400cd6f4849cba97831cbdda3ee9a2b3bde1d70dcac30",
+        "size": 3001
+      },
+      "preview": {
+        "path": "previews/paper-crane.png",
+        "sha256": "71b70bf70087b83f3a5b2c2b00186e3388e2a57f64674b1000a6e1edbe074afc",
+        "size": 161811
+      },
+      "assets": [
+        {
+          "path": "previews/paper-crane.png",
+          "sha256": "71b70bf70087b83f3a5b2c2b00186e3388e2a57f64674b1000a6e1edbe074afc",
+          "size": 161811
+        },
+        {
+          "path": "backgrounds/paper-crane.png",
+          "sha256": "2ccf1cb9f914b534c1737331a2cc4a7ad76e2459f5e63e7c3303b4083ec2f718",
+          "size": 145436
+        }
+      ]
+    },
+    {
+      "id": "peach-soda",
+      "version": "1.0.0",
+      "name": "Peach Soda",
+      "description": "蜜桃粉、薄荷绿与奶油白的轻快主题，让原型、脑暴和小步迭代更有活力。",
+      "category": "其他",
+      "variant": "light",
+      "manifest": {
+        "path": "themes/peach-soda.json",
+        "sha256": "cde4b675cc2b1d4469523cfcdb5b7eff3d7f25927aefbbc1e0116eacf4231217",
+        "size": 3018
+      },
+      "preview": {
+        "path": "previews/peach-soda.png",
+        "sha256": "7171a92379249e91186461e4fbb0c60dfe950621578fe456843b5278b13a5dac",
+        "size": 148057
+      },
+      "assets": [
+        {
+          "path": "previews/peach-soda.png",
+          "sha256": "7171a92379249e91186461e4fbb0c60dfe950621578fe456843b5278b13a5dac",
+          "size": 148057
+        },
+        {
+          "path": "backgrounds/peach-soda.png",
+          "sha256": "87275610b14b87c16757a4ae5984e814eb1cccf06d46ebed4b049b2960e59ef1",
+          "size": 157153
+        }
+      ]
+    },
+    {
       "id": "user-upload-test",
       "version": "1.0.1",
       "name": "我的第一个主题",
@@ -200,6 +440,36 @@
           "path": "backgrounds/user-upload-test2.png",
           "sha256": "467f08840043e3d5cfc8ded796f0d3d52bb050910b2d1d9de1dff8b845a62c68",
           "size": 1386674
+        }
+      ]
+    },
+    {
+      "id": "violet-rain",
+      "version": "1.0.0",
+      "name": "Violet Rain",
+      "description": "深紫雨幕与蓝色路灯交织的夜行主题，为排错和深夜创作提供低亮专注感。",
+      "category": "风景",
+      "variant": "dark",
+      "manifest": {
+        "path": "themes/violet-rain.json",
+        "sha256": "1fdbe260f9d1c8f4d2cd41a654016fee92fd8a7335fdc6da7201ba5727430c0e",
+        "size": 3090
+      },
+      "preview": {
+        "path": "previews/violet-rain.png",
+        "sha256": "570622f0588938cbb22614023428b8013cf67a42ce0be45068896f42f5d68b5f",
+        "size": 274395
+      },
+      "assets": [
+        {
+          "path": "previews/violet-rain.png",
+          "sha256": "570622f0588938cbb22614023428b8013cf67a42ce0be45068896f42f5d68b5f",
+          "size": 274395
+        },
+        {
+          "path": "backgrounds/violet-rain.png",
+          "sha256": "d81c21f80fd16467d8cba75db5591a8ab18604878026d42fb418dfeec79de70a",
+          "size": 395928
         }
       ]
     },

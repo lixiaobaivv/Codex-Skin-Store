@@ -1,0 +1,57 @@
+{
+  "slug": "peach-soda",
+  "name": "Peach Soda",
+  "summary": "蜜桃粉、薄荷绿与奶油白的轻快主题，让原型、脑暴和小步迭代更有活力。",
+  "author": {
+    "name": "Codex Skin",
+    "handle": "codex-skin",
+    "curated": true
+  },
+  "category": "gradient",
+  "platforms": [
+    "macos",
+    "windows"
+  ],
+  "colors": [
+    "rose",
+    "teal",
+    "orange"
+  ],
+  "tags": [
+    "原创",
+    "蜜桃",
+    "汽水",
+    "轻快",
+    "双平台"
+  ],
+  "stats": {
+    "downloads": 0,
+    "rating": 0,
+    "reviews": 0
+  },
+  "featured": false,
+  "isNew": true,
+  "version": "1.0.0",
+  "engineRange": ">=1.0.0 <2.0.0",
+  "publishedAt": "2026-07-18T04:04:00.000Z",
+  "license": {
+    "name": "Codex-Skin Theme Assets",
+    "spdx": "LicenseRef-Codex-Skin-Theme",
+    "source": "project-curated-assets"
+  },
+  "package": null,
+  "previewImage": "/theme-previews/peach-soda.png",
+  "previewStyle": {
+    "backgroundColor": "#fff4ed",
+    "backgroundImage": "linear-gradient(145deg, #fff4ed, #ffd9d0)",
+    "panelColor": "#fff4ed",
+    "panelBorder": "#f1c3b9",
+    "textColor": "#3e3440",
+    "mutedTextColor": "#88757c",
+    "accentColor": "#f06f7f",
+    "accentSoft": "#ffd9d0",
+    "codeColor": "#20a995",
+    "shadow": "0 28px 80px rgba(43,54,67,.18)",
+    "pattern": "orb"
+  }
+}
