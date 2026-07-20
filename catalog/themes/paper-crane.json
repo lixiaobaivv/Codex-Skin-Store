@@ -1,0 +1,56 @@
+{
+  "slug": "paper-crane",
+  "name": "Paper Crane",
+  "summary": "米纸、朱砂与墨色构成的东方编辑风主题，适合写作、阅读与耐心推演。",
+  "author": {
+    "name": "Codex Skin",
+    "handle": "codex-skin",
+    "curated": true
+  },
+  "category": "editorial",
+  "platforms": [
+    "macos",
+    "windows"
+  ],
+  "colors": [
+    "neutral",
+    "orange"
+  ],
+  "tags": [
+    "原创",
+    "纸张",
+    "东方",
+    "编辑风",
+    "双平台"
+  ],
+  "stats": {
+    "downloads": 0,
+    "rating": 0,
+    "reviews": 0
+  },
+  "featured": true,
+  "isNew": true,
+  "version": "1.0.0",
+  "engineRange": ">=1.0.0 <2.0.0",
+  "publishedAt": "2026-07-18T04:01:00.000Z",
+  "license": {
+    "name": "Codex-Skin Theme Assets",
+    "spdx": "LicenseRef-Codex-Skin-Theme",
+    "source": "project-curated-assets"
+  },
+  "package": null,
+  "previewImage": "/theme-previews/paper-crane.png",
+  "previewStyle": {
+    "backgroundColor": "#f4eddc",
+    "backgroundImage": "linear-gradient(145deg, #f4eddc, #ead9c3)",
+    "panelColor": "#f4eddc",
+    "panelBorder": "#cdbda8",
+    "textColor": "#2f2923",
+    "mutedTextColor": "#776d61",
+    "accentColor": "#c94b32",
+    "accentSoft": "#ead9c3",
+    "codeColor": "#315f68",
+    "shadow": "0 28px 80px rgba(43,54,67,.18)",
+    "pattern": "paper"
+  }
+}

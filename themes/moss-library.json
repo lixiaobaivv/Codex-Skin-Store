@@ -1,0 +1,90 @@
+{
+  "$schema": "../schemas/theme-v1.schema.json",
+  "schemaVersion": 1,
+  "version": "1.0.0",
+  "displayName": "Moss Library",
+  "codeThemeId": "moss-library",
+  "category": "风景",
+  "description": "苔绿、旧木与琥珀灯光组成的安静书房，适合长时间阅读代码与梳理知识。",
+  "author": "Codex Skin",
+  "variant": "dark",
+  "previewImage": "../previews/moss-library.png",
+  "theme": {
+    "accent": "#9fbd76",
+    "contrast": 68,
+    "fonts": {
+      "code": "JetBrainsMono NFM",
+      "ui": "\"Microsoft YaHei UI\", \"PingFang SC\", \"Noto Sans SC\", \"Segoe UI\", sans-serif",
+      "display": "\"Microsoft YaHei UI\", \"PingFang SC\", \"Noto Sans SC\", \"Segoe UI\", sans-serif"
+    },
+    "ink": "#f0f1df",
+    "opaqueWindows": false,
+    "semanticColors": {
+      "diffAdded": "#9fbd76",
+      "diffRemoved": "#ef6472",
+      "skill": "#e2b66d"
+    },
+    "surface": "#16231c",
+    "backgroundImage": "../backgrounds/moss-library.png",
+    "backgroundPosition": "center",
+    "visualIntensity": "immersive",
+    "backgroundImageOpacity": 0.88,
+    "backgroundImageBlur": 0
+  },
+  "home": {
+    "brand": "苔藓书房",
+    "eyebrow": "Moss Library",
+    "badge": "DEEP READ",
+    "title": "在安静里读懂整个系统",
+    "subtitle": "像翻开旧书一样，逐页理解每条依赖",
+    "tags": [
+      "理解",
+      "构建",
+      "审查",
+      "修复"
+    ],
+    "sidebarLabels": {
+      "newTask": "新建任务",
+      "scheduled": "任务排期",
+      "plugins": "插件",
+      "settings": "设置"
+    },
+    "composerHint": "描述你的目标，我们从最清楚的一步开始…",
+    "footerNote": "Moss Library · Codex Skin Original",
+    "quickActions": [
+      {
+        "icon": "⌁",
+        "title": "理解代码",
+        "description": "梳理结构与关键路径",
+        "prompt": "请探索当前代码库，概览结构、关键模块与主要数据流。"
+      },
+      {
+        "icon": "+",
+        "title": "构建功能",
+        "description": "把目标变成可靠实现",
+        "prompt": "请根据当前项目构建这个功能，并验证核心体验。"
+      },
+      {
+        "icon": "✓",
+        "title": "审查改动",
+        "description": "发现风险与遗漏",
+        "prompt": "请审查当前改动，优先寻找缺陷、回归风险和缺失测试。"
+      },
+      {
+        "icon": "!",
+        "title": "修复问题",
+        "description": "定位根因并完成验证",
+        "prompt": "请诊断当前问题，找到根因、完成修复并验证结果。"
+      }
+    ]
+  },
+  "copy": {
+    "title": "Codex · 苔藓书房",
+    "replacePlaceholders": {
+      "Ask Codex": "Describe the next step...",
+      "Ask Codex anything": "描述你的目标，我们从最清楚的一步开始…",
+      "向 Codex 询问任何问题": "描述你的目标，我们从最清楚的一步开始…",
+      "给 Codex 发送消息": "描述你的目标，我们从最清楚的一步开始…"
+    }
+  }
+}

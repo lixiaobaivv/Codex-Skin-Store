@@ -1,0 +1,90 @@
+{
+  "$schema": "../schemas/theme-v1.schema.json",
+  "schemaVersion": 1,
+  "version": "1.0.0",
+  "displayName": "Lunar Terminal",
+  "codeThemeId": "lunar-terminal",
+  "category": "游戏",
+  "description": "月面银、深空蓝与冷光网格塑造的工程终端，专为调试、构建与发布节奏设计。",
+  "author": "Codex Skin",
+  "variant": "dark",
+  "previewImage": "../previews/lunar-terminal.png",
+  "theme": {
+    "accent": "#7db9ff",
+    "contrast": 68,
+    "fonts": {
+      "code": "JetBrainsMono NFM",
+      "ui": "\"Microsoft YaHei UI\", \"PingFang SC\", \"Noto Sans SC\", \"Segoe UI\", sans-serif",
+      "display": "\"Microsoft YaHei UI\", \"PingFang SC\", \"Noto Sans SC\", \"Segoe UI\", sans-serif"
+    },
+    "ink": "#eef6ff",
+    "opaqueWindows": false,
+    "semanticColors": {
+      "diffAdded": "#38b980",
+      "diffRemoved": "#ef6472",
+      "skill": "#b7c8e8"
+    },
+    "surface": "#0b1424",
+    "backgroundImage": "../backgrounds/lunar-terminal.png",
+    "backgroundPosition": "center",
+    "visualIntensity": "immersive",
+    "backgroundImageOpacity": 0.88,
+    "backgroundImageBlur": 0
+  },
+  "home": {
+    "brand": "月面终端",
+    "eyebrow": "Lunar Terminal",
+    "badge": "LUNAR OPS",
+    "title": "建立坐标，开始下一次探索",
+    "subtitle": "把未知拆成信号、轨迹与可靠的着陆点",
+    "tags": [
+      "理解",
+      "构建",
+      "审查",
+      "修复"
+    ],
+    "sidebarLabels": {
+      "newTask": "新建任务",
+      "scheduled": "任务排期",
+      "plugins": "插件",
+      "settings": "设置"
+    },
+    "composerHint": "描述你的目标，我们从最清楚的一步开始…",
+    "footerNote": "Lunar Terminal · Codex Skin Original",
+    "quickActions": [
+      {
+        "icon": "⌁",
+        "title": "理解代码",
+        "description": "梳理结构与关键路径",
+        "prompt": "请探索当前代码库，概览结构、关键模块与主要数据流。"
+      },
+      {
+        "icon": "+",
+        "title": "构建功能",
+        "description": "把目标变成可靠实现",
+        "prompt": "请根据当前项目构建这个功能，并验证核心体验。"
+      },
+      {
+        "icon": "✓",
+        "title": "审查改动",
+        "description": "发现风险与遗漏",
+        "prompt": "请审查当前改动，优先寻找缺陷、回归风险和缺失测试。"
+      },
+      {
+        "icon": "!",
+        "title": "修复问题",
+        "description": "定位根因并完成验证",
+        "prompt": "请诊断当前问题，找到根因、完成修复并验证结果。"
+      }
+    ]
+  },
+  "copy": {
+    "title": "Codex · 月面终端",
+    "replacePlaceholders": {
+      "Ask Codex": "Describe the next step...",
+      "Ask Codex anything": "描述你的目标，我们从最清楚的一步开始…",
+      "向 Codex 询问任何问题": "描述你的目标，我们从最清楚的一步开始…",
+      "给 Codex 发送消息": "描述你的目标，我们从最清楚的一步开始…"
+    }
+  }
+}

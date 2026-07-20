@@ -1,0 +1,57 @@
+{
+  "slug": "neon-tides",
+  "name": "Neon Tides",
+  "summary": "深海黑与青粉流光交叠的沉浸主题，为夜间编码保留安静、清晰的视觉中心。",
+  "author": {
+    "name": "Codex Skin",
+    "handle": "codex-skin",
+    "curated": true
+  },
+  "category": "dark",
+  "platforms": [
+    "macos",
+    "windows"
+  ],
+  "colors": [
+    "teal",
+    "rose",
+    "black"
+  ],
+  "tags": [
+    "原创",
+    "霓虹",
+    "深色",
+    "沉浸",
+    "双平台"
+  ],
+  "stats": {
+    "downloads": 0,
+    "rating": 0,
+    "reviews": 0
+  },
+  "featured": true,
+  "isNew": true,
+  "version": "1.0.0",
+  "engineRange": ">=1.0.0 <2.0.0",
+  "publishedAt": "2026-07-18T04:00:00.000Z",
+  "license": {
+    "name": "Codex-Skin Theme Assets",
+    "spdx": "LicenseRef-Codex-Skin-Theme",
+    "source": "project-curated-assets"
+  },
+  "package": null,
+  "previewImage": "/theme-previews/neon-tides.png",
+  "previewStyle": {
+    "backgroundColor": "#07111f",
+    "backgroundImage": "linear-gradient(145deg, #07111f, #123746)",
+    "panelColor": "#07111f",
+    "panelBorder": "#24576a",
+    "textColor": "#eafcff",
+    "mutedTextColor": "#8da7b5",
+    "accentColor": "#24d6d1",
+    "accentSoft": "#123746",
+    "codeColor": "#ff4fa3",
+    "shadow": "0 28px 80px rgba(0,0,0,.48)",
+    "pattern": "aurora"
+  }
+}

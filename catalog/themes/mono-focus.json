@@ -1,0 +1,57 @@
+{
+  "slug": "mono-focus",
+  "name": "Mono Focus",
+  "summary": "黑白留白中只保留一笔钴蓝，强调层级、键盘效率与无干扰工作。",
+  "author": {
+    "name": "Codex Skin",
+    "handle": "codex-skin",
+    "curated": true
+  },
+  "category": "minimal",
+  "platforms": [
+    "macos",
+    "windows"
+  ],
+  "colors": [
+    "neutral",
+    "black",
+    "blue"
+  ],
+  "tags": [
+    "原创",
+    "黑白",
+    "极简",
+    "专注",
+    "双平台"
+  ],
+  "stats": {
+    "downloads": 0,
+    "rating": 0,
+    "reviews": 0
+  },
+  "featured": false,
+  "isNew": true,
+  "version": "1.0.0",
+  "engineRange": ">=1.0.0 <2.0.0",
+  "publishedAt": "2026-07-18T04:05:00.000Z",
+  "license": {
+    "name": "Codex-Skin Theme Assets",
+    "spdx": "LicenseRef-Codex-Skin-Theme",
+    "source": "project-curated-assets"
+  },
+  "package": null,
+  "previewImage": "/theme-previews/mono-focus.png",
+  "previewStyle": {
+    "backgroundColor": "#f5f4ef",
+    "backgroundImage": "linear-gradient(145deg, #f5f4ef, #dfe5ff)",
+    "panelColor": "#f5f4ef",
+    "panelBorder": "#c9c7c0",
+    "textColor": "#151515",
+    "mutedTextColor": "#74726c",
+    "accentColor": "#2457ff",
+    "accentSoft": "#dfe5ff",
+    "codeColor": "#2457ff",
+    "shadow": "0 28px 80px rgba(43,54,67,.18)",
+    "pattern": "grid"
+  }
+}
