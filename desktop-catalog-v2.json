@@ -1,8 +1,38 @@
 {
   "schemaVersion": 2,
   "name": "Codex-Skin-Store Desktop Catalog",
-  "revision": "2026-07-21T08:00:00Z",
+  "revision": "2026-07-21T15:00:00Z",
   "themes": [
+    {
+      "id": "caishen-readable",
+      "version": "1.0.0",
+      "name": "Caishen Readable",
+      "description": "柔和财神、暖白面板和高对比文字组成的可读工作主题。",
+      "category": "节日",
+      "variant": "light",
+      "manifest": {
+        "path": "themes/caishen-readable.json",
+        "sha256": "510e4b1218fb6afa8a34130a3bb9d063aa6be57aa6b08dafe818c265f8c4093b",
+        "size": 3066
+      },
+      "preview": {
+        "path": "previews/caishen-readable.png",
+        "sha256": "eaa1f7d383583be891593034a247f0621f7b8263f7e1f8a111050a0fc0e68f7b",
+        "size": 280921
+      },
+      "assets": [
+        {
+          "path": "previews/caishen-readable.png",
+          "sha256": "eaa1f7d383583be891593034a247f0621f7b8263f7e1f8a111050a0fc0e68f7b",
+          "size": 280921
+        },
+        {
+          "path": "backgrounds/caishen-readable.png",
+          "sha256": "3af390cfa1c9431271afaab0e88079d84afa9c02570ead17bb62a72d9abe3fe9",
+          "size": 2176599
+        }
+      ]
+    },
     {
       "id": "desert-signal",
       "version": "1.0.0",

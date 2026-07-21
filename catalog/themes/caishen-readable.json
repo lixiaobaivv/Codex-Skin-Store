@@ -1,0 +1,57 @@
+{
+  "slug": "caishen-readable",
+  "name": "Caishen Readable",
+  "summary": "A light fortune-themed Codex skin that keeps work panels warm, clean, and readable.",
+  "author": {
+    "name": "ChannelerH",
+    "handle": "ChannelerH",
+    "curated": false
+  },
+  "category": "gradient",
+  "platforms": [
+    "macos",
+    "windows"
+  ],
+  "colors": [
+    "orange",
+    "rose",
+    "neutral"
+  ],
+  "tags": [
+    "community theme",
+    "fortune",
+    "light",
+    "readable",
+    "public-safe"
+  ],
+  "stats": {
+    "downloads": 0,
+    "rating": 0,
+    "reviews": 0
+  },
+  "featured": false,
+  "isNew": true,
+  "version": "1.0.0",
+  "engineRange": ">=1.0.0 <2.0.0",
+  "publishedAt": "2026-07-21T15:00:00.000Z",
+  "license": {
+    "name": "Codex-Skin Theme Assets",
+    "spdx": "LicenseRef-Codex-Skin-Theme",
+    "source": "creator-submitted-assets"
+  },
+  "package": null,
+  "previewImage": "/theme-previews/caishen-readable.png",
+  "previewStyle": {
+    "backgroundColor": "#fff8ef",
+    "backgroundImage": "linear-gradient(145deg, #fff8ef, #fff1de)",
+    "panelColor": "#fff8ef",
+    "panelBorder": "#f1c9b6",
+    "textColor": "#35251c",
+    "mutedTextColor": "#7c6253",
+    "accentColor": "#d96b42",
+    "accentSoft": "#fff1de",
+    "codeColor": "#2aa876",
+    "shadow": "0 28px 80px rgba(131, 86, 52, .18)",
+    "pattern": "mist"
+  }
+}
