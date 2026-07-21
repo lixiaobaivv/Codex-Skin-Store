@@ -1,0 +1,58 @@
+{
+  "slug": "ivory-alley",
+  "name": "Ivory Alley",
+  "summary": "暖象牙白、雾蓝与浅可可交织的明亮巷景主题，为日间编码保留轻盈、清晰的视觉空间。",
+  "author": {
+    "name": "Codex Skin",
+    "handle": "codex-skin",
+    "curated": true
+  },
+  "category": "editorial",
+  "platforms": [
+    "macos",
+    "windows"
+  ],
+  "colors": [
+    "neutral",
+    "blue",
+    "rose"
+  ],
+  "tags": [
+    "原创",
+    "浅色",
+    "城市",
+    "学院风",
+    "留白",
+    "双平台"
+  ],
+  "stats": {
+    "downloads": 0,
+    "rating": 0,
+    "reviews": 0
+  },
+  "featured": false,
+  "isNew": true,
+  "version": "1.0.0",
+  "engineRange": ">=1.0.0 <2.0.0",
+  "publishedAt": "2026-07-21T08:00:00.000Z",
+  "license": {
+    "name": "Codex-Skin Theme Assets",
+    "spdx": "LicenseRef-Codex-Skin-Theme",
+    "source": "project-curated-assets"
+  },
+  "package": null,
+  "previewImage": "/theme-previews/ivory-alley.png",
+  "previewStyle": {
+    "backgroundColor": "#F8F4EE",
+    "backgroundImage": "linear-gradient(145deg, #F8F4EE, #CBD2DC)",
+    "panelColor": "#F8F4EE",
+    "panelBorder": "#D8CEC5",
+    "textColor": "#2C3342",
+    "mutedTextColor": "#7A7372",
+    "accentColor": "#A5445C",
+    "accentSoft": "#EED9DC",
+    "codeColor": "#64748B",
+    "shadow": "0 28px 80px rgba(44,51,66,.16)",
+    "pattern": "paper"
+  }
+}
