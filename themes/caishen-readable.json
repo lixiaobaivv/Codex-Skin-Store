@@ -1,0 +1,94 @@
+{
+  "$schema": "../schemas/theme-v1.schema.json",
+  "schemaVersion": 1,
+  "version": "1.0.0",
+  "displayName": "Caishen Readable",
+  "codeThemeId": "caishen-readable",
+  "category": "节日",
+  "description": "柔和财神、暖白面板和高对比文字组成的可读工作主题。",
+  "author": "ChannelerH",
+  "variant": "light",
+  "previewImage": "../previews/caishen-readable.png",
+  "theme": {
+    "accent": "#d96b42",
+    "ink": "#35251c",
+    "surface": "#fff8ef",
+    "contrast": 62,
+    "opaqueWindows": false,
+    "backgroundImage": "../backgrounds/caishen-readable.png",
+    "backgroundPosition": "right center",
+    "backgroundFocus": {
+      "x": 76,
+      "y": 48
+    },
+    "visualIntensity": "balanced",
+    "backgroundImageOpacity": 0.7,
+    "backgroundImageBlur": 0,
+    "fonts": {
+      "code": "JetBrainsMono NFM",
+      "ui": "\"Inter\", \"SF Pro Text\", \"Segoe UI\", sans-serif",
+      "display": "\"Inter\", \"SF Pro Display\", \"Segoe UI\", sans-serif"
+    },
+    "semanticColors": {
+      "diffAdded": "#2aa876",
+      "diffRemoved": "#d95f51",
+      "skill": "#d96b42"
+    }
+  },
+  "home": {
+    "brand": "Caishen Readable",
+    "eyebrow": "CODEX DREAM SKIN",
+    "badge": "FORTUNE MODE",
+    "title": "Ship with fortune, read with clarity",
+    "subtitle": "A light Caishen workspace with clean panels, warm accents, and readable contrast.",
+    "footerNote": "Caishen Readable · public-safe Codex skin",
+    "composerHint": "Ask for the next clear step...",
+    "tags": [
+      "Fortune",
+      "Light",
+      "Readable",
+      "Warm"
+    ],
+    "sidebarLabels": {
+      "newTask": "New Task",
+      "scheduled": "Scheduled",
+      "plugins": "Plugins",
+      "settings": "Settings"
+    },
+    "quickActions": [
+      {
+        "icon": "1",
+        "title": "Explore code",
+        "description": "Map the project before editing.",
+        "prompt": "Explore this codebase and summarize the key modules, data flow, and safest next step."
+      },
+      {
+        "icon": "2",
+        "title": "Build carefully",
+        "description": "Small steps, clear verification.",
+        "prompt": "Implement this feature in small, reviewable steps and verify the core behavior."
+      },
+      {
+        "icon": "3",
+        "title": "Review diffs",
+        "description": "Catch risk without visual noise.",
+        "prompt": "Review the current diff and prioritize bugs, regressions, missing tests, and privacy risks."
+      },
+      {
+        "icon": "4",
+        "title": "Restore safely",
+        "description": "Keep a clean rollback path.",
+        "prompt": "Inspect the theme or UI change, explain how to restore the previous state, and avoid private screenshots."
+      }
+    ]
+  },
+  "copy": {
+    "title": "Codex · Caishen Readable",
+    "replacePlaceholders": {
+      "Ask Codex": "Ask for the next clear step...",
+      "Ask Codex anything": "Ask for the next clear step...",
+      "向 Codex 询问任何问题": "Ask for the next clear step...",
+      "给 Codex 发送消息": "Ask for the next clear step..."
+    }
+  }
+}
