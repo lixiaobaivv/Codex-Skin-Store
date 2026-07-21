@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "name": "Codex-Skin-Store Desktop Catalog",
-  "revision": "2026-07-18T12:00:00Z",
+  "revision": "2026-07-21T08:00:00Z",
   "themes": [
     {
       "id": "desert-signal",
@@ -130,6 +130,36 @@
           "path": "backgrounds/glacier-glass.png",
           "sha256": "16fb2b7da3545ad54bf54b15e056024e60a5b209039b819ea978428c14a260c2",
           "size": 181198
+        }
+      ]
+    },
+    {
+      "id": "ivory-alley",
+      "version": "1.0.0",
+      "name": "Ivory Alley",
+      "description": "暖象牙白、雾蓝与浅可可交织的明亮巷景主题，为日间编码保留轻盈、清晰的视觉空间。",
+      "category": "风景",
+      "variant": "light",
+      "manifest": {
+        "path": "themes/ivory-alley.json",
+        "sha256": "6426ce12485987d168bf8ee24f5ad483a5a4021df095283196e66b8e291471cd",
+        "size": 3100
+      },
+      "preview": {
+        "path": "previews/ivory-alley.png",
+        "sha256": "d6d66b36f0a5d83756690a1edca96a308baf299cf559edfc9977d1cc485bb58d",
+        "size": 830242
+      },
+      "assets": [
+        {
+          "path": "previews/ivory-alley.png",
+          "sha256": "d6d66b36f0a5d83756690a1edca96a308baf299cf559edfc9977d1cc485bb58d",
+          "size": 830242
+        },
+        {
+          "path": "backgrounds/ivory-alley.png",
+          "sha256": "02466c0b77c5ebe7d341f688ba4bd5ca352daa8179ab4805c06e11503a2f9359",
+          "size": 2543921
         }
       ]
     },

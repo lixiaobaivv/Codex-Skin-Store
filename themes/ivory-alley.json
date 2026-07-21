@@ -1,0 +1,94 @@
+{
+  "$schema": "../schemas/theme-v1.schema.json",
+  "schemaVersion": 1,
+  "version": "1.0.0",
+  "displayName": "Ivory Alley",
+  "codeThemeId": "ivory-alley",
+  "category": "风景",
+  "description": "暖象牙白、雾蓝与浅可可交织的明亮巷景主题，为日间编码保留轻盈、清晰的视觉空间。",
+  "author": "Codex Skin",
+  "variant": "light",
+  "previewImage": "../previews/ivory-alley.png",
+  "theme": {
+    "accent": "#A5445C",
+    "contrast": 58,
+    "fonts": {
+      "code": "JetBrainsMono NFM",
+      "ui": "\"Microsoft YaHei UI\", \"PingFang SC\", \"Noto Sans SC\", \"Segoe UI\", sans-serif",
+      "display": "\"Microsoft YaHei UI\", \"PingFang SC\", \"Noto Sans SC\", \"Segoe UI\", sans-serif"
+    },
+    "ink": "#2C3342",
+    "opaqueWindows": false,
+    "semanticColors": {
+      "diffAdded": "#5F8B68",
+      "diffRemoved": "#B84A61",
+      "skill": "#64748B"
+    },
+    "surface": "#F8F4EE",
+    "backgroundImage": "../backgrounds/ivory-alley.png",
+    "backgroundPosition": "center",
+    "backgroundFocus": {
+      "x": 50,
+      "y": 48
+    },
+    "visualIntensity": "balanced",
+    "backgroundImageOpacity": 0.62,
+    "backgroundImageBlur": 0
+  },
+  "home": {
+    "brand": "象牙巷光",
+    "eyebrow": "Ivory Alley",
+    "badge": "SOFT DAYLIGHT",
+    "title": "把思路铺成一条明亮的小巷",
+    "subtitle": "留一点呼吸感，让每个复杂问题慢慢变清楚",
+    "tags": [
+      "理解",
+      "构建",
+      "审查",
+      "修复"
+    ],
+    "sidebarLabels": {
+      "newTask": "新建任务",
+      "scheduled": "任务排期",
+      "plugins": "插件",
+      "settings": "设置"
+    },
+    "composerHint": "写下目标，让我们从最清楚的一步开始…",
+    "footerNote": "Ivory Alley · Codex Skin Original",
+    "quickActions": [
+      {
+        "icon": "⌁",
+        "title": "理解代码",
+        "description": "沿着线索梳理结构",
+        "prompt": "请探索当前代码库，概览结构、关键模块与主要数据流。"
+      },
+      {
+        "icon": "+",
+        "title": "构建功能",
+        "description": "把想法变成可靠实现",
+        "prompt": "请根据当前项目构建这个功能，并验证核心体验。"
+      },
+      {
+        "icon": "✓",
+        "title": "审查改动",
+        "description": "看清风险与遗漏",
+        "prompt": "请审查当前改动，优先寻找缺陷、回归风险和缺失测试。"
+      },
+      {
+        "icon": "!",
+        "title": "修复问题",
+        "description": "定位根因并完成验证",
+        "prompt": "请诊断当前问题，找到根因、完成修复并验证结果。"
+      }
+    ]
+  },
+  "copy": {
+    "title": "Codex · 象牙巷光",
+    "replacePlaceholders": {
+      "Ask Codex": "Describe the next clear step...",
+      "Ask Codex anything": "写下目标，让我们从最清楚的一步开始…",
+      "向 Codex 询问任何问题": "写下目标，让我们从最清楚的一步开始…",
+      "给 Codex 发送消息": "写下目标，让我们从最清楚的一步开始…"
+    }
+  }
+}
