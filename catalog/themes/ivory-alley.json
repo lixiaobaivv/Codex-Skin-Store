@@ -40,7 +40,14 @@
     "spdx": "LicenseRef-Codex-Skin-Theme",
     "source": "project-curated-assets"
   },
-  "package": null,
+  "package": {
+    "published": true,
+    "id": "ivory-alley",
+    "version": "1.0.0",
+    "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/theme-ivory-alley-v1.0.0/Codex-Skin-theme-ivory-alley-1.0.0.dreamskin",
+    "sha256": "6c012319bcbe79c1360f7fdd63d8e9ebd426509e66fbc31fe65bcf527628529b",
+    "size": 3376414
+  },
   "previewImage": "/theme-previews/ivory-alley.png",
   "previewStyle": {
     "backgroundColor": "#F8F4EE",
