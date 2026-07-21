@@ -258,8 +258,8 @@ export const GENERATED_THEMES = [
   },
   {
     "slug": "ivory-alley",
-    "name": "Ivory Alley",
-    "summary": "暖象牙白、雾蓝与浅可可交织的明亮巷景主题，为日间编码保留轻盈、清晰的视觉空间。",
+    "name": "Pupu Ivory Alley",
+    "summary": "噗噗与暖象牙白、雾蓝巷景组成的明亮人物主题，为日间编码保留轻盈、清晰的视觉空间。",
     "author": {
       "name": "Codex Skin",
       "handle": "codex-skin",
@@ -276,12 +276,12 @@ export const GENERATED_THEMES = [
       "rose"
     ],
     "tags": [
-      "原创",
+      "人物",
+      "噗噗",
       "浅色",
       "城市",
       "学院风",
-      "留白",
-      "双平台"
+      "留白"
     ],
     "stats": {
       "downloads": 0,
@@ -290,22 +290,15 @@ export const GENERATED_THEMES = [
     },
     "featured": false,
     "isNew": true,
-    "version": "1.0.0",
+    "version": "1.1.0",
     "engineRange": ">=1.0.0 <2.0.0",
     "publishedAt": "2026-07-21T08:00:00.000Z",
     "license": {
       "name": "Codex-Skin Theme Assets",
       "spdx": "LicenseRef-Codex-Skin-Theme",
-      "source": "project-curated-assets"
+      "source": "creator-submitted-assets"
     },
-    "package": {
-      "published": true,
-      "id": "ivory-alley",
-      "version": "1.0.0",
-      "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/theme-ivory-alley-v1.0.0/Codex-Skin-theme-ivory-alley-1.0.0.dreamskin",
-      "sha256": "6c012319bcbe79c1360f7fdd63d8e9ebd426509e66fbc31fe65bcf527628529b",
-      "size": 3376414
-    },
+    "package": null,
     "previewImage": "/theme-previews/ivory-alley.png",
     "previewStyle": {
       "backgroundColor": "#F8F4EE",
