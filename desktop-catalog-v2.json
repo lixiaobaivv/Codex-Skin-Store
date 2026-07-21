@@ -135,31 +135,31 @@
     },
     {
       "id": "ivory-alley",
-      "version": "1.0.0",
-      "name": "Ivory Alley",
-      "description": "暖象牙白、雾蓝与浅可可交织的明亮巷景主题，为日间编码保留轻盈、清晰的视觉空间。",
-      "category": "风景",
+      "version": "1.1.0",
+      "name": "Pupu Ivory Alley",
+      "description": "噗噗与暖象牙白、雾蓝巷景组成的明亮人物主题，为日间编码保留轻盈、清晰的视觉空间。",
+      "category": "人物",
       "variant": "light",
       "manifest": {
         "path": "themes/ivory-alley.json",
-        "sha256": "6426ce12485987d168bf8ee24f5ad483a5a4021df095283196e66b8e291471cd",
-        "size": 3100
+        "sha256": "7f479761bd666a4d5c1369dad7e90c9204dc2f7bbf8983660269e5695f1a660e",
+        "size": 3121
       },
       "preview": {
         "path": "previews/ivory-alley.png",
-        "sha256": "d6d66b36f0a5d83756690a1edca96a308baf299cf559edfc9977d1cc485bb58d",
-        "size": 830242
+        "sha256": "38fd0a11d5942f98a7b1b1f68b882b59652a9790ffadc67fd0137c4152c5ac5e",
+        "size": 1475606
       },
       "assets": [
         {
           "path": "previews/ivory-alley.png",
-          "sha256": "d6d66b36f0a5d83756690a1edca96a308baf299cf559edfc9977d1cc485bb58d",
-          "size": 830242
+          "sha256": "38fd0a11d5942f98a7b1b1f68b882b59652a9790ffadc67fd0137c4152c5ac5e",
+          "size": 1475606
         },
         {
-          "path": "backgrounds/ivory-alley.png",
-          "sha256": "02466c0b77c5ebe7d341f688ba4bd5ca352daa8179ab4805c06e11503a2f9359",
-          "size": 2543921
+          "path": "backgrounds/ivory-alley-pupu-v2.png",
+          "sha256": "138fbc77aa08cca98ca332cd3169e6f3acb99c612f88f5c25c4860fbc479ad29",
+          "size": 2033075
         }
       ]
     },

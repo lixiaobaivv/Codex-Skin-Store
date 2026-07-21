@@ -1,11 +1,11 @@
 {
   "$schema": "../schemas/theme-v1.schema.json",
   "schemaVersion": 1,
-  "version": "1.0.0",
-  "displayName": "Ivory Alley",
+  "version": "1.1.0",
+  "displayName": "Pupu Ivory Alley",
   "codeThemeId": "ivory-alley",
-  "category": "风景",
-  "description": "暖象牙白、雾蓝与浅可可交织的明亮巷景主题，为日间编码保留轻盈、清晰的视觉空间。",
+  "category": "人物",
+  "description": "噗噗与暖象牙白、雾蓝巷景组成的明亮人物主题，为日间编码保留轻盈、清晰的视觉空间。",
   "author": "Codex Skin",
   "variant": "light",
   "previewImage": "../previews/ivory-alley.png",
@@ -25,22 +25,22 @@
       "skill": "#64748B"
     },
     "surface": "#F8F4EE",
-    "backgroundImage": "../backgrounds/ivory-alley.png",
+    "backgroundImage": "../backgrounds/ivory-alley-pupu-v2.png",
     "backgroundPosition": "center",
     "backgroundFocus": {
-      "x": 50,
+      "x": 70,
       "y": 48
     },
-    "visualIntensity": "balanced",
-    "backgroundImageOpacity": 0.62,
+    "visualIntensity": "immersive",
+    "backgroundImageOpacity": 0.82,
     "backgroundImageBlur": 0
   },
   "home": {
-    "brand": "象牙巷光",
-    "eyebrow": "Ivory Alley",
-    "badge": "SOFT DAYLIGHT",
-    "title": "把思路铺成一条明亮的小巷",
-    "subtitle": "留一点呼吸感，让每个复杂问题慢慢变清楚",
+    "brand": "噗噗巷光",
+    "eyebrow": "Pupu Ivory Alley",
+    "badge": "PUPU DAYLIGHT",
+    "title": "和噗噗一起，把思路慢慢理清",
+    "subtitle": "留一点呼吸感，让每个复杂问题在巷光里变清楚",
     "tags": [
       "理解",
       "构建",
@@ -54,7 +54,7 @@
       "settings": "设置"
     },
     "composerHint": "写下目标，让我们从最清楚的一步开始…",
-    "footerNote": "Ivory Alley · Codex Skin Original",
+    "footerNote": "Pupu Ivory Alley · v1.1",
     "quickActions": [
       {
         "icon": "⌁",
@@ -83,7 +83,7 @@
     ]
   },
   "copy": {
-    "title": "Codex · 象牙巷光",
+    "title": "Codex · 噗噗巷光",
     "replacePlaceholders": {
       "Ask Codex": "Describe the next clear step...",
       "Ask Codex anything": "写下目标，让我们从最清楚的一步开始…",
