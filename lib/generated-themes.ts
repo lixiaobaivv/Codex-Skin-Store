@@ -298,7 +298,14 @@ export const GENERATED_THEMES = [
       "spdx": "LicenseRef-Codex-Skin-Theme",
       "source": "creator-submitted-assets"
     },
-    "package": null,
+    "package": {
+      "published": true,
+      "id": "ivory-alley",
+      "version": "1.1.0",
+      "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/theme-ivory-alley-v1.1.0/Codex-Skin-theme-ivory-alley-1.1.0.dreamskin",
+      "sha256": "d4819e94ee8c0e2d0a8cc9803c1c07ce14ceb9439f52c9539963f086157ff8b5",
+      "size": 3510942
+    },
     "previewImage": "/theme-previews/ivory-alley.png",
     "previewStyle": {
       "backgroundColor": "#F8F4EE",
