@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { readdir, readFile } from "node:fs/promises";
 import test from "node:test";
+import Ajv2020 from "ajv/dist/2020.js";
 import { validateCatalog, validateTheme } from "../tools/validate-catalog.mjs";
 
 const schemaUrl = new URL("../spec/theme-package.schema.json", import.meta.url);
@@ -16,7 +17,7 @@ test("theme package schema stays declarative and closed", async () => {
 
   const themeSchema = JSON.parse(await readFile(new URL("../schemas/theme-v1.schema.json", import.meta.url), "utf8"));
   assert.equal("backgroundFit" in themeSchema.properties.theme.properties, false);
-  assert.deepEqual(themeSchema.properties.theme.properties.visualIntensity.enum, ["clear", "balanced", "immersive"]);
+  assert.deepEqual(themeSchema.properties.theme.properties.visualIntensity.enum, ["clear", "balanced", "immersive", "glass"]);
   assert.deepEqual(themeSchema.properties.theme.properties.backgroundFocus.required, ["x", "y"]);
   assert.equal(themeSchema.properties.theme.properties.backgroundFocus.properties.x.maximum, 100);
   assert.deepEqual(themeSchema.properties.theme.properties.effects.properties.ambient.enum, ["none", "rain", "particles", "storm"]);
@@ -27,6 +28,20 @@ test("theme package schema stays declarative and closed", async () => {
   assert.match(source, /image\/png/);
   assert.match(source, /image\/webp/);
   assert.match(source, /Ed25519/);
+});
+
+test("theme drafts follow the current declarative manifest schema", async () => {
+  const schema = JSON.parse(await readFile(new URL("../schemas/theme-v1.schema.json", import.meta.url), "utf8"));
+  const validate = new Ajv2020({ allErrors: true, strict: false }).compile(schema);
+
+  for (const id of ["crystal-clear", "twilight-lake"]) {
+    const manifestUrl = new URL(`../theme-drafts/${id}/themes/${id}.json`, import.meta.url);
+    const manifest = JSON.parse(await readFile(manifestUrl, "utf8"));
+    assert.equal(validate(manifest), true, `${id}: ${JSON.stringify(validate.errors)}`);
+    assert.equal(manifest.codeThemeId, id);
+    await readFile(new URL(manifest.previewImage, manifestUrl));
+    if (manifest.theme.backgroundImage) await readFile(new URL(manifest.theme.backgroundImage, manifestUrl));
+  }
 });
 
 test("storefront catalogs and enables the official themes", async () => {

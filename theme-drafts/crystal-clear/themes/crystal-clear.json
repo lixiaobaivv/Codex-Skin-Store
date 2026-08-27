@@ -1,0 +1,85 @@
+{
+  "$schema": "../../../schemas/theme-v1.schema.json",
+  "schemaVersion": 1,
+  "version": "1.0.0",
+  "displayName": "Crystal Clear",
+  "codeThemeId": "crystal-clear",
+  "category": "极简",
+  "description": "无壁纸、近乎无色的高透明冰晶玻璃主题",
+  "author": "nisiwei-git",
+  "variant": "light",
+  "previewImage": "../previews/crystal-clear.png",
+  "theme": {
+    "accent": "#32B9E8",
+    "ink": "#25313C",
+    "surface": "#F8FBFD",
+    "contrast": 48,
+    "opaqueWindows": false,
+    "visualIntensity": "glass",
+    "effects": {
+      "ambient": "none",
+      "intensity": "subtle"
+    },
+    "backgroundImageOpacity": 1,
+    "backgroundImageBlur": 18,
+    "fonts": {
+      "ui": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Segoe UI\", sans-serif",
+      "display": "-apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Segoe UI\", sans-serif",
+      "code": "\"SFMono-Regular\", \"Cascadia Code\", monospace"
+    },
+    "semanticColors": {
+      "diffAdded": "#2A9D78",
+      "diffRemoved": "#D9666A",
+      "skill": "#6688D8"
+    }
+  },
+  "home": {
+    "brand": "Crystal Clear",
+    "eyebrow": "CLARITY IN EVERY LAYER",
+    "badge": "晶透玻璃",
+    "title": "让界面隐去，让思路浮现",
+    "subtitle": "克制的透明层次、柔和的冰晶边缘，以及刚好够用的青色指引。",
+    "footerNote": "Less surface. More focus.",
+    "composerHint": "向 Codex 描述你想完成的工作",
+    "tags": ["透明", "玻璃", "极简"],
+    "sidebarLabels": {
+      "newTask": "新建任务",
+      "scheduled": "已安排",
+      "plugins": "插件",
+      "settings": "设置"
+    },
+    "quickActions": [
+      {
+        "icon": "</>",
+        "title": "理解代码",
+        "description": "快速看清项目脉络",
+        "prompt": "请概览当前代码库的结构、关键模块和主要流程。"
+      },
+      {
+        "icon": "+",
+        "title": "构建功能",
+        "description": "从清晰目标开始实现",
+        "prompt": "请基于当前项目实现一个新功能，并完成必要验证。"
+      },
+      {
+        "icon": "✓",
+        "title": "审查代码",
+        "description": "发现缺陷与回归风险",
+        "prompt": "请审查当前代码，优先指出缺陷、风险和缺失测试。"
+      },
+      {
+        "icon": "!",
+        "title": "修复问题",
+        "description": "定位根因并验证结果",
+        "prompt": "请诊断当前问题，修复根因并验证结果。"
+      }
+    ]
+  },
+  "copy": {
+    "title": "Codex Crystal Clear",
+    "replacePlaceholders": {
+      "Ask Codex": "向 Codex 描述你想完成的工作",
+      "Ask Codex anything": "向 Codex 描述你想完成的工作"
+    }
+  }
+}

@@ -37,7 +37,7 @@
             "y": { "type": "integer", "minimum": 0, "maximum": 100 }
           }
         },
-        "visualIntensity": { "enum": ["clear", "balanced", "immersive"] },
+        "visualIntensity": { "enum": ["clear", "balanced", "immersive", "glass"] },
         "effects": {
           "type": "object",
           "additionalProperties": false,
