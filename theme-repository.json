@@ -2,8 +2,12 @@
   "$schema": "./schemas/theme-repository-v1.schema.json",
   "schemaVersion": 1,
   "name": "Codex-Skin-Store Desktop Catalog",
-  "updatedAt": "2026-07-21T08:00:00Z",
+  "updatedAt": "2026-07-21T15:00:00Z",
   "themes": [
+    {
+      "id": "caishen-readable",
+      "manifest": "themes/caishen-readable.json"
+    },
     {
       "id": "desert-signal",
       "manifest": "themes/desert-signal.json"
